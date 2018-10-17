@@ -66,3 +66,6 @@ gem 'carrierwave'
 
 #画像のリサイズ
 gem 'rmagick'
+
+#ログイン・ログアウト機能
+gem 'devise'
