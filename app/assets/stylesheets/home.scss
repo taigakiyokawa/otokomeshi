@@ -1,3 +1,19 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top {
+    background-image: url("/assets/Fugaku36_bg.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+    &__logo {
+        text-align: center;
+        width: 100%;
+        padding: 200px 20px;
+    }
+    .btn-wrapper {
+        text-align: center;
+    }
+}

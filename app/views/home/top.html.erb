@@ -1,2 +1,8 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="top">
+    <img class="top__logo" src="/assets/logo.svg" alt="魁!!漢飯">
+    <div class="btn-wrapper">
+        <%= link_to '入門', new_user_registration_path %>
+        <p>又は</p>
+        <%= link_to '見参', new_user_session_path %>
+    </div>
+</div>
