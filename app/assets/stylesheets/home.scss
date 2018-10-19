@@ -1,0 +1,49 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+
+.top {
+    background-image: url("/assets/Fugaku36_bg.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+    .container {
+        padding: 0px 10vw;
+    }
+    &__logo {
+        text-align: center;
+        width: 100%;
+        padding-top: 30vh;
+        padding-bottom: 50px;
+    }
+    .btn__wrapper {
+        text-align: center;
+        padding: 0px 30px;
+        a {
+            font-size: 36px;
+            font-weight: 600;
+            width: 100%;
+            padding: 30px 0px;
+            opacity: 0.7;
+            &:hover {
+                opacity: 0.9;
+                font-weight: $heavy;
+                transition: 0.5s;
+            }
+        }
+        .sign-up a {
+            background-color: $accent;
+        }
+        p {
+            padding-top: 40px;
+            padding-bottom: 10px;
+        }
+        .sign-in a{
+            background-color: $text;
+            color: $main;
+        }
+    }
+}

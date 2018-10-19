@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Otokomeshi</title>
+    <title>魁!!漢飯</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    //アイコンの追加
+    <!-- アイコンの追加 -->
     <%= favicon_link_tag('favicon.ico') %>
+    <%# フォント読み込み %>
+    <%# <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet"> %>
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
