@@ -1,8 +1,14 @@
 <div class="top">
-    <img class="top__logo" src="/assets/logo.svg" alt="魁!!漢飯">
-    <div class="btn-wrapper">
-        <%= link_to '入門', new_user_registration_path %>
-        <p>又は</p>
-        <%= link_to '見参', new_user_session_path %>
+    <div class="container">
+        <img class="top__logo" src="/assets/logo.svg" alt="魁!!漢飯">
+        <div class="btn__wrapper">
+            <div class= "sign-up">
+            <%= link_to '入門', new_user_registration_path %>
+            </div>
+            <p>又は</p>
+            <div class="sign-in">
+            <%= link_to '露愚陰', new_user_session_path %>
+            </div>
+        </div>
     </div>
 </div>
