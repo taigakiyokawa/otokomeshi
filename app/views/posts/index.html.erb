@@ -16,8 +16,8 @@
       </tr>
       <tr>
         <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '編集', edit_post_path(post) %></td>
+        <td><%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか?' } %></td>
       </tr>
       <tr>   
         <td><%= link_to image_tag(post.meshi.url, :size =>'240x160'), post %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to '新兵追加', new_post_path %>
