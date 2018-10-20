@@ -11,6 +11,24 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= "名" %>
+    <!--<%= form.label :title %>-->
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <!--<%= form.label :final %>-->
+    <%= "画" %>
+    <%= form.file_field :meshi %>
+  </div>
+
+  <div class="field">
+    <!--<%= form.label :final %>-->
+    <%= "流" %>
+    <%= form.text_area :body %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
