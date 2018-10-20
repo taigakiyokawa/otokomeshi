@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: "Source Han Serif JP";
+    /* background-color: #1C1C1C; */
+    /* font-family: 'Noto Serif JP', sans-serif; */
+}
+
+body {
+    font-size: 16px;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+}
