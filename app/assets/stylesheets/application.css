@@ -29,3 +29,11 @@ a {
     text-decoration: none;
     display: inline-block;
 }
+
+h1 {
+    margin: 20px 0;
+}
+
+h2 {
+    margin: 10px 0;
+}

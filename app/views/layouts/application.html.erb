@@ -16,6 +16,10 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+        <p><%= link_to 'ユーザ情報編集', edit_user_registration_path %></p>
+        <p><%= link_to 'ろぐあうと', destroy_user_session_path, method: :delete %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
