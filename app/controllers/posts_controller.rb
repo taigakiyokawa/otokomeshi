@@ -71,6 +71,6 @@ class PostsController < ApplicationController
    
 
     def post_params
-      params.require(:post).permit(:title, :meshi, :body)
+      params.require(:post).permit(:title, :meshim, {meshim: []}, :meshim_cache, :body)
     end
 end

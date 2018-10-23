@@ -1,3 +1,3 @@
 class Post < ApplicationRecord
-  mount_uploader :meshi, ImageUploader
+  mount_uploader :meshim, ImageUploader
 end

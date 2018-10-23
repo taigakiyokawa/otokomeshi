@@ -20,7 +20,10 @@
   <div class="field">
     <!--<%= form.label :final %>-->
     <%= "画" %>
-    <%= form.file_field :meshi %>
+    <div id="preview">
+
+    </div>
+    <%= form.file_field :meshim, id: :post_image %>
   </div>
 
   <div class="field">
@@ -33,3 +36,25 @@
     <%= form.submit([name="完 了"]) %>
   </div>
 <% end %>
+
+<script>
+function Filepreview(evt){
+ var files = evt.target.files;
+
+document.getElementById('preview').innerHTML =""
+
+ for(var i = 0; i < 3;i++){
+ var reader = new FileReader();
+ var f = files[i]
+ reader.onload = (function(){
+ return function(e) {
+ var span = document.createElement('span');
+ span.innerHTML= "<img src='" +e.target.result + "'>";
+ document.getElementById('preview').insertBefore(span,null);
+ };
+ })(f);
+ reader.readAsDataURL(f);
+ }
+}
+document.getElementById('post_image').addEventListener('change',Filepreview,false);
+</script>
