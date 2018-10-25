@@ -1,3 +1,116 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+header {
+  background-color: $main;
+  color: $text;
+  width: 100%;
+  text-align: center;
+  a {
+      display: inline-block;
+      &:visited {
+        color: $text;
+      }
+  }
+  img {
+      width: 80%;
+  }
+}
+
+body {
+  background-color: $main;
+  color: $text;
+}
+
+.tab_wrap{
+  color: black;
+  width:100%;
+  margin-top: 15px;
+}
+input[type="radio"]{
+  display:none;
+}
+.tab_area{
+  font-size:0;
+  margin:0;
+}
+.tab_area label{
+  width:calc(100%/3);
+  display:inline-block;
+  padding:12px 0;
+  color:#656765;
+  background:#FCFAF2;
+  border-top: 3px solid #656765;
+  border-left: 1.5px solid #656765;
+  border-right: 1.5px solid #656765;
+  border-bottom: 3px solid #656765;
+  text-align:center;
+  font-size:16px;
+  cursor:pointer;
+  transition:ease 0.2s opacity;
+}
+.tab_area label:hover{
+  opacity:0.5;
+}
+.panel_area{
+  background:#1C1C1C;
+  text-align: center;
+}
+.tab_panel{
+  width:100%;
+  padding:10px 0;
+  display:none;
+}
+.tab_panel img {
+  width: 100%;
+  border-bottom: 1px solid #656765;
+}
+.tab_panel p{
+  font-size:14px;
+  /* letter-spacing:1px; */
+  text-align:center;
+}
+
+#tab1:checked ~ .tab_area .tab1_label{
+  background:#1C1C1C;
+  color:#FCFAF2;
+  font-weight: 800;
+  border-top: 3px solid #656765;
+  border-left: 1.5px solid #1C1C1C;
+  border-right: 1.5px solid #656765;
+  border-bottom: 3px solid #1C1C1C;
+  font-size: 24px;
+}
+#tab1:checked ~ .panel_area #panel1{
+  display:block;
+}
+
+#tab2:checked ~ .tab_area .tab2_label{
+  background:#1C1C1C;
+  color:#FCFAF2;
+  font-weight: 800;
+  border-top: 3px solid #656765;
+  border-left: 1.5px solid #656765;
+  border-right: 1.5px solid #656765;
+  border-bottom: 3px solid #1C1C1C;
+  font-size: 24px;
+}
+#tab2:checked ~ .panel_area #panel2{
+  display:block;
+}
+
+#tab3:checked ~ .tab_area .tab3_label{
+  background:#1C1C1C;
+  color:#FCFAF2;
+  font-weight: 800;
+  border-top: 3px solid #656765;
+  border-left: 1.5px solid #656765;
+  border-right: 1.5px solid #1C1C1C;
+  border-bottom: 3px solid #1C1C1C;
+  font-size: 24px;
+}
+#tab3:checked ~ .panel_area #panel3{
+  display:block;
+}

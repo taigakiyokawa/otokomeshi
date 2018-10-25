@@ -23,20 +23,12 @@
         text-align: center;
         padding: 0px 30px;
         color: $text;
-        a {
-            font-size: 36px;
-            font-weight: 600;
-            width: 100%;
-            padding: 30px 0px;
-            opacity: 0.7;
-            &:hover {
-                opacity: 0.9;
-                font-weight: $heavy;
-                transition: 0.5s;
-            }
-        }
+        
         .sign-up a {
             background-color: $accent;
+            &:visited {
+                color: $text;
+            }
         }
         p {
             padding-top: 40px;
@@ -45,6 +37,21 @@
         .sign-in a{
             background-color: $text;
             color: $main;
+            &:visited {
+                color: $main;
+            }
+        }
+        a {
+            font-size: 36px;
+            font-weight: 600;
+            width: 100%;
+            padding: 30px 0px;
+            opacity: 0.7;
+            &:hover {
+                opacity: 0.9;
+                font-weight: $black;
+                transition: 0.5s;
+            }
         }
     }
 }
