@@ -1,3 +1,5 @@
 class Post < ApplicationRecord
-  mount_uploader :meshi, ImageUploader
+  mount_uploader :meshim, ImageUploader
+  validates :title, presence: true
+  validates :meshim, presence: true
 end

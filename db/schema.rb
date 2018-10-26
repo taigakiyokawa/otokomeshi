@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_082441) do
+ActiveRecord::Schema.define(version: 2018_10_23_065558) do
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
-    t.string "meshi"
     t.string "body"
+    t.json "meshim"
   end
 
   create_table "users", force: :cascade do |t|

@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+  /*
+深緋 #c9171e
+墨　#1C1C1C
+鈍 #656765
+白練 #FCFAF2
+*/
 
 * {
     box-sizing: border-box;
@@ -31,9 +37,9 @@ a:any-link {
     color: #FCFAF2;
 }
 
-h1 {
-    margin: 20px 0;
-}
+ p {
+     color: white;
+ }
 
 h2 {
     margin: 10px 0;
