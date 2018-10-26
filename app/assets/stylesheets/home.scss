@@ -10,7 +10,7 @@
     background-size: cover;
     height: 100vh;
 
-    .container {
+    &__container {
         padding: 0px 10vw;
     }
     &__logo {
@@ -43,13 +43,12 @@
         }
         a {
             font-size: 36px;
-            font-weight: 600;
+            font-weight: $black;
             width: 100%;
             padding: 30px 0px;
             opacity: 0.7;
             &:hover {
                 opacity: 0.9;
-                font-weight: $black;
                 transition: 0.5s;
             }
         }

@@ -27,7 +27,7 @@
 
 <br>
  -->
-<div class="index_container">
+<div class="container">
       <div class="tab_wrap">
       	<input id="tab1" type="radio" name="tab_btn" checked>
       	<input id="tab2" type="radio" name="tab_btn">
@@ -42,9 +42,11 @@
           <div id="panel1" class="tab_panel">
             <% @posts.each do |post| %>
               <h2><%= post.title %></h2>
+              <!-- 
               <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
               <%= link_to '編集', edit_post_path(post) %>
               <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか?' } %>
+              -->
               <%= link_to image_tag(post.meshi.url), post %>
             <% end %>
       		</div>

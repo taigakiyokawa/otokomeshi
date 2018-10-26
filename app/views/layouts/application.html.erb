@@ -18,11 +18,11 @@
     <% if path != "/" %>
       <header>
         <% if user_signed_in? %>
-          <%= link_to 'ユーザ情報編集', edit_user_registration_path %>
-          <%= link_to image_tag('/assets/logo.svg'), '/posts' %>
-          <%= link_to '新兵追加', new_post_path %>
+          <%= link_to '情報編集', edit_user_registration_path, { :class => "my_page" } %>
+          <%= link_to image_tag('/assets/logo.svg', :class => "logo"), '/posts', { :class => "logo_link" } %>
+          <%= link_to '新兵追加', new_post_path, { :class => "new" } %>
         <% else %>
-          <%= link_to image_tag('/assets/logo.svg'), '/' %>
+          <%= link_to image_tag('/assets/logo.svg', :class => "logo"), '/' %>
         <% end %>
       </header>
       <p class="notice"><%= notice %></p>
