@@ -13,27 +13,251 @@
  *= require_tree .
  *= require_self
  */
+  /*
+深緋 #c9171e
+墨　#1C1C1C
+鈍 #656765
+白練 #FCFAF2
+*/
 
 * {
     box-sizing: border-box;
-    margin: 0px;
+  }
+  
+  body {
+    margin: 0;
     font-family: "Source Han Serif JP";
-    /* background-color: #1C1C1C; */
-    /* font-family: 'Noto Serif JP', sans-serif; */
-}
-
-body {
-    font-size: 16px;
-}
-a {
+    background-color: #1C1C1C;
+    color: #FCFAF2;
+  }
+  
+  h1 {
+    font-weight: 800;
+  }
+  
+  a {
     text-decoration: none;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  header {
+    background-color: #1C1C1C;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #656765;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+  }
+  header img {
+    padding: 5px 0;
+    height: 90%;
+  }
+  
+  .logo {
+  }
+  .my-icon {
+    float: left;
+    margin-left: 5px;
+  }
+  .plus-btn {
+    float: right;
+    margin-right: 5px;
+  }
+  
+  .top {
+    background-image: url(assets/Fugaku36_bg.png);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+  }
+  .top img {
+    text-align: center;
+    width: 100%;
+  
+  }
+  
+  .top-wrapper {
+    width: 100%;
+    color: #FCFAF2;
+    text-align: center;
+    padding: 200px 20px;
+  }
+  
+  .btn-wrapper {
+    margin: 50px 0;
+  }
+  .btn-wrapper p {
+    margin-top: 40px;
+  }
+  
+  .btn {
+    font-size: 24px;
+    color: #FCFAF2;
     display: inline-block;
-}
+    width: 100%;
+    padding: 10px 0;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+    font-weight: 800;
+    transition: 0.5s;
+  }
+  .btn:active {
+  }
+  
+  .nyu-mon {
+    background-color: #c9171e;
+  }
+  
+  .login {
+    color: #1C1C1C;
+    background-color: white;
+  }
+  
+  .container {
+      padding: 60px 0;
+  }
+  
+  .form-inner {
+    display: inline-block;
+    text-align: left;
+    /* line-height: 5px; */
+    padding: 60px 30px;
+  }
+  .form-inner h1{
+    padding-bottom: 30px;
+  }
+  
+  input {
+    border: none;
+    font-family: "Source Han Serif JP";
+      width: 100%;
+    font-size: 24px;
+    padding: 6px;
+    margin: 4px auto;
+  }
+  
+  .submit {
+    background-color: #c9171e;
+    font-family: "Source Han Serif JP";
+    font-size: 36px;
+    border: none;
+    color: white;
+    margin-top: 30px;
+  }
+  
+  .submit:hover {
+    cursor: pointer;
+  }
+  
+  .tab_wrap{
+    color: black;
+    width:100%;
+    margin-top: 15px;
+  }
+  input[type="radio"]{
+    display:none;
+  }
+  .tab_area{
+    font-size:0;
+    margin:0;
+  }
+  .tab_area label{
+    width:calc(100%/3);
+    display:inline-block;
+    padding:12px 0;
+    color:#656765;
+    background:#FCFAF2;
+    border-top: 3px solid #656765;
+    border-left: 1.5px solid #656765;
+    border-right: 1.5px solid #656765;
+    border-bottom: 3px solid #656765;
+    text-align:center;
+    font-size:16px;
+    cursor:pointer;
+    transition:ease 0.2s opacity;
+  }
+  .tab_area label:hover{
+    opacity:0.5;
+  }
+  .panel_area{
+    background:#1C1C1C;
+    text-align: center;
+  }
+  .tab_panel{
+    width:100%;
+    padding:10px 0;
+    display:none;
+  }
+  .tab_panel img {
+    width: 100%;
+    border-bottom: 1px solid #656765;
+  }
+  .tab_panel p{
+    font-size:14px;
+    /* letter-spacing:1px; */
+    text-align:center;
+  }
+  
+  #tab1:checked ~ .tab_area .tab1_label{
+    background:#1C1C1C;
+    color:#FCFAF2;
+    font-weight: 800;
+    border-top: 3px solid #656765;
+    border-left: 1.5px solid #1C1C1C;
+    border-right: 1.5px solid #656765;
+    border-bottom: 3px solid #1C1C1C;
+    font-size: 24px;
+  }
+  #tab1:checked ~ .panel_area #panel1{
+    display:block;
+  }
+  
+  #tab2:checked ~ .tab_area .tab2_label{
+    background:#1C1C1C;
+    color:#FCFAF2;
+    font-weight: 800;
+    border-top: 3px solid #656765;
+    border-left: 1.5px solid #656765;
+    border-right: 1.5px solid #656765;
+    border-bottom: 3px solid #1C1C1C;
+    font-size: 24px;
+  }
+  #tab2:checked ~ .panel_area #panel2{
+    display:block;
+  }
+  
+  #tab3:checked ~ .tab_area .tab3_label{
+    background:#1C1C1C;
+    color:#FCFAF2;
+    font-weight: 800;
+    border-top: 3px solid #656765;
+    border-left: 1.5px solid #656765;
+    border-right: 1.5px solid #1C1C1C;
+    border-bottom: 3px solid #1C1C1C;
+    font-size: 24px;
+  }
+  #tab3:checked ~ .panel_area #panel3{
+    display:block;
+  }
 
-h1 {
-    margin: 20px 0;
-}
+ p {
+     color: white;
+ }
 
-h2 {
-    margin: 10px 0;
-}
+ img {
+     width: 100%;
+     height: 300px;
+ }

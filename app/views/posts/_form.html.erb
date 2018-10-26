@@ -44,14 +44,14 @@ function Filepreview(evt){
 document.getElementById('preview').innerHTML =""
 
  for(var i = 0; i < 3;i++){
- var reader = new FileReader();
- var f = files[i]
- reader.onload = (function(){
- return function(e) {
- var span = document.createElement('span');
- span.innerHTML= "<img src='" +e.target.result + "'>";
- document.getElementById('preview').insertBefore(span,null);
- };
+  var reader = new FileReader();
+  var f = files[i]
+  reader.onload = (function(){
+  return function(e) {
+    var span = document.createElement('span');
+    span.innerHTML= "<img src='" +e.target.result + "'>";
+    document.getElementById('preview').insertBefore(span,null);
+  };
  })(f);
  reader.readAsDataURL(f);
  }

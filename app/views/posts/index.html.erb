@@ -8,22 +8,66 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+  <!--
+  <div class="tab-content">
+    <input type="radio" id="tab1" name="tab" checked >
+    <label for="tab1">新着</label>
+    <input type="radio" id="tab2" name="tab">
+    <label for="tab2">番付</label>
+    <input type="radio" id="tab3" name="tab">
+    <label for="tab3">嗜好</label>
+    <div class="tab-box">
+      <div id="tabView1">
+      </div>
+      <div id="tabView2">
+      </div>
+      <div id="tabView3">
+      </div>
+    </div>
+  </div>
+  -->
 
   <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><h2><%= post.title %></h2></td>
-      </tr>
-      <tr>
-        <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-        <td><%= link_to '編集', edit_post_path(post) %></td>
-        <td><%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか?' } %></td>
-      </tr>
-      <tr>   
-        <td><%= link_to image_tag(post.meshim.url, :size =>'240x160'), post %></td>
-      </tr>
-    <% end %>
+
+  <% @posts.each do |post| %>
+          <tr>
+            <td><h2><%= post.title %></h2></td>
+          </tr>
+          <tr>
+            <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+            <td><%= link_to '編集', edit_post_path(post) %></td>
+            <td><%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか?' } %></td>
+          </tr>
+          <tr>   
+            <td><%= link_to image_tag(post.meshim.url, :size =>'240x160'), post %></td>
+          </tr>
+          <% end %>
+    
   </tbody>
+
+  <div class="container">
+      <div class="tab_wrap">
+      	<input id="tab1" type="radio" name="tab_btn" checked>
+      	<input id="tab2" type="radio" name="tab_btn">
+      	<input id="tab3" type="radio" name="tab_btn">
+
+        <div class="tab_area">
+      		<label class="tab1_label" for="tab1">新着</label>
+      		<label class="tab2_label" for="tab2">番付</label>
+      		<label class="tab3_label" for="tab3">嗜好</label>
+    	  </div>
+      	<div class="panel_area">
+      		<div id="panel1" class="tab_panel">
+            <p>ここは新着</p>
+      		</div>
+      		<div id="panel2" class="tab_panel">
+            <p>ここは番付</p>
+          </div>
+          <div id="panel3" class="tab_panel">
+            <p>ここは嗜好</p>
+      		</div>
+        </div>
+      </div>
 </table>
 <br>
 
