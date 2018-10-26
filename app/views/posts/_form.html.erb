@@ -20,11 +20,7 @@
   <div class="field">
     <!--<%= form.label :final %>-->
     <%= "画" %>
-    <% if @post.meshim? %>
-      <%= image_tag @post.meshim.url %>
-    <% else %>
-      <div id="preview"></div>
-    <% end %>
+    <%= image_tag @post.meshim.url, id: :post_image_prev %>
     <%= form.file_field :meshim, id: :post_image %>
   </div>
 
@@ -38,7 +34,7 @@
     <%= form.submit([name="完 了"]) %>
   </div>
 <% end %>
-
+<!--
 <script>
 function Filepreview(evt){
  var files = evt.target.files;
@@ -59,4 +55,21 @@ document.getElementById('preview').innerHTML =""
  }
 }
 document.getElementById('post_image').addEventListener('change',Filepreview,false);
+</script>
+-->
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#post_image_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#post_image").change(function(){
+   readURL(this);
+ });
+});
 </script>
