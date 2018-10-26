@@ -20,7 +20,11 @@
   <div class="field">
     <!--<%= form.label :final %>-->
     <%= "画" %>
-    <div id="preview"></div>
+    <% if @post.meshim? %>
+      <%= image_tag @post.meshim.url  %>
+    <% else %>
+      <div id="preview"></div>
+    <% end %>
     <%= form.file_field :meshim, id: :post_image %>
   </div>
 
