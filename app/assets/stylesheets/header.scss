@@ -1,0 +1,85 @@
+@import "variables";
+
+header {
+  background-color: $main;
+  color: $text;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  margin: 0px;
+  z-index: 10;
+  a {
+    display: inline-block;
+    height: $header;
+      &:visited {
+        color: $text;
+      }
+  }
+  .my_page {
+    float: left;
+    padding: auto 0;
+  }
+  .logo {
+    height: $header;
+    padding: 5px 0;
+  }
+  .new {
+    float: right;
+    padding: auto 0;
+  }
+}
+
+
+input[type="radio"]{
+  display:none;
+}
+.tab_area{
+  font-size: 0;
+  margin:0;
+  position: fixed;
+  top: $header;
+  z-index: 10px;
+  width: 100%;
+  background-color: $main;
+  border-bottom: 1px solid $border;
+
+  label {
+    width:calc(100%/3);
+    display: inline-block;
+    padding: 24px 0px 6px 0px;
+    color: $border;
+    text-align:center;
+    font-size: 48px;
+    font-weight: $black;
+    cursor:pointer;
+    transition:ease 0.2s;
+    &:hover{
+      color: $accent;
+    }
+  }
+}
+
+#tab1:checked ~ .tab_area .tab1_label{
+  color: $text;
+  border-bottom: 5px solid $accent;
+}
+#tab1:checked ~ .panel_area #panel1{
+  display:block;
+}
+
+#tab2:checked ~ .tab_area .tab2_label{
+  color: $text;
+  border-bottom: 5px solid $accent;
+}
+#tab2:checked ~ .panel_area #panel2{
+  display:block;
+}
+
+#tab3:checked ~ .tab_area .tab3_label{
+  color: $text;
+  border-bottom: 5px solid $accent;
+}
+#tab3:checked ~ .panel_area #panel3{
+  display:block;
+}
