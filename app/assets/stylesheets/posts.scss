@@ -33,20 +33,7 @@ body {
   }
 }
 
-.container {
+.index_container {
   width: 100%;
-  margin-top: 240px;
-  img {
-    width: 100%;
-  }
-  .btns {
-    a {
-      float: left;
-      width: calc(100%/3);
-      text-align: center;
-      background-color: $border;
-      padding: 10px;
-      border: 3px solid $main;
-    }
-  }
+  margin-top: 220px;
 }
