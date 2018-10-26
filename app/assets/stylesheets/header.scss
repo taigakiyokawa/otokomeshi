@@ -12,9 +12,9 @@ header {
   a {
     display: inline-block;
     height: $header;
-      &:visited {
-        color: $text;
-      }
+    &:visited {
+      color: $text;
+    }
   }
   .my_page {
     float: left;
@@ -27,6 +27,10 @@ header {
   .new {
     float: right;
     padding: auto 0;
+  }
+  .btn {
+    height: $header;
+    padding: 10px;
   }
 }
 
