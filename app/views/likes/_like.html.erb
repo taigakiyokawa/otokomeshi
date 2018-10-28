@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <% if @like_hash.has_value?(post.id) %>
+    <%= button_to post_like_path(post.id,@like_hash.key(post.id)), class:'dislike', method: :delete, id: "like-button", remote: true do %>
+        いいねを消す
+     <% end %>
+   <% else %>
+     <%= button_to post_likes_path(post_id: post.id), id: "like-button", remote: true do %>
+       いいねする
+   <% end %>
+ <% end %>
+<% else %>
+  登録したらいいねできるよ
+<% end %>

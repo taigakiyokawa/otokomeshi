@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    if user_signed_in?
+      @like_hash = Like.where(user_id:current_user.id).pluck(:id,:post_id).to_h
+    end
   end
 
   # GET /posts/1
