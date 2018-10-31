@@ -14,10 +14,11 @@
         padding: 0px 10vw;
     }
     &__logo {
+        filter: drop-shadow(0 10px 10px $main);
         text-align: center;
         width: 100%;
         padding-top: 30vh;
-        padding-bottom: 50px;
+        padding-bottom: 30px;
     }
     .btn__wrapper {
         text-align: center;
@@ -25,27 +26,26 @@
         color: $text;
         
         .sign-up a {
+            // filter: drop-shadow(0 10px 10px $main);
             background-color: $accent;
             &:visited {
                 color: $text;
             }
         }
-        p {
-            padding-top: 40px;
-            padding-bottom: 10px;
-        }
-        .sign-in a{
+        .sign-in a {
+            // filter: drop-shadow(0 10px 10px $main);
             background-color: $text;
             color: $main;
+            margin-top: 30px;
             &:visited {
                 color: $main;
             }
         }
         a {
-            font-size: 48px;
+            font-size: 24px;
             font-weight: $black;
             width: 100%;
-            padding: 30px 0px;
+            padding: 15px 0px;
             opacity: 0.7;
             &:hover {
                 opacity: 0.9;
