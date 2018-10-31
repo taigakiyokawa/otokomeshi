@@ -51,3 +51,8 @@ h2 {
 .alert {
     display: none;
 }
+
+.container {
+    width: 100%;
+    padding-top: 100px;
+  }
