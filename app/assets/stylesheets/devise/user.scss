@@ -1,2 +1,26 @@
 @import "variables";
 
+.form-title {
+  padding-top: 20vh;
+  margin: 0;
+}
+
+.field {
+  input {
+    width: 80%;
+    &#user_remember_me {
+      width: 5%;
+    }
+  }
+}
+
+.actions {
+  margin-top: 20px;
+  input {
+    font-size: 24px;
+    font-weight: $black;
+    padding: 5px 20px;
+    background-color: rgba($color: $accent, $alpha: 0.7);
+    border: none;
+  }
+}

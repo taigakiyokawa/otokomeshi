@@ -19,7 +19,7 @@
         text-align: center;
         width: 100%;
         padding-top: 30vh;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
     }
     .btn__wrapper {
         text-align: center;
@@ -28,15 +28,15 @@
         
         .sign-up a {
             // filter: drop-shadow(0 10px 10px $main);
-            background-color: $accent;
+            background-color: rgba($color: $accent, $alpha: 0.7);
             &:visited {
                 color: $text;
             }
         }
         .sign-in a {
             // filter: drop-shadow(0 10px 10px $main);
-            background-color: $text;
-            color: $main;
+            background-color: rgba($color: $text, $alpha: 0.7);
+            color: $accent;
             margin-top: 30px;
             &:visited {
                 color: $main;
@@ -47,11 +47,6 @@
             font-weight: $black;
             width: 100%;
             padding: 15px 0px;
-            opacity: 0.7;
-            &:hover {
-                opacity: 0.9;
-                transition: 0.5s;
-            }
         }
     }
 }
