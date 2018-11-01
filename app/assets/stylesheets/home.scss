@@ -36,7 +36,7 @@
         .sign-in a {
             // filter: drop-shadow(0 10px 10px $main);
             background-color: rgba($color: $text, $alpha: 0.7);
-            color: $accent;
+            color: $main;
             margin-top: 30px;
             &:visited {
                 color: $main;
