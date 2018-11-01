@@ -20,7 +20,7 @@ header {
   }
   .my_page {
     float: left;
-    padding: auto 0;
+    padding-left: 10px;
   }
   .logo {
     height: $header;
@@ -28,11 +28,11 @@ header {
   }
   .new {
     float: right;
-    padding: auto 0;
+    padding-right: 10px;
   }
   .btn {
     height: $header;
-    padding: 10px;
+    padding-top: 10px;
   }
 }
 
@@ -52,10 +52,10 @@ input[type="radio"]{
   label {
     width:calc(100%/3);
     display: inline-block;
-    padding: 24px 0px 6px 0px;
+    padding-top: 12px;
     color: $border;
     text-align:center;
-    font-size: 48px;
+    font-size: 24px;
     font-weight: $black;
     cursor:pointer;
     transition:ease 0.2s;

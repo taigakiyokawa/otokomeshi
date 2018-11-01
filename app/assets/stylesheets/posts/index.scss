@@ -17,10 +17,6 @@ body {
 .panel_area {
   background-color: $base;
   color: $text;
-  text-align: center;
-  h1 {
-    text-align: left;
-  }
 }
 
 .tab_panel {
@@ -38,5 +34,5 @@ body {
 
 .index_container {
   width: 100%;
-  margin-top: 220px;
+  margin-top: 100px;
 }
