@@ -24,7 +24,9 @@
     box-sizing: border-box;
     font-family: 'Noto Serif JP', sans-serif;
 }
-
+h1, h2, h3 {
+    margin: 0px;
+}
 body {
     font-size: 16px;
     margin: 0px;
@@ -48,7 +50,3 @@ a:any-link {
     display: none;
 }
 
-.container {
-    width: 100%;
-    padding-top: 100px;
-  }

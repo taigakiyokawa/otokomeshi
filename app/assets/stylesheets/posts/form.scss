@@ -1,0 +1,17 @@
+@import "variables";
+
+.container {
+  width: 100%;
+  padding-top: 50px;
+  padding: 0 12vw;
+  img {
+    width: 100%;
+  }
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+}
