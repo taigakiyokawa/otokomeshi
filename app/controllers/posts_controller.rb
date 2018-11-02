@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
+    if user_signed_in?
+      @like_hash = Like.where(user_id:current_user.id).pluck(:id,:post_id).to_h
+    end
   end
 
   # GET /posts/1

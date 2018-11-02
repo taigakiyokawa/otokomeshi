@@ -1,0 +1,62 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 投稿一覧(posts/index)のスタイル
+
+@import "variables";
+
+body {
+  background-color: $base;
+  color: $text;
+}
+
+.tab_wrap {
+  width:100%;
+}
+.panel_area {
+  background-color: $base;
+  color: $text;
+}
+
+.tab_panel {
+  width:100%;
+  padding:10px 0;
+  display:none;
+  p{
+    font-size:14px;
+    text-align: left;
+  }
+  h2 {
+    padding-top: 10px;
+    display: inline-block;
+    float: left;
+  }
+}
+
+.meshi {
+    width: 100%;
+}
+
+.index_container {
+  width: 100%;
+  margin-top: 100px;
+}
+
+.appare {
+  button {
+    border: none;
+    padding: 0;
+    background-color: $base;
+  }
+  img {
+    width: 50px;
+    padding-right: 10px;
+  }
+
+  float: right;
+}
+
+.button_to {
+  display: inline-block;
+}
