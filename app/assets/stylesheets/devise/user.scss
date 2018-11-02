@@ -5,11 +5,11 @@
   padding: 0 30px;
 }
 .form-title {
+  font-size: 32px;
   padding-top: 20vh;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   margin: 0;
 }
-
 #error_explanation {
   color: $accent;
   h2 {
@@ -35,16 +35,30 @@
     }
   }
 }
-
-.actions {
-  margin-top: 20px;
-  input {
-    width: 100%;
+.back-or-action {
+  float: right;
+  .back {
+    padding: 5px 20px;
+    display: inline-block;
+    background-color: rgba($color: $base, $alpha: 0.7);
     font-size: 24px;
-    font-weight: $black;
-    padding: 5px 0px;
-    background-color: rgba($color: $accent, $alpha: 0.7);
-    color: $text;
-    border: none;
+    margin-right: 10px;
+  }
+  .actions {
+    display: inline-block;
+    margin-top: 20px;
+    width: 50%;
+    input {
+      font-size: 24px;
+      font-weight: $black;
+      padding: 5px 25px;
+      background-color: rgba($color: $accent, $alpha: 0.7);
+      color: $text;
+      border: none;
+    }
   }
 }
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px $text inset;
+}
+

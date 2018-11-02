@@ -21,12 +21,13 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "入 門" %>
-        </div>
-
-        <div class="back">
-          <%= link_to "戻る", "/" %>
+        <div class="back-or-action">
+          <div class="back">
+            <%= link_to "戻る", "/" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "入 門" %>
+          </div>
         </div>
       <% end %>
 

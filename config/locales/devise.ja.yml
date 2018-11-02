@@ -64,7 +64,7 @@ ja:
     attributes:
       user:
         name: 名前
-        password: パスワード
-        password_confirmation: パスワード確認
-        email: メールアドレス
-        remember_me: 'ログインを記憶する'
+        password: 合言葉
+        password_confirmation: 合言葉の確認
+        email: めゑるあどれす
+        remember_me: 'ろぐいんを記憶する'
