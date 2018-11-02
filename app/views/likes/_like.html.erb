@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <% if @like_hash.has_value?(post.id) %>
     <%= button_to post_like_path(post.id,@like_hash.key(post.id)), class:'dislike', method: :delete, id: "like-button", remote: true do %>
-        天晴済
+        <img src="/assets/appare.png" alt="天晴済">
      <% end %>
    <% else %>
      <%= button_to post_likes_path(post_id: post.id), id: "like-button", remote: true do %>
-       天晴
+       <img src="/assets/non_appare.png" alt="天晴">
    <% end %>
  <% end %>
 <% else %>
