@@ -6,4 +6,25 @@ class ApplicationController < ActionController::Base
     def defore_sign_out_path_for(resource)
         root_path
     end
+
+    before_action :configure_permitted_parameters, if: :devise_controller?
+
+    private
+
+    def configure_permitted_parameters
+        # strong parametersを設定し、user_idを許可
+        # devise_parameter_sanitizer.for(:sign_up){|u|
+        #   u.permit(:user_id, :password, :password_confirmation)
+        # }
+        devise_parameter_sanitizer.permit(:sign_up){|u|
+            u.permit(:username, :email, :password, :password_confirmation)
+        }
+
+            # devise_parameter_sanitizer.for(:sign_in){|u|
+            #   u.permit(:user_id, :password, :remember_me)
+            # }
+        devise_parameter_sanitizer.permit(:sign_in){|u|
+            u.permit(:username, :email, :password, :remember_me)
+        }
+    end
 end
