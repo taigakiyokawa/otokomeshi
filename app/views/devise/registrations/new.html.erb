@@ -7,6 +7,12 @@
         <%= devise_error_messages! %>
 
         <div class="field">
+          <%# <%= image_tag f..url, id: :post_image_prev %>
+          <%= f.label :user_img %><br />
+          <%= f.file_field :user_img %>
+        </div>
+
+        <div class="field">
           <%= f.label :username %><br />
           <%= f.text_field :username, autofocus: true %>
         </div>
