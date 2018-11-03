@@ -6,6 +6,12 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :user_img %><br />
+    <%= image_tag current_user.user_img.url, id: :user_image_prev %>
+    <%= f.file_field :user_img, id: :user_image %>
+  </div>
+
+  <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
   </div>
@@ -51,3 +57,20 @@
 
 <%= link_to "戻る", :back %>
 </div>
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#user_image_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#user_image").change(function(){
+   readURL(this);
+ });
+});
+</script>
