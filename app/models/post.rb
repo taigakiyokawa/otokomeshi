@@ -4,5 +4,5 @@ class Post < ApplicationRecord
   validates :meshim, presence: true
   
   has_many :likes, dependent: :destroy
-  belongs_to :user 
+  belongs_to :user
 end
