@@ -27,16 +27,14 @@ body {
     font-size:14px;
     text-align: left;
   }
-  h2 {
-    padding-top: 10px;
-    display: inline-block;
-    float: left;
-  }
 }
 
-.meshi {
-    width: 100%;
+.meshi_wrap {
 }
+.meshi {
+  width: 75%;
+}
+
 
 .index_container {
   width: 100%;
@@ -53,8 +51,6 @@ body {
     width: 50px;
     padding-right: 10px;
   }
-
-  float: right;
 }
 
 .button_to {
