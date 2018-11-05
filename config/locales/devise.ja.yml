@@ -63,10 +63,10 @@ ja:
   activerecord:
     attributes:
       user:
-        name: 名前
-        password: 合言葉
-        password_confirmation: 合言葉の確認
-        email: めゑるあどれす
+        name: '名前'
+        password: '合言葉'
+        password_confirmation: '合言葉の確認'
+        email: 'メールアドレス'
         remember_me: 'ろぐいんを記憶する'
-        username: 俺ノ名
-        user_img: 俺ノ画
+        username: '俺ノ名'
+        user_img: '俺ノ画'
