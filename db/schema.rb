@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_032053) do
+ActiveRecord::Schema.define(version: 2018_11_04_081509) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2018_10_28_032053) do
     t.string "title"
     t.string "body"
     t.json "meshim"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,6 +40,8 @@ ActiveRecord::Schema.define(version: 2018_10_28_032053) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "user_img"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

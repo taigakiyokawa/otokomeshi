@@ -1,33 +1,68 @@
 <div class="index_container">
-      <div class="tab_wrap">
-        <input id="tab1" type="radio" name="tab_btn" checked>
-        <input id="tab2" type="radio" name="tab_btn">
-        <input id="tab3" type="radio" name="tab_btn">
+  <div class="tab_wrap">
+    <input id="tab1" type="radio" name="tab_btn" checked>
+    <input id="tab2" type="radio" name="tab_btn">
+    <input id="tab3" type="radio" name="tab_btn">
 
-        <div class="tab_area">
-          <label class="tab1_label" for="tab1">新着</label>
-          <label class="tab2_label" for="tab2">番付</label>
-          <label class="tab3_label" for="tab3">天晴</label>
-        </div>
+    <div class="tab_area">
+      <label class="tab1_label" for="tab1">新着</label>
+      <label class="tab2_label" for="tab2">番付</label>
+      <label class="tab3_label" for="tab3">天晴</label>
+    </div>
 
-      	<div class="panel_area">
-          <div id="panel1" class="tab_panel">
-            <% @posts.each do |post| %>
-              <div class="title&appare">
-                <h2><%= post.title %></h2>
-                <div id="like_<%=post.id %>">
-                  <%= render "likes/like", post: post %>
-                </div>
+    <div class="panel_area">
+      <div id="panel1" class="tab_panel">
+        <% @posts.each do |post| %>
+          <div class="post">
+            <% @user = User.find_by(id: post.user_id) %>
+            <div class="post__user--icon">
+              <%= image_tag(@user.user_img.url) %>
+            </div>
+                
+            <div class="post__wrap">
+              <div class="user-info">
+                <h3>称号称号称号称号称号称号称号称号</h3>
+                <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
+                <h2><%= @user.username %></h2>
               </div>
-              <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
-            <% end %>
-      		</div>
-      		<div id="panel2" class="tab_panel">
-            <p>ここは天晴が多い順に表示されるよ</p>
-      		</div>
-      		<div id="panel3" class="tab_panel">
-            <p>ここは自分が天晴したものが表示されるよ</p>
-      		</div>
-        </div>
+                
+              <div class="meshi_wrap">
+                <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
+              </div>
+              <h2 class="post__title"><%= post.title %></h2>
+              <p class="post__body"><%= post.body %></p>
+              <div id="like_<%=post.id %>">
+                <%= render "likes/like", post: post %>
+              </div>
+              <p class="appare-count">7777</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div id="panel2" class="tab_panel">
+        <% @posts.each do |post| %>
+          <div class="meshi_wrap">
+            <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
+          </div>
+          <h2><%= post.title %></h2>
+          <p><%= post.body %></p>
+          <div id="like_<%=post.id %>">
+            <%= render "likes/like", post: post %>
+          </div>
+        <% end %>
+      </div>
+      <div id="panel3" class="tab_panel">
+        <% @posts.each do |post| %>
+          <div class="meshi_wrap">
+            <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
+          </div>
+          <h2><%= post.title %></h2>
+          <p><%= post.body %></p>
+          <div id="like_<%=post.id %>">
+            <%= render "likes/like", post: post %>
+          </div>
+        <% end %>
       </div>
     </div>
+  </div>
+</div>
