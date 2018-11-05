@@ -50,6 +50,8 @@ input[type="radio"]{
   background-color: $main;
 
   label {
+    position: relative;
+    z-index: 10px;
     width:calc(100%/3);
     display: inline-block;
     padding-top: 12px;
