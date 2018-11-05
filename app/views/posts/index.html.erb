@@ -9,21 +9,21 @@
       <label class="tab2_label" for="tab2">番付</label>
       <label class="tab3_label" for="tab3">天晴</label>
     </div>
-    
+
     <div class="panel_area">
       <div id="panel1" class="tab_panel">
         <% @posts.each do |post| %>
           <div class="post">
-
+            <% @user = User.find_by(id: post.user_id) %>
             <div class="post__user--icon">
-              <img class="post_user_img" src="/assets/default_user_image.JPG" alt="">
+              <%= image_tag(@user.user_img.url) %>
             </div>
                 
             <div class="post__wrap">
               <div class="user-info">
                 <h3>称号称号称号称号称号称号称号称号</h3>
                 <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
-                <h2>名前名前名前名前名前名前名前名前</h2>
+                <h2><%= @user.username %></h2>
               </div>
                 
               <div class="meshi_wrap">
