@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery/dist/jquery.min.js
+//= require jquery-modal/jquery.modal.min.js
+//= require cropper/dist/cropper.min.js
 //= require activestorage
 //= require turbolinks
 //= require_tree .
