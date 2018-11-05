@@ -15,11 +15,15 @@ body {
   width:100%;
 }
 .panel_area {
+  position: relative;
+  z-index: -2;
   background-color: $base;
   color: $text;
 }
 
 .tab_panel {
+  position: relative;
+  z-index: -2;
   width:100%;
   padding:10px 0;
   display:none;
@@ -59,10 +63,11 @@ body {
 }
 
 .post {
+  position: relative;
+  z-index: -1;
   padding: 16px;
   &__user--icon {
     position: absolute;
-    z-index: 0px;
     display: inline-block;
     img {
       height: 48px;
