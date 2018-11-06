@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class ShogosControllerTest < ActionDispatch::IntegrationTest
-  test "should get create" do
-    get shogos_create_url
+  test "should get update" do
+    get shogos_update_url
     assert_response :success
   end
 

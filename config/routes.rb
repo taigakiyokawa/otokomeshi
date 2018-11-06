@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shogos/update'
   get 'shogos/create'
   resources :posts
 
