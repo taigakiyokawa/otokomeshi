@@ -21,7 +21,7 @@
                 
             <div class="post__wrap">
               <div class="user-info">
-                <h3>称号称号称号称号称号称号称号称号</h3>
+                <%= render "shogos/shogo", user: @user %>
                 <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
                 <h2><%= @user.username %></h2>
               </div>
