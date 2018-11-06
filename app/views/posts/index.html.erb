@@ -58,9 +58,7 @@
           </div>
           <h2><%= post.title %></h2>
           <p><%= post.body %></p>
-          <div id="like_<%=post.id %>">
-            <%= render "likes/like", post: post %>
-          </div>
+          <%= render partial: 'posts/posts', collection: @posts, as: :post %>
         <% end %>
       </div>
     </div>
