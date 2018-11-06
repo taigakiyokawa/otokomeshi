@@ -25,16 +25,18 @@
                 <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
                 <h2><%= @user.username %></h2>
               </div>
-                
               <div class="meshi_wrap">
-                <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
+                <%= image_tag(post.meshim.url, :class => "meshi") %>
               </div>
               <h2 class="post__title"><%= post.title %></h2>
               <p class="post__body"><%= post.body %></p>
+              <% if current_user.id == @user.id %>
+                <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' } %>
+              <% end %>
               <div id="like_<%=post.id %>">
                 <%= render "likes/like", post: post %>
               </div>
-              <p class="appare-count">7777</p>
+
             </div>
           </div>
         <% end %>
@@ -58,9 +60,6 @@
           </div>
           <h2><%= post.title %></h2>
           <p><%= post.body %></p>
-          <div id="like_<%=post.id %>">
-            <%= render "likes/like", post: post %>
-          </div>
         <% end %>
       </div>
     </div>
