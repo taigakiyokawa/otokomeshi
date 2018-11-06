@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shogos/create'
   resources :posts
 
   post   '/like/:post_id' => 'likes#like',   as: 'like'

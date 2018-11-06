@@ -1,0 +1,2 @@
+module ShogosHelper
+end

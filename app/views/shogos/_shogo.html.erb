@@ -1,0 +1,16 @@
+<% if user.shogos.find_by(user_id: user.id) %>
+
+    <h3>戦闘力: <%= user.id * 10000 %></h3>
+
+
+<% else %>
+    
+    <% @posts = Post.where user_id: user.id %>
+    <% sum = 0 %>
+    <% @posts.each do |post| %>
+        <% sum += post.likes.count %>
+    <% end %>
+    <h3>戦闘力: <%= sum * 10000 %></h3>
+
+
+<% end %>
