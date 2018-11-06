@@ -1,20 +1,40 @@
 class ShogosController < ApplicationController
+
   def create
-    @shogo = current_user.shogo.build(post_params)
+    # @post = Post.new(post_params)
+    @shogo = current_user.posts.build(shogo_params)
 
     respond_to do |format|
-      if @post.save
+      if @shogo.save
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @shogo.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def new
-    @shogo = Shogo.new
+  # PATCH/PUT /posts/1
+  # PATCH/PUT /posts/1.json
+  def update
+    respond_to do |format|
+      if @shogo.update(shogo_params)
+        format.html { redirect_to posts_path, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @shogo }
+      else
+        format.html { render :edit }
+        format.json { render json: @shogo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def get_likes_total(x)
+    x = 0
+    @posts = Post.where(user_id: user.id)
+    @posts.each do |post|
+      x += post.likes.count
+    end
   end
 
   private
@@ -27,6 +47,7 @@ class ShogosController < ApplicationController
    
 
     def post_params
-      params.require(:shogo).permit(:use_id, :status)
+      params.require(:shogo).permit(:user_id, :status)
     end
+  
 end
