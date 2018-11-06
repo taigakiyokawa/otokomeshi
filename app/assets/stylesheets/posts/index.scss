@@ -71,7 +71,15 @@ body {
               margin-bottom: 4px;
             }
             p.post__body {
-              margin-bottom: 4px;      
+              margin-bottom: 4px;
+            }
+            .delete-btn {
+              float: right;
+              font-size: 12px;
+              line-height: 32px;
+              padding: 0 10px;
+              background-color: $border;
+
             }
             .appare {
               float: left;
@@ -85,11 +93,12 @@ body {
                 img {
                   width: 32px;
                 }
+                .appare-count {
+                  display: inline-block;
+                  line-height: 32px;
+                  padding-left: 10px;
+                }
               }
-            }
-            .appare-count {
-              display: inline-block;
-              line-height: 32px;
             }
           }
         }

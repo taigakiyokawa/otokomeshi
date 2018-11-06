@@ -13,8 +13,8 @@
     <div class="panel_area">
       <div id="panel1" class="tab_panel">
         <% @posts.each do |post| %>
+          <% @user = User.find_by(id: post.user_id) %>
           <div class="post">
-            <% @user = User.find_by(id: post.user_id) %>
             <div class="post__user--icon">
               <%= image_tag(@user.user_img.url) %>
             </div>
@@ -31,36 +31,20 @@
               <h2 class="post__title"><%= post.title %></h2>
               <p class="post__body"><%= post.body %></p>
               <% if current_user.id == @user.id %>
-                <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' } %>
+                <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
               <% end %>
               <div id="like_<%=post.id %>">
                 <%= render "likes/like", post: post %>
               </div>
-
             </div>
           </div>
         <% end %>
       </div>
       <div id="panel2" class="tab_panel">
-        <% @posts.each do |post| %>
-          <div class="meshi_wrap">
-            <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
-          </div>
-          <h2><%= post.title %></h2>
-          <p><%= post.body %></p>
-          <div id="like_<%=post.id %>">
-            <%= render "likes/like", post: post %>
-          </div>
-        <% end %>
+            
       </div>
       <div id="panel3" class="tab_panel">
-        <% @posts.each do |post| %>
-          <div class="meshi_wrap">
-            <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
-          </div>
-          <h2><%= post.title %></h2>
-          <p><%= post.body %></p>
-        <% end %>
+      
       </div>
     </div>
   </div>
