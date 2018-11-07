@@ -5,9 +5,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    #全投稿を新着順に表示
+    # 全投稿を新着順に表示(panel1)
     @posts = Post.all.order(created_at: :desc)
-    # @postsrank = Post.all.order(likes.count: :desc)
+    # 全投稿を天晴数順にランキング
+    @rank = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    # @postsrank = Post.all.order(likes: :desc)
     # 天晴している投稿を取り出す(panel3)
     @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
   end

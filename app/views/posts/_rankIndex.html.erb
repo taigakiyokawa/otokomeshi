@@ -1,5 +1,5 @@
-<% @posts.each do |post| %>
-  <% @user = User.find_by(id: post.user_id) %>
+<% @rank.each do |rank| %>
+  <% @user = User.find_by(id: rank.user_id) %>
   <div class="post">
     <div class="post__user--icon">
       <%= image_tag(@user.user_img.url) %>
@@ -8,19 +8,19 @@
     <div class="post__wrap">
       <div class="user-info">
         <h3>称号称号称号称号称号称号称号称号</h3>
-        <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
+        <p class="post__created"><%= rank.created_at.strftime('%m/%d %H:%M') %></p>
         <h2><%= @user.username %></h2>
       </div>
       <div class="meshi_wrap">
-        <%= image_tag(post.meshim.url, :class => "meshi") %>
+        <%= image_tag(rank.meshim.url, :class => "meshi") %>
       </div>
-      <h2 class="post__title"><%= post.title %></h2>
-      <p class="post__body"><%= post.body %></p>
+      <h2 class="post__title"><%= rank.title %></h2>
+      <p class="post__body"><%= rank.body %></p>
       <% if current_user.id == @user.id %>
-        <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
+        <%= link_to '削除', rank, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
       <% end %>
-      <div id="panel2_like_<%=post.id %>">
-        <%= render "likes/like", post: post %>
+      <div id="panel2_like_<%= rank.id %>">
+        <%= render "likes/like", post: rank %>
       </div>
     </div>
   </div>
