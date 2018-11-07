@@ -5,11 +5,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @users = User.search(params[:search])
-    if user_signed_in?
-      @like_hash = Like.where(user_id:current_user.id).pluck(:id,:post_id).to_h
-    end
+    @posts = Post.search(params[:search])
+    @like_hash = Like.where(user_id:current_user.id).pluck(:id,:post_id).to_h
   end
 
   # GET /posts/1
