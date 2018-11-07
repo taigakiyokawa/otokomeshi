@@ -106,3 +106,29 @@ body {
     }
   }
 }
+
+// ランキングのスタイル
+.rank{
+  margin-bottom: 8px;
+  font-size: 24px;
+  p {
+    display: inline-block;
+    font-size: 24px;
+  }
+  &_1{
+    display: inline-block;
+    font-size: 32px;
+    font-weight: $black;
+    color: $accent;
+  }
+  &_2{
+    display: inline-block;
+    font-size: 28px;
+    font-weight: $black;
+  }
+  &_3, &_4, &_5 {
+    font-weight: $black;
+    font-size: 24px;
+    display: inline-block;
+  }
+}

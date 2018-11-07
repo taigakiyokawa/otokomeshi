@@ -1,6 +1,18 @@
-<% @rank.each do |rank| %>
+<%
+def otoconvert(text)
+  text.tr('0123456789', '零壱弐参四伍六七八九十')
+end
+%>
+
+<% @rank.each.with_index(1) do |rank, i| %>
+  <% s = i.to_s %>
   <% @user = User.find_by(id: rank.user_id) %>
   <div class="post">
+    <div class="rank">
+      <p>第</p>
+      <div class="rank_<%= i %>"><%= otoconvert(s) %></div>
+      <p>位</p>
+    </div>
     <div class="post__user--icon">
       <%= image_tag(@user.user_img.url) %>
     </div>
@@ -25,3 +37,4 @@
     </div>
   </div>
 <% end %>
+
