@@ -25,10 +25,10 @@ module ShogosHelper
 
         if shogo = user.shogos.find_by(user_id: user.id)
             if not shogo.status == likes_total
-                @shogo = Shogo.update user_id: user.id, status: likes_total
+                @shogo = Shogo.update(user_id: user.id, status: likes_total)
             end
         else
-            @shogo = Shogo.create user_id: user.id, status: likes_total
+            @shogo = Shogo.create(user_id: user.id, status: likes_total)
         end
 
         if likes_total < 1
@@ -41,4 +41,18 @@ module ShogosHelper
             return "横綱"
         end
     end
+
+    def get_shogo_name(shogo)
+        if shogo.status < 2
+            shogo.shogo_name = "新参者"
+        elsif shogo.status < 5
+            shogo.shogo_name = "半人前"
+        elsif shogo.status < 7
+            shogo.shogo_name = "できるヤツ"
+        elsif shogo.status < 10
+            shogo.shogo_name = "公次郎"
+        else
+            shogo.shogo_name = "料理人"
+        end
+        
 end
