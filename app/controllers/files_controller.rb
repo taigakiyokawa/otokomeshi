@@ -3,7 +3,7 @@ class FilesController < ApplicationController
   
   def create
     @user = current_user
-    if @user.update_attributes(user_img: params["/files"])
+    if @user.update_attributes(user_img: params[:user_img])
     end
   end
 

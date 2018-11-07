@@ -2,7 +2,7 @@
 <%= form_for files_path, html: { id: "file_form" } do |f| %>
   <div class="field">
     <%= image_tag current_user.user_img.url, id: :user_image_prev %>
-    <%= f.file_field :user_img, id: :user_image %>
+    <input type="file" id="user_image" name="user_img">
     <div id="ex1" class="modal">
       <div class="modal_block" style="width: 95%; height: 90&" >
         <div class="preview"></div>
