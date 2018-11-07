@@ -1,11 +1,2 @@
 <% @posts = Post.where user_id: user.id %>
-<% likes_total = get_likes_total(user) %>
-<h3>戦闘力: <%= likes_total * 10000 %></h3>
-
-<% if shogo = user.shogos.find_by(user_id: user.id) %>
-    <% if not shogo.status == likes_total %>
-        <% @shogo = Shogo.update user_id: user.id, status: likes_total %>
-    <% end %>
-<% else %>
-    <% @shogo = Shogo.create user_id: user.id, status: likes_total %>
-<% end %>
+<h3>戦闘力: <%= show_shogo(user) * 10000 %></h3>
