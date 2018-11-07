@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <h3><%= "名" %></h3>
-    <!--<%= form.label :title %>-->
-    <%= form.text_field :title %>
+    <!--<%= form.label :final %>-->
+    <!-- <h3><%= "画" %></h3> -->
+    <%= form.file_field :meshim, id: :post_image %>
+    <%= image_tag @post.meshim.url, id: :post_image_prev %>
   </div>
 
   <div class="field">
-    <!--<%= form.label :final %>-->
-    <h3><%= "画" %></h3>
-    <%= image_tag @post.meshim.url, id: :post_image_prev %>
-    <%= form.file_field :meshim, id: :post_image %>
+    <h3><%= "名" %></h3>
+    <!--<%= form.label :title %>-->
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
