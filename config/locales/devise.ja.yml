@@ -80,6 +80,9 @@ ja:
             password:
               blank: 'が入力されてないぞ'
             
+            current_password:
+              blank: 'が入力されてないぞ'
+            
         post:
           attributes:
             title:

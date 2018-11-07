@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   
   has_many :likes, dependent: :destroy
   belongs_to :user
+  default_scope -> { order(created_at: :desc) }
+
 
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
