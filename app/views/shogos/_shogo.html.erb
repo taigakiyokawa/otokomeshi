@@ -5,7 +5,9 @@
         <% likes_total += post.likes.count %>
     <% end %>
     <h3>戦闘力: <%= likes_total * 10000 %></h3>
-    <% @shogo = Shogo.update user_id: user.id, status: likes_total %>
+    <% if not shogo.status == likes_total %>
+        <% @shogo = Shogo.update user_id: user.id, status: likes_total %>
+    <% end %>
     
 
 <% else %>
@@ -17,6 +19,5 @@
     <% end %>
     <h3>戦闘力: <%= likes_total * 10000 %></h3>
     <% @shogo = Shogo.create user_id: user.id, status: likes_total %>
-
 
 <% end %>
