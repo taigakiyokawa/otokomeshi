@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        title: '名'
+    

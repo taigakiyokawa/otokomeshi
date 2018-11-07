@@ -57,6 +57,7 @@ input[type="radio"]{
     text-align:center;
     font-size: 24px;
     font-weight: $black;
+    border-bottom: 5px solid $main;
     cursor:pointer;
     transition:ease 0.2s;
     &:hover{

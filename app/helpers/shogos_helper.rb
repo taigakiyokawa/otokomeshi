@@ -31,15 +31,6 @@ module ShogosHelper
             @shogo = Shogo.create(user_id: user.id, status: likes_total)
         end
 
-        if likes_total < 1
-            return "見習い"
-        elsif likes_total < 2
-            return "新参者"
-        elsif likes_total < 3
-            return "中級者"
-        else
-            return "横綱"
-        end
     end
 
     def get_shogo_name(shogo)
@@ -54,5 +45,6 @@ module ShogosHelper
         else
             shogo.shogo_name = "料理人"
         end
+    end
         
 end
