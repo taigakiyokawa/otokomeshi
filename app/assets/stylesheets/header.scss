@@ -80,6 +80,9 @@ input[type="radio"]{
 }
 #tab2:checked ~ .panel_area #panel2{
   display:block;
+  .post {
+    padding: 0px 16px;
+  }
 }
 
 #tab3:checked ~ .tab_area .tab3_label{

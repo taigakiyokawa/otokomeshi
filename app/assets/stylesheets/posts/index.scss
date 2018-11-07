@@ -32,7 +32,7 @@ body {
         }
 
         .post {
-          padding: 16px;
+          padding: 8px 16px;
           &__user--icon {
             position: absolute;
             display: inline-block;
@@ -109,26 +109,26 @@ body {
 
 // ランキングのスタイル
 .rank{
-  margin-bottom: 8px;
-  font-size: 24px;
-  p {
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: $black;
+  .banzuke {
     display: inline-block;
-    font-size: 24px;
   }
   &_1{
     display: inline-block;
     font-size: 32px;
-    font-weight: $black;
     color: $accent;
   }
   &_2{
     display: inline-block;
-    font-size: 28px;
-    font-weight: $black;
+    font-size: 32px;
   }
   &_3, &_4, &_5 {
-    font-weight: $black;
-    font-size: 24px;
+    font-size: 28px;
     display: inline-block;
+  }
+  &_6, &_7, &_8, &_9, &_10 {
+    display: inline-block;    
   }
 }
