@@ -23,28 +23,31 @@ module ShogosHelper
     def show_shogo_2(user)
         likes_total = get_likes_total(user)
 
-        if shogo = user.shogos.find_by(user_id: user.id)
-            if not shogo.status == likes_total
-                @shogo = Shogo.update(user_id: user.id, status: likes_total)
+        new_name = get_shogo_name(likes_total)
+
+        if now_status = user.shogos.where(user_id: user.id).order(status: :desc).limit(1).pluck(:status)
+            if now_status[0] < likes_total
+                @shogo = Shogo.create(user_id: user.id, status: likes_total, shogo_name: new_name)
             end
         else
-            @shogo = Shogo.create(user_id: user.id, status: likes_total)
+            @shogo = Shogo.create(user_id: user.id, status: likes_total, shogo_name: new_name)
         end
+
+        return new_name
 
     end
 
-    def get_shogo_name(shogo)
-        if shogo.status < 2
-            shogo.shogo_name = "新参者"
-        elsif shogo.status < 5
-            shogo.shogo_name = "半人前"
-        elsif shogo.status < 7
-            shogo.shogo_name = "できるヤツ"
-        elsif shogo.status < 10
-            shogo.shogo_name = "公次郎"
+    def get_shogo_name(status)
+        if status < 2
+            return  "新参者"
+        elsif status < 5
+            return "半人前"
+        elsif status < 7
+            return "できるヤツ"
+        elsif status < 10
+            return "公次郎"
         else
-            shogo.shogo_name = "料理人"
+            return "料理人"
         end
     end
-        
 end
