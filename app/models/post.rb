@@ -12,9 +12,9 @@ class Post < ApplicationRecord
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
       Post.where(['title LIKE ?', "%#{search}%"])
+      Post.where(['body LIKE ?', "%#{search}%"])
     else
       all #全て表示。
     end
   end
-
 end
