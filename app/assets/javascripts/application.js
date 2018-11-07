@@ -17,3 +17,4 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+$(document).on('click.modal', 'input[rel~="modal:close"]', $.modal.close);
