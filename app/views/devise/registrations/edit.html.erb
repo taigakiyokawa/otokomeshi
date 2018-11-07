@@ -6,7 +6,6 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :user_img %><br />
     <%= image_tag current_user.user_img.url, id: :user_image_prev %>
     <%= f.file_field :user_img, id: :user_image %>
   </div>
@@ -26,7 +25,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %>の変更<br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
