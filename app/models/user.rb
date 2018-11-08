@@ -4,13 +4,21 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  validates :username, {presence: true, uniqueness: true, length: {maximum: 16}}
 
+  #登録時にメールアドレスを不要とする
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
   
   has_many :likes, dependent: :destroy
   has_many :posts, dependent: :destroy
 
   mount_uploader :user_img, ImageUploader
-
-  validates :username, {presence: true, length: {maximum: 16}}
   
 end
