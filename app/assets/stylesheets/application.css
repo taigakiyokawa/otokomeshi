@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require cropper/dist/cropper.min.css
+ *= require jquery-modal/jquery.modal.min.css
  *= require_tree .
  *= require_self
  */
