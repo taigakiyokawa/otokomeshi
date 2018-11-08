@@ -20,19 +20,19 @@ header {
   }
   .my_page {
     float: left;
-    padding-left: 10px;
+    padding-left: 8px;
   }
   .logo {
     height: $header;
-    padding-top: 10px;
+    padding-top: 8px;
   }
-  .new {
+  .newmeshi {
     float: right;
-    padding-right: 10px;
+    padding-right: 8px;
   }
   .btn {
     height: $header;
-    padding-top: 10px;
+    padding-top: 8px;
   }
 }
 
@@ -52,7 +52,7 @@ input[type="radio"]{
   label {
     width:calc(100%/3);
     display: inline-block;
-    padding-top: 12px;
+    padding-top: 8px;
     color: $border;
     text-align:center;
     font-size: 24px;
@@ -80,6 +80,9 @@ input[type="radio"]{
 }
 #tab2:checked ~ .panel_area #panel2{
   display:block;
+  .post {
+    padding: 0px 16px;
+  }
 }
 
 #tab3:checked ~ .tab_area .tab3_label{

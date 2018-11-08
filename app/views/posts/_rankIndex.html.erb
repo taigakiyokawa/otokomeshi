@@ -1,6 +1,21 @@
-<% @posts.each do |post| %>
-  <% @user = User.find_by(id: post.user_id) %>
+<%
+def otoconvert(text)
+  if text == '10'
+    text.sub(/10/, '拾')
+  else
+    text.tr('0123456789', '零壱弐参四伍六七八九')
+  end
+end
+%>
+
+<% @rank.each.with_index(1) do |rank, i| %>
+  <% s = i.to_s %>
+  <% @user = User.find_by(id: rank.user_id) %>
   <div class="post">
+    <div class="rank">
+      <div class="rank_<%= i %>"><%= otoconvert(s) %></div>
+      <div class="banzuke">位</div>
+    </div>
     <div class="post__user--icon">
       <%= image_tag(@user.user_img.url) %>
     </div>
@@ -15,16 +30,17 @@
         <h2><%= @user.username %></h2>
       </div>
       <div class="meshi_wrap">
-        <%= image_tag(post.meshim.url, :class => "meshi") %>
+        <%= image_tag(rank.meshim.url, :class => "meshi") %>
       </div>
-      <h2 class="post__title"><%= post.title %></h2>
-      <p class="post__body"><%= post.body %></p>
+      <h2 class="post__title"><%= rank.title %></h2>
+      <p class="post__body"><%= rank.body %></p>
       <% if current_user.id == @user.id %>
-        <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
+        <%= link_to '削除', rank, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
       <% end %>
-      <div id="panel2_like_<%=post.id %>">
-        <%= render "likes/like", post: post %>
+      <div id="panel2_like_<%= rank.id %>">
+        <%= render "likes/like", post: rank %>
       </div>
     </div>
   </div>
 <% end %>
+

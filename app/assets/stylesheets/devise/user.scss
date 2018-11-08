@@ -24,7 +24,7 @@
 }
 .field {
   padding-top: 10px;
-  input {
+  input, textarea {
     border: 1px solid $border;
     background-color: rgba($color: $text, $alpha: 0.7);
     color: $main;
