@@ -27,7 +27,7 @@
         <% if user_signed_in? %>
           <%= link_to image_tag(current_user.user_img.url, :class => "btn user"), edit_user_registration_path, { :class => "my_page" } %>
           <%= link_to image_tag('/assets/logo.svg', :class => "logo"), '/posts', { :class => "logo_link" } %>
-          <%= link_to image_tag('/assets/plus.png', :class => "btn new"), "/users/#{current_user.id}", { :class => "newmeshi" } %>
+          <%= link_to image_tag('/assets/plus.png', :class => "btn new"), new_post_path, { :class => "newmeshi" } %>
         <% end %>
       </header>
       <p class="notice"><%= notice %></p>

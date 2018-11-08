@@ -26,7 +26,7 @@ end
           <%= render "shogo_firsts/shogo_first", user: @user %>
           <%= render "shogos/shogo", user: @user %>
         </h3>
-        <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
+        <p class="post__created"><%= rank.created_at.strftime('%m/%d %H:%M') %></p>
         <h2><%= @user.username %></h2>
       </div>
       <div class="meshi_wrap">
