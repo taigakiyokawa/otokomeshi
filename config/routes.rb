@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'shogo_first/update'
   get 'shogos/update'
   get 'shogos/create'
-  get 'shogos/get_likes_total'
   resources :posts
 
   post   '/like/:post_id' => 'likes#like',   as: 'like'
