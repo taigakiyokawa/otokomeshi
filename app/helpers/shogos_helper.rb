@@ -10,23 +10,11 @@ module ShogosHelper
 
     def show_shogo(user)
         likes_total = get_likes_total(user)
-        if shogo = user.shogos.find_by(user_id: user.id)
-            if not shogo.status == likes_total
-                @shogo = Shogo.update user_id: user.id, status: likes_total
-            end
-        else
-            @shogo = Shogo.create user_id: user.id, status: likes_total
-        end
-        return likes_total
-    end
-
-    def show_shogo_2(user)
-        likes_total = get_likes_total(user)
 
         new_name = get_shogo_name(likes_total)
 
-        if now_status = user.shogos.where(user_id: user.id).order(status: :desc).limit(1).pluck(:status)
-            if now_status[0] < likes_total
+        if now_status = Shogo.where(user_id: user.id).maximum(:status)
+            if now_status < likes_total
                 @shogo = Shogo.create(user_id: user.id, status: likes_total, shogo_name: new_name)
             end
         else
