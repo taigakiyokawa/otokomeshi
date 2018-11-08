@@ -11,6 +11,6 @@ class User < ApplicationRecord
 
   mount_uploader :user_img, ImageUploader
 
-  validates :username, {length: {maximum: 16}}
+  validates :username, {presence: true, length: {maximum: 16}}
   
 end
