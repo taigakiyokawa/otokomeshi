@@ -37,9 +37,8 @@ class ShogosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
    
-
     def post_params
-      params.require(:shogo).permit(:user_id, :status)
+      params.require(:shogo).permit(:user_id, :status, :shogo_name)
     end
   
 end

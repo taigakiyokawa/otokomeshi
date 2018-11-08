@@ -1,2 +1,3 @@
 <% @posts = Post.where user_id: user.id %>
-<h3>戦闘力: <%= show_shogo(user) * 10000 %></h3>
+<%# <h3>戦闘力: <%= show_shogo(user) * 10000 %>
+<%= show_shogo_2(user) %>

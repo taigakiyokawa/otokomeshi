@@ -19,4 +19,35 @@ module ShogosHelper
         end
         return likes_total
     end
+
+    def show_shogo_2(user)
+        likes_total = get_likes_total(user)
+
+        new_name = get_shogo_name(likes_total)
+
+        if now_status = user.shogos.where(user_id: user.id).order(status: :desc).limit(1).pluck(:status)
+            if now_status[0] < likes_total
+                @shogo = Shogo.create(user_id: user.id, status: likes_total, shogo_name: new_name)
+            end
+        else
+            @shogo = Shogo.create(user_id: user.id, status: likes_total, shogo_name: new_name)
+        end
+
+        return new_name
+
+    end
+
+    def get_shogo_name(status)
+        if status < 2
+            return  "新参者"
+        elsif status < 5
+            return "半人前"
+        elsif status < 7
+            return "できるヤツ"
+        elsif status < 10
+            return "公次郎"
+        else
+            return "料理人"
+        end
+    end
 end
