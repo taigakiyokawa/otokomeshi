@@ -1,8 +1,9 @@
 <div class="container">
 
 <h2>編 集 <%= resource_name.to_s.humanize %></h2>
-
-<%= render 'files' %>
+<div id="user_image_form">
+  <%= render 'files' %>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
   <%= devise_error_messages! %>
@@ -54,67 +55,3 @@
 
 <%= link_to "戻る", :back %>
 </div>
-
-<script type="text/javascript">
-$(function() {
- function readURL(input) {
-   if (input.files && input.files[0]) {
-     var reader = new FileReader();
-     reader.onload = function (e) {
-       $(".preview").empty();
-       $(".preview").append($('<img>').attr({
-          src: e.target.result,
-          width: "100px",
-          height: "100px",
-          id: "image_preview",
-       }));
-       $("#image_preview").cropper({
-         aspectRatio: 4/4
-       });
-       $(".modal").modal({
-         clickClose: false,
-       });
-     }
-     reader.readAsDataURL(input.files[0]);
-   }
- }
- $("#user_image").change(function(){
-   readURL(this);
- });
-});
-$("#getData").on('click', function(){
-  var data = $('#image_preview').cropper('getData');
-  $('#x').val(Math.round(data.x))
-  $('#y').val(Math.round(data.y))
-  $('#width').val(Math.round(data.x))
-  $('#height').val(Math.round(data.x))
-  var form = $('#file_form').get()[0];
-  console.log(form);
-  var formData = new FormData( form );
-  console.log(formData);
-  $.ajax({
-    url: '/files',
-    type: 'post',
-    dataType: 'json',
-    // dataに FormDataを指定
-    data: formData,
-    // Ajaxがdataを整形しない指定
-    processData: false,
-    // contentTypeもfalseに指定
-    contentType: false,
-    beforeSend: function(request) {
-        return request.setRequestHeader('X-CSRF-Token',  $('[name="csrf-token"]')[0].content);
-    },
-    }).done(function( res ) {
-      // 送信せいこう！
-      console.log( 'SUCCESS', res );
-    }).fail(function( jqXHR, textStatus, errorThrown ) {
-      // しっぱい！
-      console.log( 'ERROR', jqXHR, textStatus, errorThrown );
-    });
-
-});
-$('.modal').on($.modal.BEFORE_CLOSE, function(event, modal){
-  $("#user_image").val('');
-});
-</script>

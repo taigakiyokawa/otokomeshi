@@ -1,8 +1,10 @@
-
+<!-- このファイルがユーザ画像のフォーム。
+    このフォームは、files_controllerのcreateアクションに送信されます。(files_controllerは追加しました。実際は、うまくやればdevise_controllerでもいけます。)-->
 <%= form_for files_path, html: { id: "file_form" } do |f| %>
   <div class="field">
     <%= image_tag current_user.user_img.url, id: :user_image_prev %>
     <input type="file" id="user_image" name="user_img">
+    <!-- 今回のトリミング画面は、モーダルで行ってて、jquery-modalっていうnpmのパッケージを使ってます。-->
     <div id="ex1" class="modal">
       <div class="modal_block" style="width: 95%; height: 90&" >
         <div class="preview"></div>
@@ -11,9 +13,85 @@
         rel="modal:close">
       </div>
     </div>
+
+    <!-- トリミングを行なった情報をサーバに送信するためのhiddenフィールド。
+         これがないと、サーバにデータを送信できなかったため追加。-->
     <input type="hidden" name="x" id="x">
     <input type="hidden" name="y" id="y">
     <input type="hidden" name="width" id="widht">
     <input type="hidden" name="height" id="height">
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       // 前回のプレビューの削除
+       $(".preview").empty();
+       // プレビューの表示。widthとheightは、画像の大きさを指定できます。
+       $(".preview").append($('<img>').attr({
+          src: e.target.result,
+          width: "100px",
+          height: "100px",
+          id: "image_preview",
+       }));
+       // 画像をトリミングするときの比率
+       $("#image_preview").cropper({
+         aspectRatio: 4/4
+       });
+       // jquery-modalの表示。clickCloseはオプションで、他にも色々あると思う。
+       $(".modal").modal({
+         clickClose: false,
+       });
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#user_image").change(function(){
+   readURL(this);
+ });
+});
+
+// モーダルの変更ボタンを押したときの処理。
+
+$("#getData").on('click', function(){
+  // トリミングデータの取得と、フォームの角hidden_fieldに値を代入。
+  var data = $('#image_preview').cropper('getData');
+  $('#x').val(Math.round(data.x))
+  $('#y').val(Math.round(data.y))
+  $('#width').val(Math.round(data.x))
+  $('#height').val(Math.round(data.x))
+  var form = $('#file_form').get()[0];
+  var formData = new FormData( form );
+  $.ajax({
+    url: '/files',
+    type: 'post',
+    dataType: 'json',
+    // dataに FormDataを指定
+    data: formData,
+    // Ajaxがdataを整形しない指定
+    processData: false,
+    // contentTypeもfalseに指定
+    contentType: false,
+    beforeSend: function(request) {
+        return request.setRequestHeader('X-CSRF-Token',  $('[name="csrf-token"]')[0].content);
+    },
+    }).done(function( res ) {
+      // 送信せいこう！
+      console.log( 'SUCCESS', res );
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+      // しっぱい！
+      console.log( 'ERROR', jqXHR, textStatus, errorThrown );
+    });
+
+});
+
+// モーダルがクローズされるときの処理。
+$('.modal').on($.modal.BEFORE_CLOSE, function(event, modal){
+  $("#user_image").val('');
+});
+</script>
