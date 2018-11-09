@@ -15,7 +15,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "default_icon.jpeg"
+    "default_icon.png"
   end
 
   def crop

@@ -1,0 +1,6 @@
+<div id="nav-search">
+  <%= form_for posts_path, method: "get", remote: true do |f| %>
+    <%= f.text_field :search %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
