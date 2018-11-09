@@ -6,7 +6,7 @@
     <input type="file" id="user_image" name="user_img">
     <!-- 今回のトリミング画面は、モーダルで行ってて、jquery-modalっていうnpmのパッケージを使ってます。-->
     <div id="ex1" class="modal">
-      <div class="modal_block" style="width: 95%; height: 90&" >
+      <div class="modal_block" style="width: 95%; height: 90%" >
         <div class="preview"></div>
         <input type="file" id="image_file" style="display:none;">
         <input type="button" id="getData" value="変更" style="display: block; width: 100%" 
@@ -18,7 +18,7 @@
          これがないと、サーバにデータを送信できなかったため追加。-->
     <input type="hidden" name="x" id="x">
     <input type="hidden" name="y" id="y">
-    <input type="hidden" name="width" id="widht">
+    <input type="hidden" name="width" id="width">
     <input type="hidden" name="height" id="height">
   </div>
 <% end %>
@@ -35,8 +35,8 @@ $(function() {
        // プレビューの表示。widthとheightは、画像の大きさを指定できます。
        $(".preview").append($('<img>').attr({
           src: e.target.result,
-          width: "100px",
-          height: "100px",
+          width: "160px",
+          height: "160px",
           id: "image_preview",
        }));
        // 画像をトリミングするときの比率
@@ -61,10 +61,10 @@ $(function() {
 $("#getData").on('click', function(){
   // トリミングデータの取得と、フォームの角hidden_fieldに値を代入。
   var data = $('#image_preview').cropper('getData');
-  $('#x').val(Math.round(data.x))
-  $('#y').val(Math.round(data.y))
-  $('#width').val(Math.round(data.x))
-  $('#height').val(Math.round(data.x))
+  $('#x').val(data.x)
+  $('#y').val(data.y)
+  $('#width').val(data.x)
+  $('#height').val(data.x)
   var form = $('#file_form').get()[0];
   var formData = new FormData( form );
   $.ajax({

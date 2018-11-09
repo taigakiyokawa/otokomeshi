@@ -1,11 +1,12 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
+  process :crop
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -17,6 +18,16 @@ class ImageUploader < CarrierWave::Uploader::Base
     "default.jpg"
   end
 
+  def crop
+    return unless model.x.present?
+    manipulate! do |img|
+      img.auto_orient
+      img.strip
+      img.crop "#{model.width}x#{model.height}+#{model.x}+#{model.y}"
+      img = yield(img) if block_given?
+      p img
+    end
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:

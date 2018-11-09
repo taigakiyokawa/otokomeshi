@@ -66,3 +66,6 @@ gem 'carrierwave'
 
 #ログイン・ログアウト機能
 gem 'devise'
+
+# 画像処理
+gem 'mini_magick'

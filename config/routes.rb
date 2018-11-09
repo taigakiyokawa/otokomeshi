@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
     :passwords => 'users/passwords'
-   }
+  }
+
+  get 'users' => 'users#index'
+  get 'users/:id' => 'users#show'
 
   get "/" => "home#top"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
