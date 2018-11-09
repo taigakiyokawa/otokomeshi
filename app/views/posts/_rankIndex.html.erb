@@ -7,14 +7,6 @@ def otoconvert(text)
   end
 end
 %>
-<div id="nav-search">
-<%= form_tag posts_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "検索", :name => nil %>
-  </p>
-<% end %>
-</div>
 <% @rank.each.with_index(1) do |rank, i| %>
   <% s = i.to_s %>
   <% @user = User.find_by(id: rank.user_id) %>

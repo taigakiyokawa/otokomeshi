@@ -10,7 +10,8 @@ class PostsController < ApplicationController
     # 全投稿を天晴数順にランキング(panel2)
     @rank = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
     # 天晴している投稿を取り出す(panel3)
-    @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
+    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    # @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   # GET /posts/1
