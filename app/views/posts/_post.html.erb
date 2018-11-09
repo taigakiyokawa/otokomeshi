@@ -21,7 +21,7 @@
       <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
     <% end %>
     <div id="<%= locals[:panel] %>_like_<%=post.id %>">
-      <%= render "likes/like", post: post%>
+      <%= render "likes/like", post: post %>
     </div>
   </div>
 </div>
