@@ -1,61 +1,54 @@
-<div class="container">
+<div class="top">
+  <div class="top__container">
+    <div class="form__wrapper">
+      <h2>編 集</h2>
+      <div id="user_image_form">
+        <%= render 'files' %>
+      </div>
 
-<h2>編 集 <%= resource_name.to_s.humanize %></h2>
-<div id="user_image_form">
-  <%= render 'files' %>
-</div>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
+        <%= devise_error_messages! %>
 
 
-  <div class="field">
-    <%= f.label :username %>(十六文字以内)<br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-  </div>
+        <div class="field">
+          <%= f.label :username %>(十六文字以内)<br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password %>の変更<br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+        <div class="field">
+          <%= f.label :password %>の変更<br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>あかうんとの削除 <%= button_to "破門", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to 'ろぐあうと', destroy_user_session_path, method: :delete %>
-
-<%= link_to "戻る", :back %>
-
-  <h3><i class="fa fa-crop"></i> cropperのデモ </h3>
-  <!-- 切り抜きボタン -->
-  <a id="getData" class="btn btn-primary">Get Data</a>
-  <br><br>
-  <div class="cropper-example-1">
-    <!-- bladeテンプレートを使用していれば asset()や url() 関数が使えます -->
-    <%= image_tag '/assets/Fugaku36_bg.png', id: 'img', class: 'img-responsive', alt: ''%>
+        <div class="field">
+          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+        <div class="back-or-action">
+          <div class="back">
+            <%= link_to "戻る", :back %>
+          </div>
+          <div class="actions">
+            <%= f.submit "更新" %>
+          </div>
+        </div>
+      <% end %>
+   </div>
   </div>
 </div>
+<%= button_to "破門", registration_path(resource_name), data: { confirm: "貴様!! 辞めるつもりかッッ!!!" }, method: :delete %>
+
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

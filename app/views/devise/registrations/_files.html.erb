@@ -61,10 +61,10 @@ $(function() {
 $("#getData").on('click', function(){
   // トリミングデータの取得と、フォームの角hidden_fieldに値を代入。
   var data = $('#image_preview').cropper('getData');
-  $('#x').val(data.x)
-  $('#y').val(data.y)
-  $('#width').val(data.x)
-  $('#height').val(data.x)
+  $('#x').val(Math.round(data.x))
+  $('#y').val(Math.round(data.y))
+  $('#width').val(Math.round(data.width))
+  $('#height').val(Math.round(data.width))
   var form = $('#file_form').get()[0];
   var formData = new FormData( form );
   $.ajax({

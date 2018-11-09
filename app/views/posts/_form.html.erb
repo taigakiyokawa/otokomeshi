@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="field">
-    <!--<%= form.label :final %>-->
-    <!-- <h3><%= "画" %></h3> -->
-    <%= form.file_field :meshim, id: :post_image %>
+    <label for="file">
+      <%= form.file_field :meshim, id: :post_image %>
+    </label>
     <%= image_tag @post.meshim.url, id: :post_image_prev %>
   </div>
 
@@ -30,9 +30,15 @@
     <%= form.text_area :body %>
   </div>
 
-  <div class="actions">
-    <%= form.submit "完 了" %>
+  <div class="back-or-action">
+    <div class="back">
+      <%= link_to "戻る", posts_path, { :class => "file" } %>
+    </div>
+    <div class="actions">
+      <%= form.submit "完 了" %>
   </div>
+  </div>
+  
 <% end %>
 
 <script type="text/javascript">
