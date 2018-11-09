@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        title: '名'
+        meshim: '画'
+
+      user:
+        current_password: '現在の合言葉'

@@ -1,0 +1,105 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 投稿一覧(posts/index)のスタイル
+
+@import "variables";
+
+body {
+  background-color: $base;
+  color: $text;
+}
+
+.tab_wrap {
+  width:100%;
+}
+.panel_area {
+  background-color: $base;
+  color: $text;
+}
+
+.tab_panel {
+  width:100%;
+  padding:10px 0;
+  display:none;
+  h2 {
+    font-size: 24px;
+  }
+  p{
+    font-size:14px;
+    text-align: left;
+  }
+}
+
+.meshi {
+  width: 100%;
+}
+
+
+.index_container {
+  width: 100%;
+  margin-top: 100px;
+}
+
+.appare {
+  float: left;
+  button {
+    border: none;
+    padding: 0;
+    background-color: $base;
+  }
+  img {
+    width: 32px;
+  }
+}
+
+.button_to {
+  display: inline-block;
+}
+
+.post {
+  padding: 16px;
+  &__user--icon {
+    position: absolute;
+    display: inline-block;
+    img {
+      height: 48px;
+    }
+  }
+
+  &__wrap {
+    margin-left: 53px;
+    display: inline-block;
+    .user-info {
+      height: 48px;
+      margin-bottom: 8px;
+      h3 {
+        display: inline-block;
+        font-size: 12px;
+        padding: 4px;
+        background-color: $accent;
+      }
+      h2 {
+        font-size: 16px;
+      }
+    }
+    h2.post__title {
+      border-bottom: 1px solid $accent;
+      margin-bottom: 4px;
+    }
+    p.post__body {
+      margin-bottom: 4px;      
+    }
+    p.post__created {
+      color: lighten($color: $border, $amount: 20%);
+      display: inline-block;
+      line-height: 25px;
+      float: right;
+    }
+    .appare-count {
+      display: inline-block;
+      line-height: 32px;
+    }
+  }
+}

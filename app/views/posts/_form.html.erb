@@ -1,0 +1,53 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h3><%= "名" %></h3>
+    <!--<%= form.label :title %>-->
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <!--<%= form.label :final %>-->
+    <h3><%= "画" %></h3>
+    <%= image_tag @post.meshim.url, id: :post_image_prev %>
+    <%= form.file_field :meshim, id: :post_image %>
+  </div>
+
+  <div class="field">
+    <!--<%= form.label :final %>-->
+    <h3><%= "作り方" %></h3>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "完 了" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#post_image_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#post_image").change(function(){
+   readURL(this);
+ });
+});
+</script>

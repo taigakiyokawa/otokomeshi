@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+  /*
+深緋 #c9171e
+墨　#1C1C1C
+鈍 #656765
+白練 #FCFAF2
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Serif JP', sans-serif;
+}
+h1, h2, h3, p {
+    margin: 0px;
+}
+body {
+    font-size: 16px;
+    margin: 0px;
+}
+a {
+    text-decoration: none;
+    display: block;
+}
+a:any-link {
+    color: #FCFAF2;
+}
+
+ p {
+     color: #FCFAF2;
+ }
+
+.notice {
+    display: none;
+}
+.alert {
+    display: none;
+}
+
