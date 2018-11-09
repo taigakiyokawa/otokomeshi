@@ -1,46 +1,42 @@
-<div class="top">
-  <div class="top__container">
-    <div class="form__wrapper">
-      <h2>編 集</h2>
-      <div id="user_image_form">
-        <%= render 'files' %>
-      </div>
+<div class="container">
+  <h2>編 集</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
-        <%= devise_error_messages! %>
+  <%= devise_error_messages! %>
 
-
-        <div class="field">
-          <%= f.label :username %>(十六文字以内)<br />
-          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-        </div>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <div class="field">
-          <%= f.label :password %>の変更<br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-
-        <div class="back-or-action">
-          <div class="back">
-            <%= link_to "戻る", posts_path %>
-          </div>
-          <div class="actions">
-            <%= f.submit "更新" %>
-          </div>
-        </div>
-      <% end %>
-   </div>
+  <div id="user_image_form">
+    <%= render 'files' %>
   </div>
-</div>
-<%= button_to "破門", registration_path(resource_name), data: { confirm: "貴様!! 辞めるつもりかッッ!!!" }, method: :delete %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
 
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <div class="field">
+      <%= f.label :username %>(十六文字以内)<br />
+      <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :password %>の変更<br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="destroy_user">
+      <%= button_to "破門", registration_path(resource_name), data: { confirm: "貴様!! 辞めるつもりかッッ!!!" }, method: :delete %>
+    </div>
+    <div class="back-or-action">
+      <div class="back">
+        <%= link_to "戻る", posts_path %>
+      </div>
+      <div class="actions">
+        <%= f.submit "更新" %>
+      </div>
+    </div>
+  <% end %>
+</div>

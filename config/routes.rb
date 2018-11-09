@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     :passwords => 'users/passwords'
   }
 
-  get 'users' => 'users#index'
+  get 'users/index' => 'users#index'
   get 'users/:id' => 'users#show'
 
   get "/" => "home#top"

@@ -19,20 +19,14 @@ header {
     }
   }
   .my_page {
-    display: none;
     float: left;
     padding-left: 8px;
   }
   .logo {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    -webkit-transform: translate(-50%);
     height: $header;
     padding-top: 8px;
   }
   .newmeshi {
-    display: none;
     float: right;
     padding-right: 8px;
   }

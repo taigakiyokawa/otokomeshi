@@ -2,8 +2,10 @@
     このフォームは、files_controllerのcreateアクションに送信されます。(files_controllerは追加しました。実際は、うまくやればdevise_controllerでもいけます。)-->
 <%= form_for files_path, html: { id: "file_form" } do |f| %>
   <div class="field">
-    <%= image_tag current_user.user_img.url, id: :user_image_prev %>
-    <input type="file" id="user_image" name="user_img">
+    <label for="user_image">
+      <input type="file" id="user_image" name="user_img">
+      <%= image_tag current_user.user_img.url, id: :user_image_prev %>
+    </label>
     <!-- 今回のトリミング画面は、モーダルで行ってて、jquery-modalっていうnpmのパッケージを使ってます。-->
     <div id="ex1" class="modal">
       <div class="modal_block" style="width: 95%; height: 90%" >

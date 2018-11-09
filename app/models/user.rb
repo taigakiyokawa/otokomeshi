@@ -15,6 +15,12 @@ class User < ApplicationRecord
   def email_changed?
     false
   end
+
+  # @return [Boolean] cookieを使いログイン情報を保持するかどうか -> ここではtrue
+  # この3行を付け足せばokです
+  def remember_me
+    true
+  end
   
   attr_accessor :x, :y, :width, :height
 

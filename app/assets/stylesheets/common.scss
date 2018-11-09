@@ -1,0 +1,85 @@
+// 共通要素を書いていくファイル
+@import "variables";
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+  &[type="submit"] {
+    border-style: none;
+    font-weight: $black;
+    padding: 8px 24px;
+    background-color: rgba($color: $accent, $alpha: 0.7);
+    color: $text;
+    &:hover {
+      background-color: $accent;
+      transition: 0.5s;
+    }
+  }
+}
+input[type="text"], input[type="password"], textarea {
+  width: 100%;
+  font-size: 16px;
+  color: $text;
+  border: 1px solid $text;
+  background-color: rgba($color: $main, $alpha: 0);
+  padding: 8px;
+}
+.field {
+  position: relative;
+  padding-top: 16px;
+}
+label > input {
+  display: none;
+}
+label {
+  cursor: pointer;
+  &:hover, &:active {
+    img {
+      opacity: 0.3;
+    }
+  }
+}
+
+#error_explanation {
+  font-weight: $black;
+  background-color: $accent;
+  width: 100%;
+  h2 {
+    display: none;
+  }
+}
+
+.container {
+  position: relative;
+  padding: 72px 16px;
+  img{
+    width: 100%;
+  }
+
+  // left: back, right: OK 親要素の右下に配置
+  .back-or-action {
+    position: absolute;
+      right: 16px;
+      bottom: 0;
+    .back {
+      display: inline-block;
+      margin-right: 16px;
+      a {
+        font-size: 24px;
+        font-weight: $black;
+        background-color: rgba($color: $text, $alpha: 0.7);
+        padding: 8px 24px;
+        color: $base;
+      }
+    }
+    .actions {
+      display: inline-block;
+      input {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+
+

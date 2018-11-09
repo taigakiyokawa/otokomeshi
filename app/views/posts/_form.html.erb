@@ -12,10 +12,13 @@
   <% end %>
 
   <div class="field">
-    <label for="file">
+    <label for="post_image">
       <%= form.file_field :meshim, id: :post_image %>
+      <div class="select-file">
+        <%= image_tag @post.meshim.url, id: :post_image_prev %>
+      </div>
     </label>
-    <%= image_tag @post.meshim.url, id: :post_image_prev %>
+    
   </div>
 
   <div class="field">
@@ -27,7 +30,7 @@
   <div class="field">
     <!--<%= form.label :final %>-->
     <h3><%= "作り方(四十文字以内)" %></h3>
-    <%= form.text_area :body %>
+    <%= form.text_area :body,  size: "20x3"%>
   </div>
 
   <div class="back-or-action">

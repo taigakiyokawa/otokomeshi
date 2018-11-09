@@ -65,7 +65,7 @@ ja:
       user:
         name: 名前
         password: 合言葉
-        password_confirmation: "変更する合言葉の確認"
+        password_confirmation: "合言葉の確認"
         email: メールアドレス
         remember_me: 'ろぐいんを記憶する'
         username: '貴様ノ名'
@@ -81,6 +81,7 @@ ja:
             
             password:
               blank: 'が入力されてないぞ'
+              too_short: 'を一文字以上入れろ'
             
             current_password:
               blank: 'が入力されてないぞ'
