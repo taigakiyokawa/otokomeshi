@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>
+    <%= render "shogo_firsts/shogo_first", user: @user %>
+    <%= render "shogos/shogo", user: @user %>
+  </h3>
+  <%= @user.username %>
+  <%= image_tag(@user.user_img.url) %>
+  <%# <%= @shogo.status %> %>
+</div>

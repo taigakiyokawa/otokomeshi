@@ -1,0 +1,4 @@
+$("#panel1_like_<%=@post.id %>").html('<%= escape_javascript(render("likes/like", post: @post  )) %>');
+$("#panel2_like_<%=@post.id %>").html('<%= escape_javascript(render("likes/like", post: @post  )) %>');
+$("#panel3_like_<%=@post.id %>").html('<%= escape_javascript(render("likes/like", post: @post  )) %>');
+$("#panel3").html('<%= escape_javascript(render("posts/appareIndex")) %>');

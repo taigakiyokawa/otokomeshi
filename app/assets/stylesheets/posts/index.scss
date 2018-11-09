@@ -11,95 +11,124 @@ body {
   color: $text;
 }
 
-.tab_wrap {
-  width:100%;
-}
-.panel_area {
-  background-color: $base;
-  color: $text;
-}
-
-.tab_panel {
-  width:100%;
-  padding:10px 0;
-  display:none;
-  h2 {
-    font-size: 24px;
-  }
-  p{
-    font-size:14px;
-    text-align: left;
-  }
-}
-
-.meshi {
-  width: 100%;
-}
-
-
 .index_container {
   width: 100%;
   margin-top: 100px;
-}
 
-.appare {
-  float: left;
-  button {
-    border: none;
-    padding: 0;
-    background-color: $base;
-  }
-  img {
-    width: 32px;
-  }
-}
+  .tab_wrap {
+    width:100%;
 
-.button_to {
-  display: inline-block;
-}
+    .panel_area {
+      background-color: $base;
+      color: $text;
 
-.post {
-  padding: 16px;
-  &__user--icon {
-    position: absolute;
-    display: inline-block;
-    img {
-      height: 48px;
-    }
-  }
+      .tab_panel {
+        width:100%;
+        padding:10px 0;
+        display:none;
+        p{
+          font-size:14px;
+          text-align: left;
+        }
 
-  &__wrap {
-    margin-left: 53px;
-    display: inline-block;
-    .user-info {
-      height: 48px;
-      margin-bottom: 8px;
-      h3 {
-        display: inline-block;
-        font-size: 12px;
-        padding: 4px;
-        background-color: $accent;
+        .post {
+          padding: 8px 16px;
+          &__user--icon {
+            position: absolute;
+            display: inline-block;
+            img {
+              height: 48px;
+            }
+          }
+          &__wrap {
+            margin-left: 53px;
+            display: inline-block;
+            .user-info {
+              height: 48px;
+              margin-bottom: 8px;
+              h3 {
+                display: inline-block;
+                font-size: 12px;
+                padding: 4px;
+                background-color: $accent;
+              }
+              p.post__created {
+                color: lighten($color: $border, $amount: 20%);
+                display: inline-block;
+                line-height: 25px;
+                float: right;
+              }
+              h2 {
+                font-size: 16px;
+              }
+            }
+            .meshi {
+              width: 100%;
+              max-width: 560px;
+            }
+            h2.post__title {
+              border-bottom: 1px solid $accent;
+              margin-bottom: 4px;
+            }
+            p.post__body {
+              margin-bottom: 4px;
+            }
+            .delete-btn {
+              float: right;
+              font-size: 12px;
+              line-height: 32px;
+              padding: 0 10px;
+              background-color: $border;
+
+            }
+            .appare {
+              float: left;
+              .button_to {
+                display: inline-block;
+                button {
+                  border: none;
+                  padding: 0;
+                  background-color: $base;
+                }
+                img {
+                  width: 32px;
+                }
+                .appare-count {
+                  display: inline-block;
+                  line-height: 32px;
+                  padding-left: 10px;
+                }
+              }
+            }
+          }
+        }
       }
-      h2 {
-        font-size: 16px;
-      }
     }
-    h2.post__title {
-      border-bottom: 1px solid $accent;
-      margin-bottom: 4px;
-    }
-    p.post__body {
-      margin-bottom: 4px;      
-    }
-    p.post__created {
-      color: lighten($color: $border, $amount: 20%);
-      display: inline-block;
-      line-height: 25px;
-      float: right;
-    }
-    .appare-count {
-      display: inline-block;
-      line-height: 32px;
-    }
+  }
+}
+
+// ランキングのスタイル
+.rank{
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: $black;
+  .banzuke {
+    display: inline-block;
+  }
+  &_1{
+    display: inline-block;
+    font-size: 32px;
+    color: $accent;
+  }
+  &_2{
+    display: inline-block;
+    font-size: 32px;
+  }
+  &_3, &_4, &_5 {
+    font-size: 28px;
+    display: inline-block;
+  }
+  &_6, &_7, &_8, &_9, &_10 {
+    display: inline-block;    
   }
 }

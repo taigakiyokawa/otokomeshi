@@ -5,8 +5,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    # 全投稿を新着順に表示(panel1)
     @posts = Post.search(params[:search])
-    @like_hash = Like.where(user_id:current_user.id).pluck(:id,:post_id).to_h
+    # 全投稿を天晴数順にランキング(panel2)
+    @rank = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    # 天晴している投稿を取り出す(panel3)
+    @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   # GET /posts/1
@@ -31,7 +35,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

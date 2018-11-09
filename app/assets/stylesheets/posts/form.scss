@@ -2,13 +2,19 @@
 
 .container {
   width: 100%;
-  padding: 8vh 12vw;
+  padding: 50px 20px;
   img {
     width: 100%;
   }
   textarea {
     width: 100%;
     font-size: 16px;
+  }
+  h1 {
+    border-bottom: 2px solid $accent;
+  }
+  h2 {
+    font-size: 20px;
   }
   h3 {
     font-size: 16px;

@@ -4,9 +4,10 @@
       <h2 class="form-title">ろ ぐ い ん</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
         <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
         </div>
 
         <div class="field">

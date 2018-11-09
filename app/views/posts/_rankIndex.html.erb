@@ -1,0 +1,53 @@
+<%
+def otoconvert(text)
+  if text == '10'
+    text.sub(/10/, '拾')
+  else
+    text.tr('0123456789', '零壱弐参四伍六七八九')
+  end
+end
+%>
+<div id="nav-search">
+<%= form_tag posts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "検索", :name => nil %>
+  </p>
+<% end %>
+</div>
+<% @rank.each.with_index(1) do |rank, i| %>
+  <% s = i.to_s %>
+  <% @user = User.find_by(id: rank.user_id) %>
+  <div class="post">
+    <div class="rank">
+      <div class="rank_<%= i %>"><%= otoconvert(s) %></div>
+      <div class="banzuke">位</div>
+    </div>
+    <div class="post__user--icon">
+      <%= image_tag(@user.user_img.url) %>
+    </div>
+        
+    <div class="post__wrap">
+      <div class="user-info">
+        <h3>
+          <%= render "shogo_firsts/shogo_first", user: @user %>
+          <%= render "shogos/shogo", user: @user %>
+        </h3>
+        <p class="post__created"><%= rank.created_at.strftime('%m/%d %H:%M') %></p>
+        <h2><%= @user.username %></h2>
+      </div>
+      <div class="meshi_wrap">
+        <%= image_tag(rank.meshim.url, :class => "meshi") %>
+      </div>
+      <h2 class="post__title"><%= rank.title %></h2>
+      <p class="post__body"><%= rank.body %></p>
+      <% if current_user.id == @user.id %>
+        <%= link_to '削除', rank, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
+      <% end %>
+      <div id="panel2_like_<%= rank.id %>">
+        <%= render "likes/like", post: rank %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

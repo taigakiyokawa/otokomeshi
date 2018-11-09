@@ -65,15 +65,17 @@ ja:
       user:
         name: 名前
         password: 合言葉
-        password_confirmation: 合言葉の確認
+        password_confirmation: "変更する合言葉の確認"
         email: メールアドレス
         remember_me: 'ろぐいんを記憶する'
-        username: 俺ノ名
-        user_img: 俺ノ画
+        username: '貴様ノ名'
+        user_img: '我ノ画'
     errors:
       models:
         user:
           attributes:
+            username:
+              blank: "を入力しろ"
             email:
               blank: 'が入力されてないぞ' 
             
@@ -82,6 +84,7 @@ ja:
             
             current_password:
               blank: 'が入力されてないぞ'
+              invalid: "が違うぞ"
             
         post:
           attributes:

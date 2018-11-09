@@ -12,63 +12,13 @@
 
     <div class="panel_area">
       <div id="panel1" class="tab_panel">
-        <div id="nav-search">
-          <%= form_tag posts_path, :method => 'get' do %>
-            <p>
-              <%= text_field_tag :search, params[:search] %>
-              <%= submit_tag "検索", :name => nil %>
-            </p>
-          <% end %>
-
-        </div>
-        <% @posts.each do |post| %>
-          <div class="post">
-            <% @user = User.find_by(id: post.user_id) %>
-            <div class="post__user--icon">
-              <%= image_tag(@user.user_img.url) %>
-            </div>
-                
-            <div class="post__wrap">
-              <div class="user-info">
-                <h3>称号称号称号称号称号称号称号称号</h3>
-                <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
-                <h2><%= @user.username %></h2>
-              </div>
-                
-              <div class="meshi_wrap">
-                <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
-              </div>
-              <h2 class="post__title"><%= post.title %></h2>
-              <p class="post__body"><%= post.body %></p>
-              <div id="like_<%=post.id %>">
-                <%= render "likes/like", post: post %>
-              </div>
-              <p class="appare-count">7777</p>
-            </div>
-          </div>
-        <% end %>
+        <%= render "posts/newIndex"%> 
       </div>
       <div id="panel2" class="tab_panel">
-        <% @posts.each do |post| %>
-          <div class="meshi_wrap">
-            <%= link_to image_tag(post.meshim.url, :class => "meshi"), post %>
-          </div>
-          <h2><%= post.title %></h2>
-          <p><%= post.body %></p>
-          <div id="like_<%=post.id %>">
-            <%= render "likes/like", post: post %>
-          </div>
-        <% end %>
+        <%= render "posts/rankIndex"%>
       </div>
       <div id="panel3" class="tab_panel">
-          <div id="nav-search">
-            <%= form_tag '/', :method => 'get' do %>
-              <p>
-                <%= text_field_tag :search, params[:search] %>
-                <%= submit_tag "検索", :name => nil %>
-              </p>
-            <% end %>
-          </div>
+        <%= render "posts/appareIndex"%>
       </div>
     </div>
   </div>
