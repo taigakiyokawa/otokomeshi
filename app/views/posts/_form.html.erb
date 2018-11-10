@@ -23,12 +23,10 @@
 
   <div class="field">
     <h3><%= "名(十二文字以内)" %></h3>
-    <!--<%= form.label :title %>-->
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <!--<%= form.label :final %>-->
     <h3><%= "作り方(四十文字以内)" %></h3>
     <%= form.text_area :body,  size: "20x3"%>
   </div>
@@ -39,7 +37,7 @@
     </div>
     <div class="actions">
       <%= form.submit "完 了" %>
-  </div>
+    </div>
   </div>
   
 <% end %>

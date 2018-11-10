@@ -3,10 +3,17 @@
     <%= render "shogo_firsts/shogo_first", user: @user %>
     <%= render "shogos/shogo", user: @user %>
   </h3>
-  <div class="user_name">
+  <h2 class="user_name">
     <%= @user.username %>
+  </h2>
+  <%= image_tag(@user.user_img.url, :class => "user_icon") %>
+  <div class="user-right-side">
+    <h3>戦闘力：9,999,999</h3>
+    <h3>総兵力：9,999,999</h3>
+    <div class="edit-or-logout">
+      <%= link_to '編 集', edit_user_registration_path, {:class => "user_edit"} %>
+      <%= link_to '退 陣', destroy_user_session_path, :class => "user_logout", :confirm  => "また来いよ!", method: :delete %>
+    </div>
   </div>
-  <%= image_tag(@user.user_img.url) {:class => "user_icon"} %>
-  <%= link_to '己を見つめ直す', edit_user_registration_path, {:class => "user_edit"} %>
-  <%= link_to '退 陣', destroy_user_session_path, method: :delete, {:class => "user_logout"} %>
+  <div class="clear"></div>
 </div>

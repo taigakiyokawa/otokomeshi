@@ -6,8 +6,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
-  process :crop
-
+  # process :crop
+  process resize_to_fill: [400, 400]
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -18,16 +18,16 @@ class ImageUploader < CarrierWave::Uploader::Base
     "default_icon.png"
   end
 
-  def crop
-    return unless model.x.present?
-    manipulate! do |img|
-      img.auto_orient
-      img.strip
-      img.crop "#{model.width}x#{model.height}+#{model.x}+#{model.y}"
-      img = yield(img) if block_given?
-      p img
-    end
-  end
+  # def crop
+  #   return unless model.x.present?
+  #   manipulate! do |img|
+  #     img.auto_orient
+  #     img.strip
+  #     img.crop "#{model.width}x#{model.height}+#{model.x}+#{model.y}"
+  #     img = yield(img) if block_given?
+  #     p img
+  #   end
+  # end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
