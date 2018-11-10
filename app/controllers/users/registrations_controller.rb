@@ -3,19 +3,18 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  protected
-    def update_resource(resource, params)
-      resource.update_without_current_password(params)
-    end
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      # custom code
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -23,9 +22,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+
+    if update_params[:password].blank? || update_params[:password_confirmation].blank?
+    # update_resource(resource, update_params)
+      current_user.update!(username: update_params[:username])
+    else
+      current_user.update!({
+        username: update_params[:username],
+        password: update_params[:password]
+      })
+    end
+    redirect_to posts_path
+  end
 
   # DELETE /resource
   # def destroy
@@ -62,4 +71,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  # protected
+  #   def update_resource(resource, params)
+  #     resource.update_without_current_password(params)
+  #     resource.update_without_password(params)
+  #   end
+  
+  private
+    def update_params
+      params.require(:user).permit(%i(username password password_confirmation))
+    end
 end

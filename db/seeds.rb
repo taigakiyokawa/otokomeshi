@@ -8,9 +8,15 @@
 
 # coding: utf-8
 
-# Post.create(
-#   title: '餃子餃子餃子餃子餃子餃子',
-#   body: '餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く',
-#   meshim: open("/app/assets/images/sample/meshi1.jpg"),
-#   user_id: 1
-# )
+User.create(
+    username: "sample", 
+    password: "a", 
+    password_confirmation: "a"
+)
+
+Post.create(
+   title: '餃子餃子餃子餃子餃子餃子',
+   body: '餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く餃子を焼く',
+   meshim: Rails.root.join("app/assets/images/sample/meshi1.jpg").open,
+   user_id: 1
+ )
