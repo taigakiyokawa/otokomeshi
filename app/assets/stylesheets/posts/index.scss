@@ -64,7 +64,7 @@ body {
             }
             .meshi {
               width: 100%;
-              max-width: 560px;
+              max-width: 480px;
             }
             h2.post__title {
               border-bottom: 1px solid $accent;
@@ -131,4 +131,27 @@ body {
   &_6, &_7, &_8, &_9, &_10 {
     display: inline-block;    
   }
+}
+// 検索バー＆ボタンのスタイル
+#nav-search {
+  width: 100%;
+  padding: 8px 16px;
+  form {
+    margin-bottom: 32px;
+    input {
+      float: left;
+      &#search {
+        width: 75%;
+      }
+      &[type="submit"] {
+        font-size: 16px;
+        text-align: center;
+        margin-left: 5%;
+        width: 20%;
+        line-height: 33px;
+        padding: 0 16px;
+      }
+    }
+  }
+  
 }

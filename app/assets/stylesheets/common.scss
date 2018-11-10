@@ -2,6 +2,9 @@
 @import "variables";
 
 input {
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px $text inset;
+  }
   -webkit-appearance: none;
   border-radius: 0;
   &[type="submit"] {
@@ -17,12 +20,18 @@ input {
   }
 }
 input[type="text"], input[type="password"], textarea {
+  outline: 0;
   width: 100%;
   font-size: 16px;
   color: $text;
-  border: 1px solid $text;
+  border: none;
+  border-bottom: 1px solid $text;
   background-color: rgba($color: $main, $alpha: 0);
-  padding: 8px;
+  padding: 4px;
+}
+textarea {
+  margin-top: 4px;
+  border: 1px solid $text;
 }
 .field {
   position: relative;
