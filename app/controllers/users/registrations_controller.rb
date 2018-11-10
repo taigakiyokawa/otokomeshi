@@ -23,8 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-
-    if update_params[:password].blank? || update_params[:password_confirmation].blank?
+    if update_params[:password].blank?
     # update_resource(resource, update_params)
       current_user.update!(username: update_params[:username])
     else
@@ -80,6 +79,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   private
     def update_params
-      params.require(:user).permit(%i(username password password_confirmation))
+      params.require(:user).permit(%i(username password))
     end
 end

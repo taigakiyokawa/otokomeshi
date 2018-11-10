@@ -8,11 +8,13 @@
 
 # coding: utf-8
 
-User.create(
-    username: "sample", 
-    password: "a", 
-    password_confirmation: "a"
-)
+5.times do |no|
+    User.create(
+        username: "sample", 
+        password: "a", 
+        password_confirmation: "a"
+    )
+end
 
 Post.create(
    title: '餃子餃子餃子餃子餃子餃子',
