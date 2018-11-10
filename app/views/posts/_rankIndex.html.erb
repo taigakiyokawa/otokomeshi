@@ -1,4 +1,4 @@
-<% @rank_posts.reverse_each.with_index(1) do |post, i| %>
+<% @rank_posts.each.with_index(1) do |post, i| %>
   <div class="rank">
     <div class="rank_<%= i %>"><%= otoconvert(i) %></div>
     <div class="banzuke">位</div>

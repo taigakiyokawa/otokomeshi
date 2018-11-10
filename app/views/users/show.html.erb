@@ -1,10 +1,12 @@
 <div class="container">
-  <h3>
+  <h3 class="shogo">
     <%= render "shogo_firsts/shogo_first", user: @user %>
     <%= render "shogos/shogo", user: @user %>
   </h3>
-  <%= @user.username %>
-  <%= image_tag(@user.user_img.url) %>
-  <%= link_to '己を書き換える', edit_user_registration_path %>
-  <%= link_to '退 陣', destroy_user_session_path, method: :delete %>
+  <div class="user_name">
+    <%= @user.username %>
+  </div>
+  <%= image_tag(@user.user_img.url) {:class => "user_icon"} %>
+  <%= link_to '己を見つめ直す', edit_user_registration_path, {:class => "user_edit"} %>
+  <%= link_to '退 陣', destroy_user_session_path, method: :delete, {:class => "user_logout"} %>
 </div>
