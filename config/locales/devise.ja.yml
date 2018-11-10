@@ -76,6 +76,7 @@ ja:
           attributes:
             username:
               blank: "を入力しろ"
+              taken: 'は既に使われているッ!'
             email:
               blank: 'が入力されてないぞ' 
             

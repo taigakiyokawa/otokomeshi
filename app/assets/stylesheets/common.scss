@@ -42,7 +42,7 @@ label {
 
 #error_explanation {
   font-weight: $black;
-  background-color: $accent;
+  background-color: rgba($color: $accent, $alpha: 0.5);
   width: 100%;
   h2 {
     display: none;

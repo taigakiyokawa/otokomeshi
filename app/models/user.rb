@@ -7,6 +7,8 @@ class User < ApplicationRecord
   
   validates :username, {presence: true, uniqueness: true, length: {maximum: 16}}
   validates :password, presence: true, length: { minimum: 1 }
+
+
   #登録時にメールアドレスを不要とする
   def email_required?
     false
