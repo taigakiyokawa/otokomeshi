@@ -30,6 +30,7 @@ input[type="text"], input[type="password"], textarea {
   padding: 4px;
 }
 textarea {
+  resize: none;
   margin-top: 4px;
   border: 1px solid $text;
 }
