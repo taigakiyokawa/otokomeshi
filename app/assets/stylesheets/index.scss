@@ -30,9 +30,30 @@ body {
           font-size:14px;
           text-align: left;
         }
-
-        .post {
+        // 検索バー＆ボタンのスタイル
+        #nav-search {
+          width: 100%;
           padding: 8px 16px;
+          form {
+            margin-bottom: 32px;
+            input {
+              float: left;
+              &#search {
+                width: 75%;
+              }
+              &[type="submit"] {
+                font-size: 16px;
+                text-align: center;
+                margin-left: 5%;
+                width: 20%;
+                line-height: 33px;
+                padding: 0 16px;
+              }
+            }
+          }
+        }
+        .post {
+          padding: 8px;
           &__user--icon {
             position: absolute;
             display: inline-block;
@@ -131,28 +152,4 @@ body {
   &_6, &_7, &_8, &_9, &_10 {
     display: inline-block;    
   }
-}
-
-// 検索バー＆ボタンのスタイル
-#nav-search {
-  width: 100%;
-  padding: 8px 16px;
-  form {
-    margin-bottom: 32px;
-    input {
-      float: left;
-      &#search {
-        width: 75%;
-      }
-      &[type="submit"] {
-        font-size: 16px;
-        text-align: center;
-        margin-left: 5%;
-        width: 20%;
-        line-height: 33px;
-        padding: 0 16px;
-      }
-    }
-  }
-  
 }

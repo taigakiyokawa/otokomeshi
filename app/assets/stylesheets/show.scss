@@ -2,49 +2,57 @@
 
 @import "variables";
 
-.shogo {
-  display: inline-block;
-  padding: 4px 8px;
-  background-color: rgba($color: $accent, $alpha: 0.7);
-}
+.user {
+  &__shogo {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: rgba($color: $accent, $alpha: 0.7);
+  }
+  &__name {
+    font-size: 21px;
+    margin-bottom: 16px;
+  }
 
-.user_name {
-  font-size: 21px;
-  margin-bottom: 16px;
-}
-
-img.user_icon {
-  float: left;
-  width: 160px;
-  margin-right: 8px;
-}
-
-.user-right-side {
-  position: relative;
-  width: 50%;
-  height: 160px;
-  display: inline-block;
-  float: left;
-  .edit-or-logout {
-    width: 100%;
-    max-width: 240px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    .user_edit {
-      text-align: center;
-      padding: 8px 32px;
-      margin-bottom: 16px;
-      font-weight: $black;
-      background-color: rgba($color: $border, $alpha: 0.7);
-    }
-    .user_logout {
-      color: $border;
-      text-align: center;
-      padding: 8px 32px;
-      font-weight: $black;
-      background-color: rgba($color: $text, $alpha: 0.7);
+  img.user__icon {
+    float: left;
+    width: 160px;
+    margin-right: 8px;
+  }
+  // 戦闘力・総兵力・編集・退陣
+  &__right-side {
+    position: relative;
+    width: 50%;
+    height: 160px;
+    display: inline-block;
+    float: left;
+    &__btns {
+      width: 100%;
+      max-width: 240px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      .edit {
+        text-align: center;
+        padding: 8px 32px;
+        margin-bottom: 16px;
+        font-weight: $black;
+        background-color: rgba($color: $border, $alpha: 0.7);
+      }
+      .logout {
+        color: $border;
+        text-align: center;
+        padding: 8px 32px;
+        font-weight: $black;
+        background-color: rgba($color: $text, $alpha: 0.7);
+      }
     }
   }
-  
+
+
 }
+
+
+
+
+
+
