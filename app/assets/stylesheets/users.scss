@@ -23,7 +23,6 @@
     position: relative;
     width: 50%;
     height: 160px;
-    display: inline-block;
     float: left;
     &__btns {
       width: 100%;
@@ -48,6 +47,18 @@
     }
   }
 
+  &__tab_wrap {
+    
+  }
+  &__tab_area {
+
+  }
+  &__panel_area {
+
+  }
+  &__tab_panel {
+
+  }
 
 }
 
