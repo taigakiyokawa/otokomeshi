@@ -24,7 +24,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     if update_params[:password].blank?
-    # update_resource(resource, update_params)
       current_user.update!(username: update_params[:username])
     else
       current_user.update!({
@@ -33,6 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       })
     end
     redirect_to posts_path
+    sign_in(current_user, bypass: true)
   end
 
   # DELETE /resource
