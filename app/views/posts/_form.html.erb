@@ -48,9 +48,19 @@ $(function() {
    if (input.files && input.files[0]) {
      var reader = new FileReader();
      reader.onload = function (e) {
-       $('#post_image_prev').attr('src', e.target.result);
+       $(".select-file").empty();
+       $(".select-file").append($('<img>').attr({
+          src: e.target.result,
+          id: "post_image_prev",
+       }));
      }
      reader.readAsDataURL(input.files[0]);
+   } else {
+       $(".select-file").empty();
+       $(".select-file").append($('<img>').attr({
+          src: "<%= asset_path("default_post.png") %>",
+          id: "post_image_prev",
+       }));
    }
  }
  $("#post_image").change(function(){
