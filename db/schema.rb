@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_063817) do
+ActiveRecord::Schema.define(version: 2018_11_13_075915) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2018_11_13_063817) do
     t.datetime "updated_at", null: false
     t.string "user_img"
     t.string "username"
-    t.integer "shogo_first_id"
-    t.integer "shogo_last_id"
+    t.integer "shogo_first_id", default: 0
+    t.integer "shogo_last_id", default: 0
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

@@ -1,4 +1,5 @@
 module UsersHelper
+
     def set_shogo_first(user)
         post_count = Post.where(user_id: user.id).count
 
