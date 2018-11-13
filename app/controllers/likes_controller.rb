@@ -4,9 +4,6 @@ class LikesController < ApplicationController
   def like
     like = current_user.likes.new(post_id: @post.id)
     like.save
-    # この下の行は、正直あんまりいらないかも。ランキングが1つのいいねで更新されることはあまりないので
-    @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
-    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
   end
 
   def unlike

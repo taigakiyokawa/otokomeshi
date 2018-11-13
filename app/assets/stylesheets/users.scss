@@ -3,6 +3,8 @@
 @import "variables";
 
 .user {
+  margin-top: 72px;
+  padding: 0px 8px;
   &__shogo {
     display: inline-block;
     padding: 4px 8px;
@@ -10,7 +12,7 @@
   }
   &__name {
     font-size: 21px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
 
   img.user__icon {
@@ -48,22 +50,49 @@
   }
 
   &__tab_wrap {
-    
+    width: 100%;
+    margin-top: 24px;
   }
   &__tab_area {
-
+    width: 100%;
+    label {
+      width: 50%;
+      display: inline-block;
+      text-align: center;
+      font-size: 20px;
+      font-weight: $black;
+      border-bottom: 2px solid $base;
+      cursor:pointer;
+      transition:ease 0.5s;
+      &:hover{
+      color: $accent;
+      }
+    }
   }
   &__panel_area {
 
   }
   &__tab_panel {
-
+    display: none;
   }
 
 }
 
 
+#tab1:checked ~ .user__tab_area .tab1_label{
+  color: $text;
+  border-bottom: 2px solid $accent;
+}
+#tab1:checked ~ .user__panel_area #panel1{
+  display:block;
+}
 
-
+#tab2:checked ~ .user__tab_area .tab2_label{
+  color: $text;
+  border-bottom: 2px solid $accent;
+}
+#tab2:checked ~ .user__panel_area #panel2{
+  display:block;
+}
 
 
