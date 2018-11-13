@@ -8,8 +8,6 @@
     <div class="post__wrap">
       <div class="user-info">
         <h3>
-          <%= render "shogo_firsts/shogo_first", user: @user %>
-          <%= render "shogos/shogo", user: @user %>
         </h3>
         <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
         <h2><%= @user.username %></h2>
