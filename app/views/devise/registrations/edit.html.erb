@@ -1,34 +1,34 @@
 <div class="container">
-  <h2>編 集</h2>
-  <!-- <div id="user_image_form">
-    <%# <%= render 'files' %> %>
-  </div> -->
+  <a class="monomousu" href="https://goo.gl/forms/rpjYWnyX8IlUtyUk1" target="_blank">物申すッ!!!</a>
+  <h2 class="edit_title">編 集</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
     <%= devise_error_messages! %>
-    <div class="field">
+
+    <div class="image_field">
       <label for="user_image">
         <%= f.file_field :user_img, id: :user_image %>
         <%= image_tag current_user.user_img.url, id: :user_image_prev %>
       </label>
-   </div>
-
-    <div class="field">
-      <%= f.label :username %>(十六文字以内)<br />
-      <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
     </div>
+    <div class="field_wrap">
+      <div class="field">
+        <%= f.label :username %>(十六文字以内)<br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-    <div class="field">
-      <%= f.label :password %>の変更<br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
+      <div class="field">
+        <%= f.label :password %>の変更<br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
     </div>
 
     <div class="back-or-action">

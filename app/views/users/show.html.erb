@@ -11,8 +11,8 @@
     <h3>戦闘力：9,999,999</h3>
     <h3>総兵力：9,999,999</h3>
     <div class="user__right-side__btns<%= "_none" if @user.id != current_user.id %>">
-      <%= link_to '編 集', edit_user_registration_path, {:class => "edit"} %>
       <%= link_to '退 陣', destroy_user_session_path, :class => "logout", method: :delete %>
+      <%= link_to '編 集', edit_user_registration_path, {:class => "edit"} %>
     </div>
   </div>
   <div class="clear"></div>

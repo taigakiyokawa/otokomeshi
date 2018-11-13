@@ -36,14 +36,14 @@
       left: 0;
       bottom: 0;
       .edit {
-        float: left;
+        float: right;
         text-align: center;
         padding: 8px 15%;
         font-weight: $black;
         background-color: rgba($color: $border, $alpha: 0.7);
       }
       .logout {
-        float: right;
+        float: left;
         color: $border;
         text-align: center;
         padding: 8px 15%;
