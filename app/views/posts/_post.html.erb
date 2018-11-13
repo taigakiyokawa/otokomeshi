@@ -1,6 +1,6 @@
 <div class="post">
   <div class="post__user--icon">
-    <%= image_tag(post.user.user_img.url) %>
+    <%= link_to image_tag(post.user.user_img.url), "/users/#{post.user_id}" %>
   </div>
       
   <div class="post__wrap">
