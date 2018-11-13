@@ -1,20 +1,3 @@
 <div class="index_container">
-  <div class="tab_wrap">
-    <input id="tab1" type="radio" name="tab_btn" checked>
-    <input id="tab2" type="radio" name="tab_btn">
-    <input id="tab3" type="radio" name="tab_btn">
-
-    <%= render 'search_form' %>
-    <div class="panel_area">
-      <div id="panel1" class="tab_panel">
-        <%= render "posts/newIndex"%> 
-      </div>
-      <div id="panel2" class="tab_panel">
-        <%= render "posts/rankIndex"%>
-      </div>
-      <div id="panel3" class="tab_panel">
-        <%= render "posts/appareIndex"%>
-      </div>
-    </div>
-  </div>
+  <%= render "posts/newIndex"%>
 </div>

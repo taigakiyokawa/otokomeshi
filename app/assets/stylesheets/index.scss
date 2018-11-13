@@ -15,116 +15,103 @@ body {
   width: 100%;
   margin-top: 100px;
 
-  .tab_wrap {
-    width:100%;
-
-    // 検索バー＆ボタンのスタイル
-    #nav-search {
-      width: 100%;
-      padding: 8px;
-      form {
-        margin-bottom: 32px;
-        input {
-          &#search {
-            width: 75%;
-            float: left;
-          }
-          &[type="submit"] {
-            float: right;
-            font-size: 16px;
-            text-align: center;
-            margin-left: 5%;
-            width: 20%;
-            line-height: 33px;
-            padding: 0 16px;
-          }
+  // 検索バー＆ボタンのスタイル
+  #nav-search {
+    width: 100%;
+    padding: 8px;
+    form {
+      margin-bottom: 32px;
+      input {
+        &#search {
+          width: 75%;
+          float: left;
+        }
+        &[type="submit"] {
+          float: right;
+          font-size: 16px;
+          text-align: center;
+          margin-left: 5%;
+          width: 20%;
+          line-height: 33px;
+          padding: 0 16px;
         }
       }
     }
-    .panel_area {
-      background-color: $base;
-      color: $text;
-      .tab_panel {
-        width: 100%;
-        padding: 8px 0;
-        display: none;
-        p{
-          font-size:14px;
-          text-align: left;
+  }
+  p{
+    font-size:14px;
+    text-align: left;
+  }
+  .post {
+    padding: 8px;
+    &__user--icon {
+      position: absolute;
+      display: inline-block;
+      img {
+        height: 48px;
+      }
+    }
+    &__wrap {
+      margin-left: 53px;
+      display: inline-block;
+      .user-info {
+        height: 48px;
+        margin-bottom: 8px;
+        h3 {
+          display: inline-block;
+          font-size: 12px;
+          padding: 4px;
+          background-color: $accent;
         }
-        .post {
-          padding: 8px;
-          &__user--icon {
-            position: absolute;
-            display: inline-block;
-            img {
-              height: 48px;
-            }
-          }
-          &__wrap {
-            margin-left: 53px;
-            display: inline-block;
-            .user-info {
-              height: 48px;
-              margin-bottom: 8px;
-              h3 {
-                display: inline-block;
-                font-size: 12px;
-                padding: 4px;
-                background-color: $accent;
-              }
-              p.post__created {
-                color: lighten($color: $border, $amount: 20%);
-                line-height: 25px;
-                float: right;
-              }
-              h2 {
-                font-size: 16px;
-              }
-            }
-            .meshi {
-              width: 100%;
-              max-width: 480px;
-            }
-            h2.post__title {
-              border-bottom: 1px solid $accent;
-              margin-bottom: 4px;
-            }
-            p.post__body {
-              margin-bottom: 4px;
-            }
-            .delete-btn {
-              float: right;
-              font-size: 12px;
-              line-height: 32px;
-              padding: 0 10px;
-              background-color: $border;
+        p.post__created {
+          color: lighten($color: $border, $amount: 20%);
+          line-height: 25px;
+          float: right;
+        }
+        h2 {
+          font-size: 16px;
+        }
+      }
+      .meshi {
+        width: 100%;
+        max-width: 480px;
+      }
+      h2.post__title {
+        border-bottom: 1px solid $accent;
+        margin-bottom: 4px;
+      }
+      p.post__body {
+        margin-bottom: 4px;
+      }
+      .delete-btn {
+        float: right;
+        font-size: 12px;
+        line-height: 32px;
+        padding: 0 10px;
+        background-color: $border;
 
-            }
-            .appare {
-              float: left;
-              height: 32px;
-              .button_to {
-                display: inline-block;
-                height: 32px;
-                button {
-                  border: none;
-                  padding: 0;
-                  background-color: $base;
-                }
-                img {
-                  width: 32px;
-                }
-              }
-              .appare-count {
-                font-size: 12px;
-                float: right;
-                line-height: 32px;
-                margin-left: 8px;
-                color: lighten($color: $border, $amount: 20%);
-              }
-            }
+      }
+      .appare {
+        float: left;
+        height: 32px;
+        .button_to {
+          display: inline-block;
+          height: 32px;
+          button {
+            border: none;
+            padding: 0;
+            background-color: $base;
           }
+          img {
+            width: 32px;
+          }
+        }
+        .appare-count {
+          font-size: 12px;
+          float: right;
+          line-height: 32px;
+          margin-left: 8px;
+          color: lighten($color: $border, $amount: 20%);
         }
       }
     }
