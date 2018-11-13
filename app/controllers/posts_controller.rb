@@ -15,6 +15,15 @@ class PostsController < ApplicationController
     # @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
   end
 
+  def rank
+    rank_posts_ids = Like.group(:post_id).count.sort_by{ |a| a.last }.reverse.transpose.first
+    @rank_posts = Post.where(id: rank_posts_ids)
+  end
+
+  def search
+    
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show

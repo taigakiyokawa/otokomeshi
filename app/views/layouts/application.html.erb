@@ -28,6 +28,19 @@
           <%= link_to image_tag(current_user.user_img.url, :class => "btn user"), "/users/#{current_user.id}", { :class => "my_page" } %>
           <%= link_to image_tag('/assets/logo.svg', :class => "logo"), '/posts', { :class => "logo_link" } %>
           <%= link_to image_tag('/assets/plus.png', :class => "btn new"), new_post_path, { :class => "newmeshi" } %>
+          <% if path == '/posts' %>
+            <div class="tab">
+              <%= link_to '新着', '/posts', { :class => 'tab__label checked' } %><%= link_to '番付', '/posts/rank', { :class => 'tab__label' } %><%= link_to '検索', '/posts/search', { :class => 'tab__label' }%>
+            </div>
+            <% elsif path =='/posts/rank' %>
+              <div class="tab">
+                <%= link_to '新着', '/posts', { :class => 'tab__label' } %><%= link_to '番付', '/posts/rank', { :class => 'tab__label checked' } %><%= link_to '検索', '/posts/search', { :class => 'tab__label' }%>
+              </div>
+            <% elsif path == '/posts/search' %>
+              <div class="tab">
+                <%= link_to '新着', '/posts', { :class => 'tab__label' } %><%= link_to '番付', '/posts/rank', { :class => 'tab__label' } %><%= link_to '検索', '/posts/search', { :class => 'tab__label checked' }%>
+              </div>
+          <% end %>
         <% end %>
       </header>
       <p class="notice"><%= notice %></p>

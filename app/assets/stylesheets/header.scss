@@ -13,7 +13,6 @@ header {
   z-index: 10;
   a {
     display: inline-block;
-    height: $header;
     &:visited {
       color: $text;
     }
@@ -33,6 +32,20 @@ header {
   .btn {
     height: $header;
     padding-top: 8px;
+  }
+  .tab {
+    width: 100%;
+    &__label {
+      width: calc(100%/3);
+      font-size: 16px;
+      font-weight: $black;
+      line-height: 32px;
+      padding-top: 8px;
+      border-bottom: 4px solid $main;
+    }
+    .checked {
+      border-bottom: 4px solid $accent;
+    }
   }
 }
 

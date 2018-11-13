@@ -33,7 +33,7 @@
 
     <div class="back-or-action">
       <div class="back">
-        <%= link_to "戻る", posts_path %>
+        <%= link_to "戻る", "/users/#{current_user.id}" %>
       </div>
       <div class="actions">
         <%= f.submit "更新" %>

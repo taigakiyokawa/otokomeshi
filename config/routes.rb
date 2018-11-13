@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   get 'shogo_first/update'
   get 'shogos/update'
   get 'shogos/create'
-  resources :posts
 
+  get 'posts/rank' => 'posts#rank'
+  get 'posts/search' => 'posts#search'
+  resources :posts
   post   '/like/:post_id' => 'likes#like',   as: 'like'
   delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
 
