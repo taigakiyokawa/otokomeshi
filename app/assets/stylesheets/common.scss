@@ -13,6 +13,7 @@ input {
     padding: 8px 24px;
     background-color: rgba($color: $accent, $alpha: 0.7);
     color: $text;
+    cursor: pointer;
     &:hover {
       background-color: $accent;
       transition: 0.5s;
@@ -63,6 +64,8 @@ label {
 .container {
   position: relative;
   padding: 72px 16px;
+  max-width: 512px;
+  margin: 0 auto;
   img{
     width: 100%;
   }
