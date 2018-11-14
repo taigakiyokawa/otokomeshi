@@ -46,8 +46,10 @@ input[type="radio"]{
   top: $header;
   width: 100%;
   background-color: $main;
+  text-align: center;
   label {
     width:calc(100%/3);
+    max-width: 184px;
     display: inline-block;
     padding-top: 8px;
     color: $border;

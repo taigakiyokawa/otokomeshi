@@ -18,32 +18,11 @@ body {
   .tab_wrap {
     width:100%;
 
-    // 検索バー＆ボタンのスタイル
-    #nav-search {
-      width: 100%;
-      padding: 8px;
-      form {
-        margin-bottom: 32px;
-        input {
-          &#search {
-            width: 75%;
-            float: left;
-          }
-          &[type="submit"] {
-            float: right;
-            font-size: 16px;
-            text-align: center;
-            margin-left: 5%;
-            width: 20%;
-            line-height: 33px;
-            padding: 0 16px;
-          }
-        }
-      }
-    }
     .panel_area {
       background-color: $base;
       color: $text;
+      max-width: 552px;
+      margin: 0 auto;
       .tab_panel {
         width: 100%;
         padding: 8px 0;
@@ -57,6 +36,29 @@ body {
   }
 }
 
+// 検索バー＆ボタンのスタイル
+#nav-search {
+  width: 100%;
+  padding: 8px;
+  form {
+    margin-bottom: 32px;
+    input {
+      &#search {
+        width: 75%;
+        float: left;
+      }
+      &[type="submit"] {
+        float: right;
+        font-size: 16px;
+        text-align: center;
+        margin-left: 5%;
+        width: 20%;
+        line-height: 33px;
+        padding: 0 16px;
+      }
+    }
+  }
+}
 
 // 投稿のスタイル
 .post {
@@ -136,9 +138,11 @@ body {
 
 // ランキングのスタイル
 .rank{
+  padding: 0 8px;
   margin-bottom: 4px;
   font-size: 20px;
   font-weight: $black;
+  border-bottom: 2px solid $border;
   .banzuke {
     display: inline-block;
   }
