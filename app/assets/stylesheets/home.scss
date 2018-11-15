@@ -23,7 +23,7 @@
         color: $text;
         
         .sign-up a {
-            background-color: rgba($color: $accent, $alpha: 0.7);
+            background-color: $daccent;
             letter-spacing: 10px;
             &:visited {
                 color: $text;

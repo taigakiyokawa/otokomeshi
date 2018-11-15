@@ -68,7 +68,7 @@ input[type="radio"]{
 
 #tab1:checked ~ .tab_area .tab1_label{
   color: $text;
-  border-bottom: 4px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
 #tab1:checked ~ .panel_area #panel1{
   display:block;
@@ -76,7 +76,7 @@ input[type="radio"]{
 
 #tab2:checked ~ .tab_area .tab2_label{
   color: $text;
-  border-bottom: 4px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
 #tab2:checked ~ .panel_area #panel2{
   display:block;
@@ -87,8 +87,8 @@ input[type="radio"]{
 
 #tab3:checked ~ .tab_area .tab3_label{
   color: $text;
-  border-bottom: 4px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
-#tab3:checked ~ .panel_area #panel3{
+#tab3:checked ~ .panel_area #panel3 {
   display:block;
 }

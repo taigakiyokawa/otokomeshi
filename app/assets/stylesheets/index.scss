@@ -80,7 +80,7 @@ body {
         display: inline-block;
         font-size: 12px;
         padding: 4px;
-        background-color: rgba($color: $accent, $alpha: 0.7);
+        background-color: $daccent;
       }
       p.post__created {
         color: lighten($color: $border, $amount: 20%);
@@ -98,7 +98,7 @@ body {
     h2.post__title {
       font-size: 20px;
       letter-spacing: 3px;
-      border-bottom: 1px solid rgba($color: $accent, $alpha: 0.7);
+      border-bottom: 1px solid $daccent;
       margin-bottom: 4px;
     }
     p.post__body {

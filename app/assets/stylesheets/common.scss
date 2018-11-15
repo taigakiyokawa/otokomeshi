@@ -11,7 +11,7 @@ input {
     border-style: none;
     font-weight: $black;
     padding: 8px 24px;
-    background-color: rgba($color: $accent, $alpha: 0.7);
+    background-color: $daccent;
     color: $text;
     cursor: pointer;
     &:hover {
