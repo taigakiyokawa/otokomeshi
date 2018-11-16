@@ -1,7 +1,9 @@
 <% @posts.each do |post| %>
   <% @user = User.find_by(id: post.user_id) %>
-  <% @shogo_first_id = set_shogo_first(@user) %>
-  <% @shogo_first = ShogoFirst.find_by(id: @shogo_first_id) %>
+  <% @user.shogo_first_id = set_shogo_first(@user) %>
+  <% @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id) %>
+  <% @user.shogo_last_id = set_shogo_last(@user) %>
+  <% @shogo_last = ShogoLast.find_by(id: @user.shogo_last_id) %>
   <div class="post">
     <div class="post__user--icon">
       <%= image_tag(@user.user_img.url) %>
@@ -9,7 +11,9 @@
         
     <div class="post__wrap">
       <div class="user-info">
-        <h3><%= @shogo_first.name  %>
+        <h3>
+          <%= @shogo_first.name %>
+          <%= @shogo_last.name  %>
         </h3>
         <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
         <h2><%= @user.username %></h2>
