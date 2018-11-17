@@ -47,7 +47,6 @@ body {
       &#search {
         width: 75%;
         float: left;
-        color: $base;
       }
       &[type="submit"] {
         float: right;
@@ -126,15 +125,18 @@ body {
           height: 32px;
           border: none;
           padding: 0;
-          background-color: $base;
+          outline: 0;
+          cursor: pointer;
+          background-color: transparent;
         }
         img {
           width: 32px;
         }
       }
       .appare-count {
-        display: inline-block;
-        font-size: 12px;
+        float: right;
+        line-height: 32px;
+        margin-left: 8px;
         color: lighten($color: $border, $amount: 20%);
       }
     }
