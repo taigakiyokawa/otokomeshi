@@ -7,13 +7,14 @@
 @import "variables";
 
 body {
-  background-color: $base;
+  background-color: $border;
   color: $text;
 }
 
 .index_container {
   width: 100%;
-  margin-top: 96px;
+  margin-top: 89px;
+  background-color: $border;
 
   .tab_wrap {
     width:100%;
@@ -46,6 +47,7 @@ body {
       &#search {
         width: 75%;
         float: left;
+        color: $base;
       }
       &[type="submit"] {
         float: right;
@@ -63,6 +65,8 @@ body {
 // 投稿のスタイル
 .post {
   padding: 8px 16px;
+  margin: 8px 0;
+  border-top: 1px solid $border;
   &__user--icon {
     position: absolute;
     display: inline-block;
@@ -108,17 +112,18 @@ body {
       float: right;
       font-size: 12px;
       line-height: 32px;
-      padding: 0 10px;
+      padding: 0 16px;
       background-color: $border;
 
     }
     .appare {
-      float: left;
+      text-align: center;
       height: 32px;
       .button_to {
         display: inline-block;
         height: 32px;
         button {
+          height: 32px;
           border: none;
           padding: 0;
           background-color: $base;
@@ -128,10 +133,8 @@ body {
         }
       }
       .appare-count {
+        display: inline-block;
         font-size: 12px;
-        float: right;
-        line-height: 32px;
-        margin-left: 8px;
         color: lighten($color: $border, $amount: 20%);
       }
     }

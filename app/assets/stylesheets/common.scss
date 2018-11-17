@@ -15,7 +15,7 @@ input {
     color: $text;
     cursor: pointer;
     &:hover {
-      background-color: $accent;
+      background-color: rgba($color: $accent, $alpha: 0.9);
       transition: 0.5s;
     }
   }
@@ -37,7 +37,7 @@ textarea {
 }
 .field {
   position: relative;
-  padding-top: 16px;
+  padding: 16px 0;
   font-weight: $black;
 }
 label > input {
@@ -45,7 +45,7 @@ label > input {
 }
 label {
   cursor: pointer;
-  &:hover, &:active {
+  &:active {
     img {
       opacity: 0.3;
     }
@@ -54,11 +54,15 @@ label {
 
 #error_explanation {
   font-weight: $black;
-  background-color: rgba($color: $accent, $alpha: 0.5);
+  background-color: $daccent;
   width: 100%;
   h2 {
     display: none;
   }
+}
+
+.base {
+  background-color: $base;
 }
 
 .container {
@@ -70,11 +74,12 @@ label {
     width: 100%;
   }
 
+
   // left: back, right: OK 親要素の右下に配置
   .back-or-action {
     position: absolute;
       right: 16px;
-      bottom: 0;
+      bottom: 16px;
     .back {
       display: inline-block;
       margin-right: 16px;
@@ -84,6 +89,10 @@ label {
         background-color: rgba($color: $text, $alpha: 0.7);
         padding: 8px 24px;
         color: $base;
+        &:hover {
+          background-color: rgba($color: $text, $alpha: 0.9);
+          transition: 0.5s;
+        }
       }
     }
     .actions {
@@ -98,4 +107,11 @@ label {
 // floatの解除
 .clear {
   clear: left;
+}
+
+.notice {
+  display: none;
+}
+.alert {
+  background-color: $daccent;
 }

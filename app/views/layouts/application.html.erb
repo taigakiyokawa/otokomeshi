@@ -6,12 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
      <!-- CDN -->
-    <!-- CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropper/1.0.0/cropper.min.css" rel="stylesheet" type="text/css" media="all"/>
-
-    <!-- JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/1.0.0/cropper.min.js"></script>
+     
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%# アイコンの追加 %>
@@ -30,8 +26,6 @@
           <%= link_to image_tag('/assets/plus.png', :class => "btn new"), new_post_path, { :class => "newmeshi" } %>
         <% end %>
       </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
   </body>
