@@ -3,7 +3,7 @@
 
 input {
   &:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px $text inset;
+    box-shadow: 0 0 0px 1000px $text inset;
   }
   -webkit-appearance: none;
   border-radius: 0;
