@@ -3,9 +3,13 @@
 @import "variables";
 
 .user {
-  margin: 72px auto;
-  padding: 0px 8px;
+  &__container {
+    background-color: $border;
+  }
+  margin: 0 auto;
+  padding: 72px 8px;
   max-width: 568px;
+  background-color: $main;
   &__shogo {
     display: inline-block;
     padding: 4px 8px;
@@ -67,7 +71,7 @@
       text-align: center;
       font-size: 20px;
       font-weight: $black;
-      border-bottom: 4px solid $base;
+      border-bottom: 4px solid $main;
       cursor:pointer;
       transition:ease 0.5s;
       &:hover{
@@ -78,6 +82,7 @@
   &__tab_panel {
     display: none;
     padding: 8px 0;
+    background-color: $base;
   }
 
 }
