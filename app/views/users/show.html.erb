@@ -1,8 +1,8 @@
 <div class="user__container">
   <div class="user">
     <h3 class="user__shogo">
-      <%= render "shogo_firsts/shogo_first", user: @user %>
-      <%= render "shogos/shogo", user: @user %>
+      <%= @shogo_first.name %>
+      <%= @shogo_last.name %>
     </h3>
     <h2 class="user__name">
       <%= @user.username %>

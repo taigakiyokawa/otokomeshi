@@ -1,4 +1,6 @@
 <div class="post">
+  <% shogo_first = ShogoFirst.find_by(id: set_shogo_first(post.user)) %>
+  <% shogo_last = ShogoLast.find_by(id: set_shogo_last(post.user)) %>
   <div class="post__user--icon">
     <%= link_to image_tag(post.user.user_img.url), "/users/#{post.user_id}" %>
   </div>
@@ -6,8 +8,8 @@
   <div class="post__wrap">
     <div class="user-info">
       <h3>
-        <%= render "shogo_firsts/shogo_first", user: post.user %>
-        <%= render "shogos/shogo", user: post.user %>
+        <%= shogo_first.name %>
+        <%= shogo_last.name %>
       </h3>
       <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
       <h2><%= post.user.username %></h2>
