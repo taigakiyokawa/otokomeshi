@@ -1,0 +1,77 @@
+@import "variables";
+
+@media (min-width: 960px) {
+  header {
+    height: $pcheader;
+    a {
+      display: inline-block;
+      height: $pcheader;
+      &:visited {
+        color: $text;
+      }
+    }
+    .header__icon {
+      height: $pcheader;
+      padding: 8px 0;
+    }
+    .logo {
+      position: absolute;
+      left: 16px;
+      right: auto;
+    }
+    .ore {
+      display: none;
+    }
+    .newmeshi {
+      display: none;
+    }
+  }
+
+  .tab_area {
+    display: inline-block;
+    top: 0;
+    background-color: transparent;
+    label {
+      line-height: $pcheader - 4px;
+      padding-top: 0;
+    }
+  }
+
+  #nav-search {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 49px;
+    padding-left: 0;
+    z-index: 3;
+    width: calc((100% - 480px)/2);
+    margin: 8px 0px;
+    form {
+      input {
+        position: absolute;
+        bottom: 8px;
+        &[type="submit"] {
+          right: 0;
+          font-size: 12px;
+          text-align: center;
+          margin-left: 5%;
+          width: 20%;
+          line-height: 33px;
+          padding: 0 16px;
+        }
+      }
+    }
+  }
+
+  .index_container {
+    margin-top: $pcheader;
+  }
+}
+
+@media (max-width: 959px) {
+  #nav-search {
+    padding: 8px 16px;
+    max-width: 480px;
+  }
+}
