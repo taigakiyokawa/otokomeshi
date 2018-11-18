@@ -13,20 +13,20 @@ body {
 
 .index_container {
   width: 100%;
-  margin-top: 89px;
+  margin-top: 88px;
   background-color: $border;
 
   .tab_wrap {
     width:100%;
 
     .panel_area {
+      position: relative;
       background-color: $base;
       color: $text;
-      max-width: 552px;
+      max-width: 480px;
       margin: 0 auto;
       .tab_panel {
         width: 100%;
-        padding: 8px 0;
         display: none;
         p{
           font-size:14px;
@@ -39,33 +39,24 @@ body {
 
 // 検索バー＆ボタンのスタイル
 #nav-search {
-  width: 100%;
-  padding: 8px;
   form {
-    margin-bottom: 32px;
     input {
       &#search {
-        width: 75%;
-        float: left;
+        width: calc(100% - 80px);
       }
-      &[type="submit"] {
-        float: right;
-        font-size: 16px;
-        text-align: center;
-        margin-left: 5%;
-        width: 20%;
-        line-height: 33px;
-        padding: 0 16px;
+      &[type="image"] {
+        position: absolute;
+        right: 16px;
+        height: 33px;
       }
     }
   }
 }
-
 // 投稿のスタイル
 .post {
-  padding: 8px 16px;
+  padding: 16px;
   margin: 8px 0;
-  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
   &__user--icon {
     position: absolute;
     display: inline-block;
@@ -74,6 +65,7 @@ body {
     }
   }
   &__wrap {
+    position: relative;
     margin-left: 56px;
     display: inline-block;
     .user-info {
@@ -96,7 +88,6 @@ body {
     }
     .meshi {
       width: 100%;
-      max-width: 480px;
     }
     h2.post__title {
       font-size: 20px;
@@ -108,7 +99,9 @@ body {
       margin-bottom: 4px;
     }
     .delete-btn {
-      float: right;
+      position: absolute;
+      bottom: 0;
+      right: 0;
       font-size: 12px;
       line-height: 32px;
       padding: 0 16px;
