@@ -65,7 +65,28 @@
   }
 
   .index_container {
-    margin-top: $pcheader;
+    margin-top: $pcheader + 16px;
+  }
+
+  .meshi_new {
+    display: block;
+    position: fixed;
+    width: calc((100% - 520px)/2);
+    max-width: 400px;
+    margin: 0 16px;
+    right: 0;
+  }
+  .ore_info {
+    display: block;
+    position: fixed;
+    left: 0;
+    width: calc((100% - 520px)/2);
+    max-width: 400px;
+    margin: 0 16px;
+  }
+
+  .user {
+    padding: 16px 0;
   }
 }
 
@@ -74,4 +95,9 @@
     padding: 8px 16px;
     max-width: 480px;
   }
+  .meshi_new, .ore_info {
+    display: none;
+  }
+
+  
 }
