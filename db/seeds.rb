@@ -9,4 +9,3 @@ end
 CSV.foreach('db/shogo_last_list.csv') do |sl|
    ShogoLast.create(:name => sl[0])
 end
-

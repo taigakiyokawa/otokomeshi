@@ -9,8 +9,6 @@ class LikesController < ApplicationController
   def unlike
     like = current_user.likes.find_by(post_id: @post.id)
     like.destroy
-    @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
-    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
   end
 
   private
