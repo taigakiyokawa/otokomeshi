@@ -1,9 +1,5 @@
 {
   "name": "otokomeshi",
   "private": true,
-  "dependencies": {
-    "cropper": "^4.0.0",
-    "jquery": "^3.3.1",
-    "jquery-modal": "^0.9.1"
-  }
+  "dependencies": {}
 }

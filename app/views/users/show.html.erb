@@ -1,36 +1,37 @@
-<div class="user">
-  <h3 class="user__shogo">
-    <%= render "shogo_firsts/shogo_first", user: @user %>
-    <%= render "shogos/shogo", user: @user %>
-  </h3>
-  <h2 class="user__name">
-    <%= @user.username %>
-  </h2>
-  <%= image_tag(@user.user_img.url, :class => "user__icon") %>
-  <div class="user__right-side">
-    <h3>戦闘力：9,999,999</h3>
-    <h3>総兵力：9,999,999</h3>
-    <div class="user__right-side__btns<%= "_none" if @user.id != current_user.id %>">
-      <%= link_to '退 陣', destroy_user_session_path, :class => "logout", method: :delete %>
-      <%= link_to '編 集', edit_user_registration_path, {:class => "edit"} %>
-    </div>
-  </div>
-  <div class="clear"></div>
-
-  <div class="user__tab_wrap">
-    <input id="tab1" type="radio" name="tab_btn" checked>
-    <input id="tab3" type="radio" name="tab_btn">
-
-    <div class="user__tab_area">
-      <label class="tab1_label" for="tab1">俺飯</label><label class="tab3_label" for="tab3">天晴</label>
-    </div>
-
-    <div class="user__panel_area">
-      <div id="panel1" class="user__tab_panel">
-        <%= render "posts/newIndex"%>
+<div class="user__container">
+  <div class="user">
+    <h3 class="user__shogo">
+      <%= @shogo_first.name %>
+      <%= @shogo_last.name %>
+    </h3>
+    <h2 class="user__name">
+      <%= @user.username %>
+    </h2>
+    <%= image_tag(@user.user_img.url, :class => "user__icon") %>
+    <div class="user__right-side">
+      <h3>戦闘力：<%= get_likes_total(@user) %></h3>
+      <h3>総兵力：<%= @posts.count %></h3>
+      <div class="user__right-side__btns<%= "_none" if @user.id != current_user.id %>">
+        <%= link_to '退 陣', destroy_user_session_path, :class => "logout", method: :delete %>
+        <%= link_to '編 集', edit_user_registration_path, {:class => "edit"} %>
       </div>
-      <div id="panel3" class="user__tab_panel">
-        <%= render "posts/appareIndex"%>
+    </div>
+    <div class="clear"></div>
+
+    <div class="user__tab_wrap">
+      <input id="tab1" type="radio" name="tab_btn" checked>
+      <input id="tab3" type="radio" name="tab_btn">
+
+      <div class="user__tab_area">
+        <label class="tab1_label" for="tab1">俺飯</label><label class="tab3_label" for="tab3">天晴</label>
+      </div>
+      <div class="user__panel_area">
+        <div id="panel1" class="user__tab_panel">
+          <%= render "posts/newIndex"%>
+        </div>
+        <div id="panel3" class="user__tab_panel">
+          <%= render "posts/appareIndex"%>
+        </div>
       </div>
     </div>
   </div>

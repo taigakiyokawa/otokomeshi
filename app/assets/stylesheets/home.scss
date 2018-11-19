@@ -29,7 +29,6 @@
                 color: $text;
             }
             &:hover {
-                letter-spacing: 5px;
                 background-color: rgba($color: $accent, $alpha: 0.9);
                 transition: 0.5s;
             }
@@ -43,7 +42,6 @@
                 color: $main;
             }
             &:hover {
-                letter-spacing: 5px;
                 background-color: rgba($color: $text, $alpha: 0.9);
                 transition: 0.5s;
             }
