@@ -1,34 +1,3 @@
 <% @posts.each do |post| %>
-  <% @user = User.find_by(id: post.user_id) %>
-  <% @user.shogo_first_id = set_shogo_first(@user) %>
-  <% @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id) %>
-  <% @user.shogo_last_id = set_shogo_last(@user) %>
-  <% @shogo_last = ShogoLast.find_by(id: @user.shogo_last_id) %>
-  <div class="post">
-    <div class="post__user--icon">
-      <%= image_tag(@user.user_img.url) %>
-    </div>
-        
-    <div class="post__wrap">
-      <div class="user-info">
-        <h3>
-          <%= @shogo_first.name %>
-          <%= @shogo_last.name  %>
-        </h3>
-        <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
-        <h2><%= @user.username %></h2>
-      </div>
-      <div class="meshi_wrap">
-        <%= image_tag(post.meshim.url, :class => "meshi") %>
-      </div>
-      <h2 class="post__title"><%= post.title %></h2>
-      <p class="post__body"><%= post.body %></p>
-      <% if current_user.id == @user.id %>
-        <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
-      <% end %>
-      <div id="panel1_like_<%=post.id %>">
-        <%= render "likes/like", post: post %>
-      </div>
-    </div>
-  </div>
+  <%= render post, locals: { panel: "panel1" } %>
 <% end %>

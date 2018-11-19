@@ -1,0 +1,35 @@
+@import "variables";
+
+.form-title {
+  display: inline-block;
+  border-bottom: 1px solid $accent;
+  font-size: 32px;
+  margin-bottom: 16px;
+  margin: 0;
+}
+.monomousu {
+  text-align: center;
+  padding: 8px;
+  font-weight: $black;
+  background-color: $daccent;
+  margin-bottom: 8px;
+}
+.destroy_user {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  input[type="submit"] {
+    color: $main;
+    font-size: 24px;
+    padding: 8px 24px;
+    margin-bottom: 16px;
+  }
+}
+
+.image_field {
+  text-align: center;
+  img {
+    height: 120px;
+    object-fit: contain;
+  }
+}

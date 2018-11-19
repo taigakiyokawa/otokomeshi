@@ -6,11 +6,16 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     # 全投稿を新着順に表示(panel1)
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.search(params[:search])
     # 全投稿を天晴数順にランキング(panel2)
-    @rank = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    post_like_count = Post.joins(:likes).group(:post_id).count
+    post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
+    sub_posts = Post.where(id: post_like_ids).index_by(&:id)
+    @rank_posts = post_like_ids.map {|id| sub_posts[id] }
+    # @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
     # 天晴している投稿を取り出す(panel3)
-    @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
+    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    # @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   # GET /posts/1

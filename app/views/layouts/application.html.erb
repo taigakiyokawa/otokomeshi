@@ -6,12 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
      <!-- CDN -->
-    <!-- CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropper/1.0.0/cropper.min.css" rel="stylesheet" type="text/css" media="all"/>
-
-    <!-- JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/1.0.0/cropper.min.js"></script>
+     
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%# アイコンの追加 %>
@@ -25,13 +21,15 @@
     <% if path != "/" %>
       <header>
         <% if user_signed_in? %>
-          <%= link_to image_tag(current_user.user_img.url, :class => "btn user"), edit_user_registration_path, { :class => "my_page" } %>
-          <%= link_to image_tag('/assets/logo.svg', :class => "logo"), '/posts', { :class => "logo_link" } %>
-          <%= link_to image_tag('/assets/plus.png', :class => "btn new"), new_post_path, { :class => "newmeshi" } %>
+          <div class="ore<%= "_none" if path == "/users/#{current_user.id}" %>">
+            <%= link_to image_tag(current_user.user_img.url, :class => "header__icon ore"), "/users/#{current_user.id}" %>
+          </div>
+          <%= link_to image_tag('/assets/logo.svg', :class => "header__icon logo"), '/posts' %>
+          <div class="newmeshi<%= "_none" if path == new_post_path %>">
+            <%= link_to image_tag('/assets/plus.png', :class => "header__icon newmeshi"), new_post_path %>
+          </div>
         <% end %>
       </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
   </body>

@@ -12,27 +12,34 @@
   <% end %>
 
   <div class="field">
-    <!--<%= form.label :final %>-->
-    <!-- <h3><%= "画" %></h3> -->
-    <%= form.file_field :meshim, id: :post_image %>
-    <%= image_tag @post.meshim.url, id: :post_image_prev %>
+    <label for="post_image">
+      <%= form.file_field :meshim, id: :post_image %>
+      <div class="select-file">
+        <%= image_tag @post.meshim.url, id: :post_image_prev %>
+      </div>
+    </label>
+    
   </div>
 
   <div class="field">
     <h3><%= "名(十二文字以内)" %></h3>
-    <!--<%= form.label :title %>-->
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <!--<%= form.label :final %>-->
     <h3><%= "作り方(四十文字以内)" %></h3>
-    <%= form.text_area :body %>
+    <%= form.text_area :body,  size: "20x3"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit "完 了" %>
+  <div class="back-or-action">
+    <div class="back">
+      <%= link_to "戻る", posts_path, { :class => "file" } %>
+    </div>
+    <div class="actions">
+      <%= form.submit "完 了" %>
+    </div>
   </div>
+  
 <% end %>
 
 <script type="text/javascript">
@@ -41,9 +48,19 @@ $(function() {
    if (input.files && input.files[0]) {
      var reader = new FileReader();
      reader.onload = function (e) {
-       $('#post_image_prev').attr('src', e.target.result);
+       $(".select-file").empty();
+       $(".select-file").append($('<img>').attr({
+          src: e.target.result,
+          id: "post_image_prev",
+       }));
      }
      reader.readAsDataURL(input.files[0]);
+   } else {
+       $(".select-file").empty();
+       $(".select-file").append($('<img>').attr({
+          src: "<%= asset_path("default_post.png") %>",
+          id: "post_image_prev",
+       }));
    }
  }
  $("#post_image").change(function(){

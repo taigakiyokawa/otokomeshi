@@ -4,13 +4,11 @@ class LikesController < ApplicationController
   def like
     like = current_user.likes.new(post_id: @post.id)
     like.save
-    @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def unlike
     like = current_user.likes.find_by(post_id: @post.id)
     like.destroy
-    @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   private

@@ -6,11 +6,10 @@ header {
   background-color: $main;
   color: $text;
   width: 100%;
-  text-align: center;
   position: fixed;
   top: 0px;
   margin: 0px;
-  z-index: 10;
+  z-index: 1;
   a {
     display: inline-block;
     height: $header;
@@ -18,21 +17,31 @@ header {
       color: $text;
     }
   }
-  .my_page {
-    float: left;
-    padding-left: 8px;
+  .header__icon {
+    height: $header;
+    padding: 4px 0;
   }
   .logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .ore {
+    float: left;
     height: $header;
-    padding-top: 8px;
+    padding-left: 4px;
+    &_none {
+      display: none;
+    }
   }
   .newmeshi {
     float: right;
-    padding-right: 8px;
-  }
-  .btn {
+    padding-right: 4px;
     height: $header;
-    padding-top: 8px;
+    &_none {
+      display: none;
+    }
   }
 }
 
@@ -41,25 +50,26 @@ input[type="radio"]{
   display:none;
 }
 .tab_area{
-  font-size: 0;
-  margin:0;
   position: fixed;
-  z-index: 10;
+  z-index: 2;
   top: $header;
   width: 100%;
   background-color: $main;
-
+  text-align: center;
+  line-height: 32px;
   label {
     width:calc(100%/3);
+    max-width: 160px;
     display: inline-block;
-    padding-top: 8px;
+    padding-top: 4px;
     color: $border;
-    text-align:center;
-    font-size: 24px;
+    text-align: center;
     font-weight: $black;
-    border-bottom: 5px solid $main;
+    font-size: 20px;
+    letter-spacing: 8px;
+    border-bottom: 4px solid $main;
     cursor:pointer;
-    transition:ease 0.2s;
+    transition:ease 0.5s;
     &:hover{
       color: $accent;
     }
@@ -68,7 +78,7 @@ input[type="radio"]{
 
 #tab1:checked ~ .tab_area .tab1_label{
   color: $text;
-  border-bottom: 5px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
 #tab1:checked ~ .panel_area #panel1{
   display:block;
@@ -76,19 +86,20 @@ input[type="radio"]{
 
 #tab2:checked ~ .tab_area .tab2_label{
   color: $text;
-  border-bottom: 5px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
 #tab2:checked ~ .panel_area #panel2{
   display:block;
   .post {
     padding: 0px 16px;
+    border: none;
   }
 }
 
 #tab3:checked ~ .tab_area .tab3_label{
   color: $text;
-  border-bottom: 5px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
-#tab3:checked ~ .panel_area #panel3{
+#tab3:checked ~ .panel_area #panel3 {
   display:block;
 }

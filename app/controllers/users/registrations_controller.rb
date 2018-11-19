@@ -4,13 +4,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+    # POST /resource
+    # def create
+    #   # self.resource = warden.authenticate!(auth_options)
+    #   # set_flash_message!(:notice, :signed_in)
+    #   if User.where(username: params[:user][:username]).present?
+    #     super.sign_in(resource_name, resource) 
+    #   else
+    #     super
+    #   end
+    # end
+  
+  protected
+    def update_resource(resource, params)
+      resource.update_without_current_password(params)
+    end
   # GET /resource/sign_up
   # def new
-  #   super
-  # end
-
-  # POST /resource
-  # def create
   #   super
   # end
 
