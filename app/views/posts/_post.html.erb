@@ -1,0 +1,27 @@
+<div class="post">
+  <div class="post__user--icon">
+    <%= link_to image_tag(post.user.user_img.url), "/users/#{post.user_id}" %>
+  </div>
+      
+  <div class="post__wrap">
+    <div class="user-info">
+      <h3>
+        <%= @shogo_first.name %>
+        <%= @shogo_last.name  %>
+      </h3>
+      <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
+      <h2><%= post.user.username %></h2>
+    </div>
+    <div class="meshi_wrap">
+      <%= image_tag(post.meshim.url, :class => "meshi") %>
+    </div>
+    <h2 class="post__title"><%= post.title %></h2>
+    <p class="post__body"><%= post.body %></p>
+    <div id="<%= locals[:panel] %>_like_<%=post.id %>">
+      <%= render "likes/like", post: post %>
+    </div>
+    <% if current_user.id == post.user.id %>
+      <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>
+    <% end %>
+  </div>
+</div>

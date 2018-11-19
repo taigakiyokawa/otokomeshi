@@ -41,25 +41,25 @@ input[type="radio"]{
   display:none;
 }
 .tab_area{
-  font-size: 0;
-  margin:0;
   position: fixed;
   z-index: 10;
   top: $header;
   width: 100%;
   background-color: $main;
-
+  text-align: center;
   label {
     width:calc(100%/3);
+    max-width: 184px;
     display: inline-block;
     padding-top: 8px;
     color: $border;
-    text-align:center;
-    font-size: 24px;
+    text-align: center;
     font-weight: $black;
-    border-bottom: 5px solid $main;
+    font-size: 20px;
+    letter-spacing: 8px;
+    border-bottom: 2px solid $main;
     cursor:pointer;
-    transition:ease 0.2s;
+    transition:ease 0.5s;
     &:hover{
       color: $accent;
     }
@@ -68,7 +68,7 @@ input[type="radio"]{
 
 #tab1:checked ~ .tab_area .tab1_label{
   color: $text;
-  border-bottom: 5px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
 #tab1:checked ~ .panel_area #panel1{
   display:block;
@@ -76,7 +76,7 @@ input[type="radio"]{
 
 #tab2:checked ~ .tab_area .tab2_label{
   color: $text;
-  border-bottom: 5px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
 #tab2:checked ~ .panel_area #panel2{
   display:block;
@@ -87,8 +87,8 @@ input[type="radio"]{
 
 #tab3:checked ~ .tab_area .tab3_label{
   color: $text;
-  border-bottom: 5px solid $accent;
+  border-bottom: 4px solid $daccent;
 }
-#tab3:checked ~ .panel_area #panel3{
+#tab3:checked ~ .panel_area #panel3 {
   display:block;
 }
