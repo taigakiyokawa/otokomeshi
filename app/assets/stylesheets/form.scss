@@ -1,0 +1,53 @@
+@import "variables";
+
+.sign {
+  display: inline-block;
+  padding: 8px 32px;
+  font-size: 24px;
+  font-weight: $black;
+  margin-top: 8px;
+  background-color: $daccent;
+  letter-spacing: 8px;
+}
+.now {
+  background-color: rgba($color: $base, $alpha: 0.7);
+  color: $accent;
+}
+.monomousu {
+  text-align: center;
+  padding: 8px;
+  font-weight: $black;
+  background-color: $daccent;
+  margin-bottom: 8px;
+}
+.destroy_user {
+  float: left;
+  input[type="submit"] {
+    color: $main;
+    font-size: 24px;
+    padding: 8px 16px;
+  }
+}
+
+.image_field {
+  text-align: center;
+  img {
+    height: 120px;
+    object-fit: contain;
+  }
+}
+
+.form_wrap {
+  background-color: rgba($color: $base, $alpha: 0.7);
+  padding: 8px;
+}
+
+.about {
+  text-align: center;
+  background-color: rgba($color: $main, $alpha: 0.7);
+  padding: 16px 0;
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: $black;
+  letter-spacing: 16px;
+}

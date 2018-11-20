@@ -1,0 +1,131 @@
+@import "variables";
+
+@media (min-width: 960px) {
+  header {
+    height: 64px;
+    a {
+      display: inline-block;
+      height: $pcheader;
+      &:visited {
+        color: $text;
+      }
+    }
+    .header__icon {
+      height: $pcheader;
+      padding: 8px 0;
+    }
+    .logo {
+      position: absolute;
+      left: 16px;
+      right: auto;
+    }
+    .ore {
+      display: none;
+    }
+    .newmeshi {
+      display: none;
+    }
+  }
+
+  .tab_area {
+    display: inline-block;
+    top: 0;
+    background-color: transparent;
+    width: calc(50% - 56px);
+    margin-left: calc(20% + 32px);
+    label {
+      line-height: $pcheader - 4px;
+      padding-top: 0;
+    }
+  }
+
+  #nav-search {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 48px;
+    z-index: 3;
+    width: calc(30% + 16px);
+    margin: 8px 0px;
+    form {
+      input {
+        position: absolute;
+        bottom: 8px;
+        &[type="submit"] {
+          right: 0;
+          font-size: 12px;
+          text-align: center;
+          margin-left: 5%;
+          width: 20%;
+          line-height: 33px;
+          padding: 0 16px;
+        }
+      }
+    }
+  }
+
+  .index_container {
+    margin-top: $pcheader + 16px;
+  
+    .panel_area {
+      width: calc(50% - 56px);
+      position: absolute;
+      left: calc(20% + 32px);
+    }
+  }
+
+  .meshi_new {
+    display: block;
+    position: fixed;
+    width: 30%;
+    margin-right: 16px;
+    right: 0;
+  }
+  .ore_info {
+    display: block;
+    position: fixed;
+    left: 0;
+    width: calc(20% + 8px);
+    margin-left: 16px;
+  }
+
+  .user {
+    padding: 16px 0;
+
+    .edit {
+      clear: right;
+      text-align: center;
+      padding: 8px 15%;
+      font-weight: $black;
+      background-color: rgba($color: $border, $alpha: 0.7);
+    }
+    .logout {
+      clear: left;
+      color: $border;
+      text-align: center;
+      padding: 8px 15%;
+      font-weight: $black;
+      background-color: rgba($color: $text, $alpha: 0.7);
+    }
+  }
+
+  .top__container {
+    padding: 10vh 0;
+  }
+}
+
+@media (max-width: 959px) {
+  #nav-search {
+    padding: 8px 16px;
+    max-width: 480px;
+  }
+  .meshi_new, .ore_info {
+    display: none;
+  }
+
+  .top__container {
+    padding: 32px;
+  }
+  
+}

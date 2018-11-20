@@ -1,39 +1,65 @@
-<div class="container">
+<div class="container base">
+  <a class="monomousu" href="https://goo.gl/forms/rpjYWnyX8IlUtyUk1" target="_blank">物申すッ!!!</a>
+  <h2 class="edit_title">編 集</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
+    <%= devise_error_messages! %>
 
-<h2>編 集 <%= resource_name.to_s.humanize %></h2>
-<div id="user_image_form">
-  <%= render 'files' %>
-</div>
+    <div class="image_field">
+      <label for="user_image">
+        <%= f.file_field :user_img, id: :user_image %>
+        <%= image_tag current_user.user_img.url, id: :user_image_prev %>
+      </label>
+    </div>
+    <div class="field_wrap">
+      <div class="field">
+        <%= f.label :username %>(十六文字以内)<br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
-  <%= devise_error_messages! %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
+      <div class="field">
+        <%= f.label :password %>の変更<br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :username %>(十六文字以内)<br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-  </div>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="back-or-action">
+      <div class="back">
+        <%= link_to "戻る", "/users/#{current_user.id}" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "更新" %>
+      </div>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %>の変更<br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<p>あかうんとの削除 <%= button_to "破門", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to 'ろぐあうと', destroy_user_session_path, method: :delete %>
-
-<%= link_to '物申す', "https://goo.gl/forms/uyRqhjWkM7vQKxvo2" %>
-
-<%= link_to "戻る", :back %>
-
+<div class="destroy_user">
+<%= button_to "破門", registration_path(resource_name), data: { confirm: "貴様ッ!! 漢飯を辞めるつもりかッッ!!!" }, method: :delete %>
 </div>
+
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#user_image_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#user_image").change(function(){
+   readURL(this);
+ });
+});
+</script>

@@ -1,0 +1,163 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 投稿一覧(posts/index)のスタイル
+
+@import "variables";
+
+body {
+  background-color: $border;
+  color: $text;
+}
+
+.index_container {
+  width: 100%;
+  margin-top: 88px;
+  background-color: $border;
+
+  .tab_wrap {
+    width:100%;
+
+    .panel_area {
+      position: relative;
+      background-color: $base;
+      color: $text;
+      .tab_panel {
+        width: 100%;
+        display: none;
+        p{
+          font-size:14px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+// 検索バー＆ボタンのスタイル
+#nav-search {
+  form {
+    input {
+      &#search {
+        width: calc(100% - 96px);
+      }
+      &[type="image"] {
+        position: absolute;
+        right: 16px;
+        height: 33px;
+      }
+    }
+  }
+}
+// 投稿のスタイル
+.post {
+  padding: 16px;
+  margin: 8px 0;
+  border-bottom: 1px solid $border;
+  &__user--icon {
+    position: absolute;
+    display: inline-block;
+    img {
+      height: 48px;
+    }
+  }
+  &__wrap {
+    position: relative;
+    margin-left: 56px;
+    display: inline-block;
+    .user-info {
+      height: 48px;
+      margin-bottom: 8px;
+      h3 {
+        display: inline-block;
+        font-size: 12px;
+        padding: 4px;
+        background-color: $daccent;
+      }
+      p.post__created {
+        color: lighten($color: $border, $amount: 20%);
+        line-height: 25px;
+        float: right;
+      }
+      h2 {
+        font-size: 16px;
+      }
+    }
+    .meshi {
+      width: 100%;
+    }
+    h2.post__title {
+      font-size: 20px;
+      letter-spacing: 3px;
+      border-bottom: 1px solid $daccent;
+      margin-bottom: 4px;
+    }
+    p.post__body {
+      margin-bottom: 4px;
+    }
+    .delete-btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 12px;
+      line-height: 32px;
+      padding: 0 16px;
+      background-color: $border;
+
+    }
+    .appare {
+      text-align: center;
+      height: 32px;
+      .button_to {
+        display: inline-block;
+        height: 32px;
+        button {
+          height: 32px;
+          border: none;
+          padding: 0;
+          outline: 0;
+          cursor: pointer;
+          background-color: transparent;
+        }
+        img {
+          width: 32px;
+        }
+      }
+      .appare-count {
+        float: right;
+        line-height: 32px;
+        margin-left: 8px;
+        color: lighten($color: $border, $amount: 20%);
+      }
+    }
+  }
+}
+
+// ランキングのスタイル
+.rank{
+  padding: 0 8px;
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: $black;
+  border-bottom: 2px solid $border;
+  .banzuke {
+    display: inline-block;
+  }
+  &_1{
+    display: inline-block;
+    font-size: 32px;
+    color: $accent;
+  }
+  &_2{
+    display: inline-block;
+    font-size: 32px;
+  }
+  &_3, &_4, &_5 {
+    font-size: 28px;
+    display: inline-block;
+  }
+  &_6, &_7, &_8, &_9, &_10 {
+    display: inline-block;    
+  }
+}

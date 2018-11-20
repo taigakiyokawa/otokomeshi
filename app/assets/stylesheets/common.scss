@@ -1,0 +1,114 @@
+// 共通要素を書いていくファイル
+@import "variables";
+
+input {
+  &:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px $text inset;
+  }
+  -webkit-appearance: none;
+  border-radius: 0;
+  &[type="submit"] {
+    border-style: none;
+    font-weight: $black;
+    padding: 8px 16px;
+    background-color: $daccent;
+    color: $text;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba($color: $accent, $alpha: 0.9);
+      transition: 0.5s;
+    }
+  }
+}
+input[type="text"], input[type="password"], textarea {
+  outline: 0;
+  width: 100%;
+  font-size: 16px;
+  color: $text;
+  border: none;
+  border-bottom: 1px solid $text;
+  background-color: rgba($color: $main, $alpha: 0);
+  padding: 4px;
+}
+textarea {
+  resize: none;
+  margin-top: 4px;
+  border: 1px solid $text;
+}
+.field {
+  position: relative;
+  padding: 16px 0;
+  font-weight: $black;
+}
+label > input {
+  display: none;
+}
+label {
+  cursor: pointer;
+  &:active {
+    img {
+      opacity: 0.3;
+    }
+  }
+}
+
+#error_explanation {
+  font-weight: $black;
+  background-color: $daccent;
+  width: 100%;
+  h2 {
+    display: none;
+  }
+}
+
+.base {
+  background-color: $base;
+}
+
+.container {
+  position: relative;
+  padding: 64px 16px;
+  max-width: 512px;
+  margin: 0 auto;
+  img{
+    width: 100%;
+  }
+}
+
+  // left: back, right: OK 親要素の右下に配置
+.back-or-action {
+  float: right;
+  .back {
+    display: inline-block;
+    margin-right: 16px;
+    a {
+      font-size: 24px;
+      font-weight: $black;
+      background-color: rgba($color: $text, $alpha: 0.7);
+      padding: 8px 16px;
+      color: $base;
+      &:hover {
+        background-color: rgba($color: $text, $alpha: 0.9);
+        transition: 0.5s;
+      }
+    }
+  }
+  .actions {
+    display: inline-block;
+    input {
+      font-size: 24px;
+    }
+  }
+}
+
+// floatの解除
+.clear {
+  clear: both;
+}
+
+.notice {
+  display: none;
+}
+.alert {
+  background-color: $daccent;
+}

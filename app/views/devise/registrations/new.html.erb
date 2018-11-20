@@ -1,37 +1,31 @@
 <div class="top">
   <div class="top__container">
-    <div class="form__wrapper">
-      <h2 class="form-title">入 門</h2>
+    <img class="top__logo" src="/assets/logo.svg" alt="魁!!漢飯">
+    <%= link_to '初 陣', new_user_registration_path, :class => "sign now" %><%= link_to '出 陣', new_user_session_path, :class => "sign" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
+      <div class="form_wrap">
         <div class="field">
-          <%= f.label :username %>(十六文字以内)<br />
-          <%= f.text_field :username, autofocus: true, autocomplete: "user" %>
+          <%= f.label :username %>（十六文字以内）<br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "user", :size=>"32" %>
         </div>
 
+        
         <div class="field">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", :size=>"32" %>
         </div>
 
         <div class="back-or-action">
-          <div class="back">
-            <%= link_to "戻る", "/" %>
-          </div>
           <div class="actions">
-            <%= f.submit "入 門" %>
+            <%= f.submit "いざ初陣ッ!" %>
           </div>
         </div>
-      <% end %>
+        <div class="clear"></div>
+      </div>
+    <% end %>
 
-      <!-- <%= render "devise/shared/links" %> -->
-    </div>
+    <%= link_to '概 要', '/top', :class => 'about' %>
   </div>
 </div>

@@ -1,9 +1,10 @@
 // colors
-$accent: #c9171e;
-$main: #1C1C1C;
-$base: #2b2b2b;
-$text: #FCFAF2;
-$border: #656765;
+$accent: #c9171e; // 深緋 #c9171e
+$daccent: rgba($color: $accent, $alpha: 0.7);
+$main: #1C1C1C; // 墨　#1C1C1C
+$base: #2b2b2b; //黒 #2b2b2b
+$text: #FCFAF2; // 白練 #FCFAF2
+$border: #656765; // 鈍 #656765
 
 //font-weights
 $medium: 500;
@@ -11,3 +12,5 @@ $black: 900;
 
 //sizes
 $header: 48px;
+$header-icon: 44px;
+$pcheader: 64px;

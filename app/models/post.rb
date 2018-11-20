@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  mount_uploader :meshim, ImageUploader
+  mount_uploader :meshim, MeshiUploader
   validates :title, {presence: true, length: {maximum: 12}}
   validates :meshim, presence: true
   validates :body, {length: {maximum: 40}}

@@ -1,39 +1,32 @@
 <div class="top">
   <div class="top__container">
-    <div class="form__wrapper">
-      <h2 class="form-title">ろ ぐ い ん</h2>
+    <img class="top__logo" src="/assets/logo.svg" alt="魁!!漢飯">
+    <%= link_to '初 陣', new_user_registration_path, :class => "sign" %><%= link_to '出 陣', new_user_session_path, :class => "sign now" %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+      <div class="form_wrap">
         <div class="field">
           <%= f.label :username %><br />
-          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", :size=>"32" %>
         </div>
 
         <div class="field">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.password_field :password, autocomplete: "current-password", :size=>"32" %>
         </div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end -%>
-
 
         <div class="back-or-action">
-          <div class="back">
-            <%= link_to "戻る", "/" %>
-          </div>
           <div class="actions">
-            <%= f.submit "見 参" %>
+            <%= f.submit "いざ出陣ッ!" %>
           </div>
         </div>
-      <% end %>
+        <div class="clear"></div>
+      </div>
+    <% end %>
 
-      <!-- <%= render "devise/shared/links" %> -->
-    </div>
+    <%= link_to '概 要', '/top', :class => 'about' %>
   </div>
 </div>

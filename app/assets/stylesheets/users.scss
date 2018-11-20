@@ -1,3 +1,108 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// users/show のスタイル
+
+@import "variables";
+
+.user {
+  &__container {
+    background-color: $border;
+  }
+  padding: 72px 0;
+  background-color: $main;
+
+  &__info {
+    padding: 0 16px;
+  }
+  &__shogo {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: $daccent;
+  }
+  &__name {
+    font-size: 21px;
+    margin-bottom: 8px;
+  }
+
+  img.user__icon {
+    float: left;
+    width: 120px;
+    margin-right: 8px;
+  }
+  // 戦闘力・総兵力・編集・退陣
+  &__right-side {
+    position: relative;
+    width: 60%;
+    height: 120px;
+    float: left;
+    &__btns {
+      &_none {
+        display: none;
+      }
+      width: 100%;
+      max-width: 240px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      .edit {
+        float: right;
+        text-align: center;
+        padding: 8px 15%;
+        font-weight: $black;
+        background-color: rgba($color: $border, $alpha: 0.7);
+      }
+      .logout {
+        float: left;
+        color: $border;
+        text-align: center;
+        padding: 8px 15%;
+        font-weight: $black;
+        background-color: rgba($color: $text, $alpha: 0.7);
+      }
+    }
+  }
+
+  &__tab_wrap {
+    width: 100%;
+    margin-top: 24px;
+  }
+  &__tab_area {
+    width: 100%;
+    label {
+      width: 50%;
+      display: inline-block;
+      text-align: center;
+      font-size: 20px;
+      font-weight: $black;
+      border-bottom: 4px solid $main;
+      cursor:pointer;
+      transition:ease 0.5s;
+      &:hover{
+      color: $accent;
+      }
+    }
+  }
+  &__tab_panel {
+    display: none;
+    padding: 8px 0;
+    background-color: $base;
+  }
+
+}
+
+
+#tab1:checked ~ .user__tab_area .tab1_label{
+  color: $text;
+  border-bottom: 4px solid $daccent;
+}
+#tab1:checked ~ .user__panel_area #panel1{
+  display:block;
+}
+
+#tab3:checked ~ .user__tab_area .tab3_label{
+  color: $text;
+  border-bottom: 4px solid $daccent;
+}
+#tab3:checked ~ .user__panel_area #panel3{
+  display:block;
+}
+
+
