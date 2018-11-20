@@ -18,12 +18,10 @@ class PostsController < ApplicationController
     # posts/new をindexで表示するため
     @post = Post.new
 
-    # users/:id をindexで表示するため
+    # # users/:id をindexで表示するため
     @user = User.find_by(id: current_user.id)
     @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
-    @like_posts = Post.where(id: @user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
-    @posts = Post.where(user_id: @user.id).order(created_at: :desc)
   end
 
   # GET /posts/1

@@ -10,7 +10,7 @@ input {
   &[type="submit"] {
     border-style: none;
     font-weight: $black;
-    padding: 8px 24px;
+    padding: 8px 16px;
     background-color: $daccent;
     color: $text;
     cursor: pointer;
@@ -73,40 +73,37 @@ label {
   img{
     width: 100%;
   }
-
+}
 
   // left: back, right: OK 親要素の右下に配置
-  .back-or-action {
-    position: absolute;
-      right: 16px;
-      bottom: 16px;
-    .back {
-      display: inline-block;
-      margin-right: 16px;
-      a {
-        font-size: 24px;
-        font-weight: $black;
-        background-color: rgba($color: $text, $alpha: 0.7);
-        padding: 8px 24px;
-        color: $base;
-        &:hover {
-          background-color: rgba($color: $text, $alpha: 0.9);
-          transition: 0.5s;
-        }
+.back-or-action {
+  float: right;
+  .back {
+    display: inline-block;
+    margin-right: 16px;
+    a {
+      font-size: 24px;
+      font-weight: $black;
+      background-color: rgba($color: $text, $alpha: 0.7);
+      padding: 8px 16px;
+      color: $base;
+      &:hover {
+        background-color: rgba($color: $text, $alpha: 0.9);
+        transition: 0.5s;
       }
     }
-    .actions {
-      display: inline-block;
-      input {
-        font-size: 24px;
-      }
+  }
+  .actions {
+    display: inline-block;
+    input {
+      font-size: 24px;
     }
   }
 }
 
 // floatの解除
 .clear {
-  clear: left;
+  clear: both;
 }
 
 .notice {

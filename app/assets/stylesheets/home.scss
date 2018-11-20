@@ -10,12 +10,18 @@
     background-position: center;
     background-size: cover;
     height: 100vh;
-
+    &__container {
+        max-width: 512px;
+        margin: 0 auto;
+        .field {
+            padding: 8px 0 16px;
+            margin: 8px 0;
+        }
+    }
     &__logo {
         filter: drop-shadow(0 10px 10px $main);
         width: 100%;
-        padding-top: 15vh;
-        padding-bottom: 20px;
+        padding-bottom: 8px;
     }
     .btn__wrapper {
         text-align: center;
