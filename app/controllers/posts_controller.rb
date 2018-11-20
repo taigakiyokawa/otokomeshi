@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   
+  include UsersHelper
   # GET /posts
   # GET /posts.json
   def index
@@ -13,6 +14,14 @@ class PostsController < ApplicationController
     # 天晴している投稿を取り出す(panel3)
     @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
     # @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
+
+    # posts/new をindexで表示するため
+    @post = Post.new
+
+    # # users/:id をindexで表示するため
+    @user = User.find_by(id: current_user.id)
+    @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
+    @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
   end
 
   # GET /posts/1
