@@ -6,10 +6,12 @@
   &__container {
     background-color: $border;
   }
-  margin: 0 auto;
-  padding: 72px 8px;
-  max-width: 568px;
+  padding: 72px 0;
   background-color: $main;
+
+  &__info {
+    padding: 0 16px;
+  }
   &__shogo {
     display: inline-block;
     padding: 4px 8px;
@@ -61,7 +63,6 @@
   &__tab_wrap {
     width: 100%;
     margin-top: 24px;
-    max-width: 552px;
   }
   &__tab_area {
     width: 100%;

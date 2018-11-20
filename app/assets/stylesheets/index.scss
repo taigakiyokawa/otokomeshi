@@ -23,8 +23,6 @@ body {
       position: relative;
       background-color: $base;
       color: $text;
-      max-width: 480px;
-      margin: 0 auto;
       .tab_panel {
         width: 100%;
         display: none;
@@ -42,7 +40,7 @@ body {
   form {
     input {
       &#search {
-        width: calc(100% - 80px);
+        width: calc(100% - 96px);
       }
       &[type="image"] {
         position: absolute;
