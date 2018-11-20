@@ -69,3 +69,6 @@ gem 'devise'
 
 # 画像処理
 gem 'mini_magick'
+
+# Google
+gem 'omniauth-google-oauth2'
