@@ -21,19 +21,29 @@
   margin-bottom: 8px;
 }
 .destroy_user {
-  float: left;
+  text-align: center;
+  margin-top: 24px;
+  h3 {
+    color: $border;
+  }
+  .button_to {
+    background-color: $main;
+    margin-top: 8px;
+  }
   input[type="submit"] {
-    color: $main;
+    color: $border;
+    background-color: $main;
     font-size: 24px;
     padding: 8px 16px;
   }
 }
 
 .image_field {
-  text-align: center;
+  margin-top: 8px;
   img {
     height: 120px;
-    object-fit: contain;
+    width: 120px;
+    object-fit: cover;
   }
 }
 
@@ -50,4 +60,8 @@
   font-size: 24px;
   font-weight: $black;
   letter-spacing: 16px;
+}
+
+.edit_title {
+  border-bottom: 2px solid $daccent;
 }
