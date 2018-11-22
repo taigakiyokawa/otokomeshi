@@ -10,50 +10,42 @@
   background-color: $main;
 
   &__info {
-    padding: 0 16px;
+    text-align: center;
   }
   &__shogo {
     display: inline-block;
+    font-size: 16px;
     padding: 4px 8px;
     background-color: $daccent;
   }
   &__name {
     font-size: 21px;
     margin-bottom: 8px;
+    border-bottom: 2px solid $daccent;
   }
 
   img.user__icon {
-    float: left;
-    width: 120px;
-    margin-right: 8px;
+    width: 160px;
   }
   // 戦闘力・総兵力・編集・退陣
   &__right-side {
-    position: relative;
-    width: 60%;
-    height: 120px;
-    float: left;
     &__btns {
+      width: 160px;
+      margin: 16px auto;
       &_none {
         display: none;
       }
-      width: 100%;
-      max-width: 240px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
       .edit {
-        float: right;
         text-align: center;
-        padding: 8px 15%;
+        padding: 8px 0;
         font-weight: $black;
         background-color: rgba($color: $border, $alpha: 0.7);
+        margin-bottom: 8px;
       }
       .logout {
-        float: left;
         color: $border;
         text-align: center;
-        padding: 8px 15%;
+        padding: 8px 0;
         font-weight: $black;
         background-color: rgba($color: $text, $alpha: 0.7);
       }
@@ -85,7 +77,10 @@
     padding: 8px 0;
     background-color: $base;
   }
-
+  .post {
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }
 
 

@@ -18,7 +18,7 @@
   padding: 8px;
   font-weight: $black;
   background-color: $daccent;
-  margin-bottom: 8px;
+  margin: 8px 0;
 }
 .destroy_user {
   float: left;
@@ -30,9 +30,10 @@
 }
 
 .image_field {
+  padding-top: 8px;
   text-align: center;
   img {
-    height: 120px;
+    height: 160px;
     object-fit: contain;
   }
 }
@@ -50,4 +51,8 @@
   font-size: 24px;
   font-weight: $black;
   letter-spacing: 16px;
+}
+
+.new_soldier {
+  border-bottom: 2px solid $daccent;
 }
