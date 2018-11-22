@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     @user = User.find_by(id: current_user.id)
     @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
+    @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
   end
 
   # GET /posts/1

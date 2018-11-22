@@ -6,7 +6,7 @@
 
     <div class="field">
     <%= f.label :user_img %>の変更<br />
-      <div class="image_field">
+      <div class="user_image_field">
         <label for="user_image">
           <%= f.file_field :user_img, id: :user_image %>
           <%= image_tag current_user.user_img.url, id: :user_image_prev %>
@@ -37,7 +37,7 @@
     <div class="buttons">
       <div class="back-or-action">
         <div class="back">
-          <%= link_to "戻る", "/users/#{current_user.id}" %>
+          <%= link_to "戻る", :back %>
         </div>
         <div class="actions">
           <%= f.submit "更新" %>

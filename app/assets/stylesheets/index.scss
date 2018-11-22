@@ -63,8 +63,9 @@ body {
     }
   }
   &__wrap {
+    width: calc(100% - 56px);
     position: relative;
-    margin-left: 56px;
+    left: 56px;
     display: inline-block;
     .user-info {
       height: 48px;
@@ -82,10 +83,14 @@ body {
       }
       h2 {
         font-size: 16px;
+        border-bottom: 1px solid $border;
       }
     }
-    .meshi {
+    .meshi_wrap {
       width: 100%;
+      .meshi{
+        width: 100%;
+      }
     }
     h2.post__title {
       font-size: 20px;
@@ -94,7 +99,7 @@ body {
       margin-bottom: 4px;
     }
     p.post__body {
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
     .delete-btn {
       position: absolute;

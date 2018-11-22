@@ -31,8 +31,8 @@
     display: inline-block;
     top: 0;
     background-color: transparent;
-    width: calc(50% - 56px);
-    margin-left: calc(20% + 32px);
+    width: calc((100% - 48px)*0.5);
+    margin-left: calc(((100% - 48px)*0.2) + 24px);
     label {
       line-height: $pcheader - 4px;
       padding-top: 0;
@@ -46,7 +46,7 @@
     right: 0;
     height: 48px;
     z-index: 3;
-    width: calc(30% + 16px);
+    width: 30%;
     margin: 8px 0px;
     form {
       input {
@@ -69,45 +69,34 @@
     margin-top: $pcheader + 16px;
   
     .panel_area {
-      width: calc(50% - 56px);
+      width: calc((100% - 48px)*0.5);
       position: absolute;
-      left: calc(20% + 32px);
+      left: calc(((100% - 48px)*0.2) + 24px);
     }
   }
 
   .meshi_new {
     display: block;
     position: fixed;
-    width: 30%;
-    margin-right: 16px;
-    right: 0;
+    width: calc((100% - 48px)*0.3);
+    right: 16px;
   }
   .ore_info {
     display: block;
     position: fixed;
-    left: 0;
-    width: calc(20% + 8px);
-    margin-left: 16px;
+    background-color: $main;
+    width: calc((100% - 48px)*0.2);
+    left: 16px;
+    .user {
+      padding: 0;
+      &__info {
+        padding: 0;
+      }
+    }
   }
 
-  .user {
-    padding: 16px 0;
-
-    .edit {
-      clear: right;
-      text-align: center;
-      padding: 8px 15%;
-      font-weight: $black;
-      background-color: rgba($color: $border, $alpha: 0.7);
-    }
-    .logout {
-      clear: left;
-      color: $border;
-      text-align: center;
-      padding: 8px 15%;
-      font-weight: $black;
-      background-color: rgba($color: $text, $alpha: 0.7);
-    }
+  .res__container {
+    padding: 16px;
   }
 
   .top__container {
@@ -123,9 +112,11 @@
   .meshi_new, .ore_info {
     display: none;
   }
-
   .top__container {
     padding: 32px;
   }
-  
+
+  .user__info {
+    padding: 0 16px;
+  }
 }
