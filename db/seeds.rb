@@ -11,11 +11,21 @@ CSV.foreach('db/shogo_last_list.csv') do |sl|
 end
 
 User.create!([
-    { username: "こうしくん1号", password: "a", password_confirmation: "a" },
-    { username: "こうしくん2号", password: "b", password_confirmation: "b" },
-    { username: "こうしくん3号", password: "c", password_confirmation: "c" },
-    { username: "こうしくん4号", password: "d", password_confirmation: "d" },
-    { username: "こうしくん5号", password: "e", password_confirmation: "e" }
+    { user_img: Rails.root.join("app/assets/images/user_img/1.jpg").open, username: "こうしくん1号", 
+      password: "a", password_confirmation: "a" 
+    },
+    { user_img: Rails.root.join("app/assets/images/user_img/2.jpg").open, username: "こうしくん2号", 
+      password: "b", password_confirmation: "b" 
+    },
+    { user_img: Rails.root.join("app/assets/images/user_img/3.jpg").open, username: "こうしくん3号", 
+      password: "c", password_confirmation: "c" 
+    },
+    { user_img: Rails.root.join("app/assets/images/user_img/4.jpg").open, username: "こうしくん4号", 
+      password: "d", password_confirmation: "d" 
+    },
+    { user_img: Rails.root.join("app/assets/images/user_img/5.jpg").open, username: "こうしくん5号", 
+      password: "e", password_confirmation: "e" 
+    }
 ])
 
 Post.create(
