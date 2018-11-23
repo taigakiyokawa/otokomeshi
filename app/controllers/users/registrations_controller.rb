@@ -24,8 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     if update_params[:password].blank?
-      current_user.update!(
-        {username: update_params[:username],
+      current_user.update!({
+        username: update_params[:username],
         user_img: update_params[:user_img]
       })
     else
