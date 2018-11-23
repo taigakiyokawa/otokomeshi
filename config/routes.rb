@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'shogos/update'
   get 'shogos/create'
 
-  # get 'posts/rank' => 'posts#rank'
+  get 'posts/news' => 'posts#news'
+  get 'posts/rank' => 'posts#rank'
+  get 'posts/appare' => 'posts#appare'
   resources :posts
 
   post   '/like/:post_id' => 'likes#like',   as: 'like'

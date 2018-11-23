@@ -11,15 +11,72 @@
 
 <div class="index_container">
   <div class="tab_wrap">
+    
+    <div class="tab_area">
+      <%= link_to '新着', 'posts/news' %>
+      <%= link_to '番付', 'posts/rank' %>
+      <%= link_to '天晴', 'posts/appare' %>
+    </div>
+
+    <div class="panel_area">
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+	//ページを表示させる箇所の設定
+  var $content = $('.panel_area');
+
+	//ボタンをクリックした時の処理
+	$(document).on('click', '.tab_area a', function(event) {
+		event.preventDefault();
+		//.gnavi aのhrefにあるリンク先を保存
+		var link = $(this).attr("href");
+		//リンク先が今と同じであれば遷移しない
+		if(link == lastpage){
+			return false;
+		}else{
+			$content.fadeOut(600, function() {
+				getPage(link);
+			});
+			//今のリンク先を保存
+			lastpage = link;
+		}
+		
+	});
+	//初期設定
+	getPage('/posts/news');
+	var lastpage = '/posts/news';
+ 
+	//ページを取得してくる
+    function getPage(elm){
+    	$.ajax({
+            type: 'GET',
+            url: elm,
+            dataType: 'html',
+            success: function(data){
+                $content.html(data).fadeIn(600);
+            },
+            error:function() {
+                       alert('問題がありました。');
+                   }
+    	});
+    }
+});
+</script>
+
+
+<!-- 
+
     <input id="tab1" type="radio" name="tab_btn" checked>
     <input id="tab2" type="radio" name="tab_btn">
     <input id="tab3" type="radio" name="tab_btn">
 
-    <div class="tab_area">
-      <label class="tab1_label" for="tab1">新着</label><label class="tab2_label" for="tab2">番付</label><label class="tab3_label" for="tab3">天晴</label>
-    </div>
+    <label class="tab1_label" for="tab1">新着</label><label class="tab2_label" for="tab2">番付</label><label class="tab3_label" for="tab3">天晴</label>
 
-    <div class="panel_area">
       <%= render 'search_form' %>
       <div id="panel1" class="tab_panel">
         <%= render "posts/newIndex"%>
@@ -30,6 +87,4 @@
       <div id="panel3" class="tab_panel">
         <%= render "posts/appareIndex"%>
       </div>
-    </div>
-  </div>
-</div>
+-->
