@@ -4,25 +4,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-    # POST /resource
-    # def create
-    #   # self.resource = warden.authenticate!(auth_options)
-    #   # set_flash_message!(:notice, :signed_in)
-    #   if User.where(username: params[:user][:username]).present?
-    #     super.sign_in(resource_name, resource) 
-    #   else
-    #     super
-    #   end
-    # end
-  
-  protected
-    def update_resource(resource, params)
-      resource.update_without_current_password(params)
-    end
   # GET /resource/sign_up
   # def new
-  #   super
+  #   super do
   # end
+
+  # POST /resource
+  def create
+    super do |resource|
+      # custom code
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -30,9 +22,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    if update_params[:password].blank?
+      current_user.update!(
+        {username: update_params[:username],
+        user_img: update_params[:user_img]
+      })
+    else
+      current_user.update!({
+        username: update_params[:username],
+        user_img: update_params[:user_img],
+        password: update_params[:password]
+      })
+    end
+    redirect_to posts_path
+    sign_in(current_user, bypass: true)
+  end
 
   # DELETE /resource
   # def destroy
@@ -69,4 +74,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  # protected
+  #   def update_resource(resource, params)
+  #     resource.update_without_current_password(params)
+  #     resource.update_without_password(params)
+  #   end
+  
+  private
+    def update_params
+      params.require(:user).permit(%i(username user_img password))
+    end
 end

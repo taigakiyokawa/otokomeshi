@@ -39,6 +39,22 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def news
+    @posts = Post.search(params[:search])
+    render partial: 'posts/newIndex'
+  end
+
+  def rank
+    rank_posts_ids = Like.group(:post_id).count.sort_by{ |a| a.last }.reverse.transpose.first
+    @rank_posts = Post.where(id: rank_posts_ids)
+    render partial: 'posts/rankIndex'
+  end
+
+  def appare
+    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    render partial: 'posts/appareIndex'
+  end
+
   # POST /posts
   # POST /posts.json
   def create

@@ -14,25 +14,13 @@ body {
 .index_container {
   width: 100%;
   margin-top: 88px;
-  background-color: $border;
+  background-color: $base;
 
-  .tab_wrap {
-    width:100%;
-
-    .panel_area {
-      position: relative;
-      background-color: $base;
-      color: $text;
-      .tab_panel {
-        width: 100%;
-        display: none;
-        p{
-          font-size:14px;
-          text-align: left;
-        }
-      }
+  .panel_area {
+    position: relative;
+    background-color: $base;
+    color: $text;
     }
-  }
 }
 
 // 検索バー＆ボタンのスタイル
@@ -63,8 +51,9 @@ body {
     }
   }
   &__wrap {
+    width: calc(100% - 56px);
     position: relative;
-    margin-left: 56px;
+    left: 56px;
     display: inline-block;
     .user-info {
       height: 48px;
@@ -82,10 +71,14 @@ body {
       }
       h2 {
         font-size: 16px;
+        border-bottom: 1px solid $border;
       }
     }
-    .meshi {
+    .meshi_wrap {
       width: 100%;
+      .meshi{
+        width: 100%;
+      }
     }
     h2.post__title {
       font-size: 20px;
@@ -94,6 +87,7 @@ body {
       margin-bottom: 4px;
     }
     p.post__body {
+      font-size: 14px;
       margin-bottom: 8px;
     }
     .delete-btn {

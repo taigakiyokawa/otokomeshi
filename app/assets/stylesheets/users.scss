@@ -4,6 +4,8 @@
 
 .user {
   &__container {
+    max-width: 512px;
+    margin: 0 auto;
     background-color: $border;
   }
   padding: 72px 0;

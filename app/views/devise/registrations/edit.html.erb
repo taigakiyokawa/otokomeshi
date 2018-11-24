@@ -4,15 +4,18 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="image_field">
-      <label for="user_image">
-        <%= f.file_field :user_img, id: :user_image %>
-        <%= image_tag current_user.user_img.url, id: :user_image_prev %>
-      </label>
+    <div class="field">
+    <%= f.label :user_img %>の変更<br />
+      <div class="user_image_field">
+        <label for="user_image">
+          <%= f.file_field :user_img, id: :user_image %>
+          <%= image_tag current_user.user_img.url, id: :user_image_prev %>
+        </label>
+      </div>
     </div>
     <div class="field_wrap">
       <div class="field">
-        <%= f.label :username %>(十六文字以内)<br />
+        <%= f.label :username %>の変更（16文字以内）<br />
         <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
       </div>
 
@@ -31,19 +34,24 @@
       </div>
     </div>
 
-    <div class="back-or-action">
-      <div class="back">
-        <%= link_to "戻る", "/users/#{current_user.id}" %>
+    <div class="buttons">
+      <div class="back-or-action">
+        <div class="back">
+          <%= link_to "戻る", :back %>
+        </div>
+        <div class="actions">
+          <%= f.submit "更新" %>
+        </div>
       </div>
-      <div class="actions">
-        <%= f.submit "更新" %>
-      </div>
+      <div class="clear"></div>
     </div>
-  <% end %>
+<% end %>
 
-  <div class="destroy_user">
-      <%= button_to "破門", registration_path(resource_name), data: { confirm: "貴様ッ!! 漢飯を辞めるつもりかッッ!!!" }, method: :delete %>
-  </div>
+<div class="destroy_user">
+  <h3>魁!! 漢飯から身を引く</h3>
+  <%= button_to "破門", registration_path(resource_name), data: { confirm: "貴様辞めるつもりかッ!!" }, method: :delete %>
+</div>
+
 </div>
 
 <script type="text/javascript">

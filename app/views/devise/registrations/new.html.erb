@@ -1,7 +1,9 @@
 <div class="top">
   <div class="top__container">
     <img class="top__logo" src="/assets/logo.svg" alt="魁!!漢飯">
-    <%= link_to '初 陣', new_user_registration_path, :class => "sign now" %><%= link_to '出 陣', new_user_session_path, :class => "sign" %>
+    <div class="sign_wrap">
+      <%= link_to '初 陣', new_user_registration_path, :class => "sign now" %><%= link_to '出 陣', new_user_session_path, :class => "sign" %>
+    </div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
