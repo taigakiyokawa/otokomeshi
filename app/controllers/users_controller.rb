@@ -11,11 +11,7 @@ class UsersController < ApplicationController
     @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
     @like_posts = Post.where(id: @user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
-    @posts = Post.where(user_id: @user.id).order(created_at: :desc)
-
-    @user.shogo_first_id = set_shogo_first(@user)
-    @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id)
-    @user.shogo_last_id = set_shogo_last(@user) 
-    @shogo_last = ShogoLast.find_by(id: @user.shogo_last_id)
+    @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
+    
   end
 end

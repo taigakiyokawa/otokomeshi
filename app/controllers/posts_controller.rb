@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     @user = User.find_by(id: current_user.id)
     @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
+    @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
   end
 
   # GET /posts/1
@@ -39,6 +40,22 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+  end
+
+  def news
+    @posts = Post.search(params[:search])
+    render partial: 'posts/newIndex'
+  end
+
+  def rank
+    rank_posts_ids = Like.group(:post_id).count.sort_by{ |a| a.last }.reverse.transpose.first
+    @rank_posts = Post.where(id: rank_posts_ids)
+    render partial: 'posts/rankIndex'
+  end
+
+  def appare
+    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    render partial: 'posts/appareIndex'
   end
 
   # POST /posts

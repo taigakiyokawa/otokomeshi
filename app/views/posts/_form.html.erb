@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="image_field">
     <label for="post_image">
       <%= form.file_field :meshim, id: :post_image,
           accept: 'image/jpg,image/jpeg,image/png,image/gif' %>
@@ -34,7 +34,7 @@
 
   <div class="back-or-action">
     <div class="back">
-      <%= link_to "戻る", posts_path, { :class => "file" } %>
+      <%= link_to "撤回", posts_path, { :class => "file" } %>
     </div>
     <div class="actions">
       <%= form.submit "完 了" %>
