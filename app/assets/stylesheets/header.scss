@@ -57,7 +57,7 @@ input[type="radio"]{
   background-color: $main;
   text-align: center;
   line-height: 32px;
-  label {
+  a.label {
     width:calc(100%/3);
     display: inline-block;
     padding-top: 4px;
@@ -69,9 +69,10 @@ input[type="radio"]{
     border-bottom: 4px solid $main;
     cursor:pointer;
     transition:ease 0.5s;
-    &:hover{
-      color: $accent;
-    }
+  }
+  a.checked {
+    color: $text;
+    border-bottom: 4px solid $daccent;
   }
 }
 

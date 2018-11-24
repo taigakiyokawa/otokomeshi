@@ -33,7 +33,7 @@
     background-color: transparent;
     width: calc((100% - 48px)*0.5);
     margin-left: calc(((100% - 48px)*0.2) + 24px);
-    label {
+    a.label {
       line-height: $pcheader - 4px;
       padding-top: 0;
     }

@@ -12,6 +12,7 @@
   font-weight: $black;
   margin-top: 8px;
   background-color: rgba($color: $main, $alpha: 0.9);
+  border-bottom: 4px solid rgba($color: $main, $alpha: 0.9);
   letter-spacing: 8px;
   color: $border;
   &:visited {
@@ -19,8 +20,8 @@
   }
 }
 .now {
-  background-color: rgba($color: $base, $alpha: 0.7);;
-  text-decoration: underline $daccent;
+  background-color: rgba($color: $base, $alpha: 0.7);
+  border-bottom: 4px solid $daccent;
   color: $text;
   &:visited {
     color: $text;
