@@ -48,8 +48,10 @@ class PostsController < ApplicationController
   end
 
   def rank
-    rank_posts_ids = Like.group(:post_id).count.sort_by{ |a| a.last }.reverse.transpose.first
-    @rank_posts = Post.where(id: rank_posts_ids)
+    post_like_count = Post.joins(:likes).group(:post_id).count
+    post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
+    sub_posts = Post.where(id: post_like_ids).limit(10).index_by(&:id)
+    @rank_posts = post_like_ids.map {|id| sub_posts[id] }
     render partial: 'posts/rankIndex'
   end
 
