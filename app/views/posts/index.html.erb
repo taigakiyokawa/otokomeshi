@@ -50,18 +50,18 @@ $(function(){
 	var lastpage = '/posts/news';
  
 	//ページを取得してくる
-    function getPage(elm){
-    	$.ajax({
-            type: 'GET',
-            url: elm,
-            dataType: 'html',
-            success: function(data){
-                $content.html(data).fadeIn(200);
-            },
-            error:function() {
-                       alert('問題がありました。');
-                   }
-    	});
-    }
+  function getPage(elm){
+    $.ajax({
+      type: 'GET',
+      url: elm,
+      dataType: 'html',
+      success: function(data){
+        $content.html(data).fadeIn(200);
+      },
+      error:function() {
+        alert('問題がありました。');
+      }
+    });
+  }
 });
 </script>
