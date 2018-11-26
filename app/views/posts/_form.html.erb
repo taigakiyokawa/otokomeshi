@@ -13,7 +13,8 @@
 
   <div class="image_field">
     <label for="post_image">
-      <%= form.file_field :meshim, id: :post_image %>
+      <%= form.file_field :meshim, id: :post_image,
+          accept: 'image/jpg,image/jpeg,image/png,image/gif' %>
       <div class="select-file">
         <%= image_tag @post.meshim.url, id: :post_image_prev %>
       </div>
@@ -23,12 +24,24 @@
 
   <div class="field">
     <h3><%= "名(十二文字以内)" %></h3>
-    <%= form.text_field :title %>
+    <%= form.text_field :title , class: "js_counter"%>
+    <%if @post.title.nil? %>
+      <span> 0 文字</span>
+    <% else %>
+      <span><%= @post.title.length %> 文字</span>
+    <% end %>
+    <span> / 12 文字</span>
   </div>
 
   <div class="field">
     <h3><%= "作り方(四十文字以内)" %></h3>
-    <%= form.text_area :body,  size: "20x3"%>
+    <%= form.text_area :body,  size: "20x3", class: "js_counter"%>
+    <%if @post.body.nil? %>
+      <span> 0 文字</span>
+    <% else %>
+      <span><%= @post.body.length %> 文字</span>
+    <% end %>
+    <span> / 40 文字</span>
   </div>
 
   <div class="back-or-action">
@@ -67,4 +80,42 @@ $(function() {
    readURL(this);
  });
 });
+
+(function($) {
+
+  $.fn.charCount = function(options){
+
+    var defaults = {
+      cE: $(this).next(), 
+      cW: 'font-red',
+      cS: 'font-green'
+    };
+
+    //オプションがあるならここでデフォルトに上書き
+    var options = $.extend(defaults, options);  
+
+    $(this).keyup(function(){
+      //改行を文字としてカウント
+      var count = $(this).val().replace(/(\r\n|\r|\n)/g, "\r\n").length;
+      //データ属性としてもたせた「最低文字数」を取得
+      var Num = $(this).parent().data("counter");
+      var hoge = Num - count;
+      if(hoge >= 0){
+        $(options.cE).removeClass(options.cS).addClass(options.W);
+      } else {
+        $(options.cE).removeClass(options.cW).addClass(options.cS);
+      }
+      $(this).parent().find(options.cE).html(count + ' 文字');
+    });
+
+  }
+
+})(jQuery);
+
+$(function(){
+
+  $(".js_counter").charCount();
+
+});
+
 </script>
