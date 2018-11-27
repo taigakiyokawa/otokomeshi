@@ -1,5 +1,5 @@
 <% @tasks.each do |task| %>
-    <h1><%= task.body %></h1>
+    <h2><%= task.body %></h2>
     <%# ↓ここをcontrollerに書きたい... %>
     <% task_posts = Post.where(task_id: task.id) %>
     <% task_posts.each do |post| %>

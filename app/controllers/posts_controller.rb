@@ -68,6 +68,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     # @post = Post.new(post_params)
+    @tasks = Task.all
     @post = current_user.posts.build(post_params)
 
     respond_to do |format|
