@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   
   has_many :likes, dependent: :destroy
   belongs_to :user
+  belongs_to :task, optional: true
   default_scope -> { order(created_at: :desc) }
   attr_accessor :x, :y, :width, :height
 
