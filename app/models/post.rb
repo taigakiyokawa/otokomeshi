@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   
   has_many :likes, dependent: :destroy
   belongs_to :user
-  belongs_to :task, optional: true
+  belongs_to :task, optional: true #　参照先のtaskが無くても(＝task_idが空でも)ok 
   default_scope -> { order(created_at: :desc) }
   attr_accessor :x, :y, :width, :height
 
