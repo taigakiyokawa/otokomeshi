@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div classz="field">
+    <h3>挑戦状を選択（任意）</h3>
+    <%= form.collection_select :task_id, Task.all, :id, :body, :include_blank => "挑戦しない" %>
+  </div>
+
   <div class="image_field">
     <label for="post_image">
       <%= form.file_field :meshim, id: :post_image,

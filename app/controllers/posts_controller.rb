@@ -26,6 +26,8 @@ class PostsController < ApplicationController
     @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
     @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
+    
+    @tasks = Task.all
   end
 
   # GET /posts/1
@@ -45,6 +47,7 @@ class PostsController < ApplicationController
   def news
     @posts = Post.search(params[:search])
     render partial: 'posts/newIndex'
+    
   end
 
   def rank
@@ -53,6 +56,7 @@ class PostsController < ApplicationController
     sub_posts = Post.where(id: post_like_ids).index_by(&:id)
     @rank_posts = post_like_ids.map {|id| sub_posts[id] }
     render partial: 'posts/rankIndex'
+
   end
 
   def appare
@@ -68,6 +72,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     # @post = Post.new(post_params)
+    @tasks = Task.all
     @post = current_user.posts.build(post_params)
 
     respond_to do |format|
@@ -115,6 +120,6 @@ class PostsController < ApplicationController
    
 
     def post_params
-      params.require(:post).permit(:title, :meshim, {meshim: []}, :meshim_cache, :body)
+      params.require(:post).permit(:title, :meshim, {meshim: []}, :meshim_cache, :body, :task_id)
     end
 end

@@ -14,7 +14,8 @@ CSV.foreach('db/user.csv') do |us|
         title: ps[0],
         meshim: Rails.root.join(ps[1]).open,
         body: ps[2],
-        user_id: ps[3])
+        user_id: ps[3],
+        task_id: ps[4])
  end
 
  CSV.foreach('db/like.csv') do |lk|
@@ -31,3 +32,7 @@ end
 CSV.foreach('db/shogo_last_list.csv') do |sl|
    ShogoLast.create(name: sl[0])
 end
+
+CSV.foreach('db/task.csv') do |ts|
+    Task.create(body: ts[0])
+ end

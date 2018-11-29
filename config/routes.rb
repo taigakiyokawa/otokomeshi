@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'shogo_first/update'
   get 'shogos/update'
   get 'shogos/create'
+  get 'tasks/index' => "tasks#index"
 
   get 'posts/news' => 'posts#news'
   get 'posts/rank' => 'posts#rank'
