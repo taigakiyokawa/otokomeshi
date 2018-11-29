@@ -42,7 +42,7 @@
     <h3><%= "作り方(四十文字以内)" %></h3>
     <%= form.text_area :body,  size: "20x3", class: "js_counter"%>
     <%if @post.body.nil? %>
-      <span> 0 文字</span>
+      <span> 0 文字 </span>
     <% else %>
       <span><%= @post.body.length %> 文字</span>
     <% end %>
