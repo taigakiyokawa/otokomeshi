@@ -3,6 +3,7 @@ class TasksController < ApplicationController
  
     def index
       @tasks = Task.all
+      render partial: 'tasks/taskIndex'
     end
 
     def show
