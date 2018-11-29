@@ -19,8 +19,8 @@ CSV.foreach('db/user.csv') do |us|
 
  CSV.foreach('db/like.csv') do |lk|
     Like.create(
-        user_id: lk[0],
-        post_id: lk[1]
+        post_id: lk[0],
+        user_id: lk[1]
     )
  end
 
