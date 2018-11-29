@@ -1,0 +1,2 @@
+class ShogoLastEx < ApplicationRecord
+end

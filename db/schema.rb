@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_151059) do
+ActiveRecord::Schema.define(version: 2018_11_29_134501) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -34,7 +34,19 @@ ActiveRecord::Schema.define(version: 2018_11_28_151059) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "shogo_first_exes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shogo_firsts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shogo_last_exes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,6 +77,10 @@ ActiveRecord::Schema.define(version: 2018_11_28_151059) do
     t.integer "shogo_first_id", default: 1
     t.integer "shogo_last_id", default: 1
     t.boolean "admin", default: false
+    t.integer "shogo_first_ex_id", default: 0
+    t.integer "shogo_last_ex_id", default: 0
+    t.boolean "shogo_first_ex_flag", default: false
+    t.boolean "shogo_last_ex_flag", default: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
