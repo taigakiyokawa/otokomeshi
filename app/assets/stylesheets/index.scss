@@ -138,20 +138,17 @@ body {
   .banzuke {
     display: inline-block;
   }
-  &_1{
+  .number {
     display: inline-block;
+  }
+  &_1{
     font-size: 32px;
     color: $accent;
   }
   &_2{
-    display: inline-block;
     font-size: 32px;
   }
   &_3, &_4, &_5 {
     font-size: 28px;
-    display: inline-block;
-  }
-  &_6, &_7, &_8, &_9, &_10 {
-    display: inline-block;    
   }
 }

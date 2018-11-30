@@ -69,7 +69,7 @@ ja:
         email: メールアドレス
         remember_me: 'ろぐいんを記憶する'
         username: '貴様ノ名'
-        user_img: '我ノ画'
+        user_img: '貴様ノ画'
     errors:
       models:
         user:

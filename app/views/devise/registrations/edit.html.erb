@@ -5,7 +5,7 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-    <%= f.label :user_img %>の変更<br />
+    <%= f.label :user_img %>を変更する<br />
       <div class="user_image_field">
         <label for="user_image">
           <%= f.file_field :user_img, id: :user_image %>
@@ -38,7 +38,7 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :username %>の変更（16文字以内）<br />
+        <%= f.label :username %>を変更する（16文字以内）<br />
         <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
       </div>
 
@@ -47,7 +47,7 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %>の変更<br />
+        <%= f.label :password %>を変更する<br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
