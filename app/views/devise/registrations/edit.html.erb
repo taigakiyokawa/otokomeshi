@@ -14,6 +14,28 @@
       </div>
     </div>
     <div class="field_wrap">
+      <% if @shogo_first_ex %>
+        <div class="field">
+          称号の変更<br />
+          <label>
+            <%= f.radio_button :shogo_first_ex_flag, false %>
+            <%= @shogo_first.name %>
+          </label>
+          <label>
+              <%= f.radio_button :shogo_first_ex_flag, true %>
+              <%= @shogo_first_ex.name %>
+          </label>
+          <label>
+            <%= f.radio_button :shogo_last_ex_flag, false %>
+            <%= @shogo_last.name %>
+          </label>
+          <label>
+              <%= f.radio_button :shogo_last_ex_flag, true %>
+              <%= @shogo_last_ex.name %>
+          </label>
+        </div>
+      <% end %>
+
       <div class="field">
         <%= f.label :username %>の変更（16文字以内）<br />
         <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
