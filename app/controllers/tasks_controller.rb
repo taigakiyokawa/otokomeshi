@@ -1,8 +1,15 @@
 class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
- 
+
+    include UsersHelper
+    
     def index
       @tasks = Task.all
+      @user = User.find_by(id: current_user.id)
+      @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
+      @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
+      @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
+      @shogo_last_ex = ShogoLastEx.find_by(id: @user.shogo_last_ex_id)
     end
 
     def show

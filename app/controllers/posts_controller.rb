@@ -48,8 +48,12 @@ class PostsController < ApplicationController
 
   def news
     @posts = Post.search(params[:search])
+    @user = User.find_by(id: current_user.id)
+    @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
+    @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
+    @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
+    @shogo_last_ex = ShogoLastEx.find_by(id: @user.shogo_last_ex_id)
     render partial: 'posts/newIndex'
-    
   end
 
   def rank
@@ -57,12 +61,21 @@ class PostsController < ApplicationController
     post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
     sub_posts = Post.where(id: post_like_ids).index_by(&:id)
     @rank_posts = post_like_ids.map {|id| sub_posts[id] }
+    @user = User.find_by(id: current_user.id)
+    @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
+    @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
+    @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
+    @shogo_last_ex = ShogoLastEx.find_by(id: @user.shogo_last_ex_id)
     render partial: 'posts/rankIndex'
-
   end
 
   def appare
     @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    @user = User.find_by(id: current_user.id)
+    @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
+    @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
+    @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
+    @shogo_last_ex = ShogoLastEx.find_by(id: @user.shogo_last_ex_id)
     render partial: 'posts/appareIndex'
   end
 
