@@ -1,17 +1,17 @@
-<% if user_signed_in? %>
-  <% if @like_hash.has_value?(post.id) %>
-      <div class="appare">
-        <%= button_to post_like_path(post.id,@like_hash.key(post.id)), class:'dislike', method: :delete, id: "like-button", remote: true do %>
-        <img class="appare" src="/assets/appare.png" alt="天晴済">
-      </div>
-     <% end %>
-   <% else %>
+<div class="like-link" id="like-link-<%= post.id %>">
+  <% if current_user.likes.find_by(post_id: post.id) %>
     <div class="appare">
-      <%= button_to post_likes_path(post_id: post.id), id: "like-button", remote: true do %>
-      <img class="appare" src="/assets/non_appare.png" alt="天晴">
+      <%= button_to unlike_path(post.id), method: :delete, remote: true do %>
+        <img class="appare" src="/assets/appare.svg" alt="天晴済">
+        <p class="appare-count"><%= post.likes.count %></p>
+      <% end %>
     </div>
-   <% end %>
- <% end %>
-<% else %>
-  登録したらいいねできるよ
-<% end %>
+  <% else %>
+    <div class="appare">
+      <%= button_to like_path(post.id), method: :post, remote: true do %>
+        <img class="appare" src="/assets/non_appare.svg" alt="天晴">
+        <p class="appare-count"><%= post.likes.count %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,143 @@
+@import "variables";
+
+.sign {
+  &_wrap {
+    width: 100%;
+  }
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  padding: 8px 0px;
+  font-size: 24px;
+  font-weight: $black;
+  margin-top: 8px;
+  background-color: rgba($color: $main, $alpha: 0.9);
+  border-bottom: 4px solid rgba($color: $main, $alpha: 0.9);
+  letter-spacing: 8px;
+  color: $border;
+  &:visited {
+    color: $border;
+  }
+}
+
+.now {
+  background-color: rgba($color: $base, $alpha: 0.7);
+  border-bottom: 4px solid $daccent;
+  color: $text;
+  &:visited {
+    color: $text;
+  }
+}
+.monomousu {
+  text-align: center;
+  padding: 8px;
+  font-weight: $black;
+  background-color: $daccent;
+  margin: 8px 0;
+}
+.destroy_user {
+  text-align: center;
+  margin-top: 24px;
+  h3 {
+    color: $border;
+  }
+  .button_to {
+    background-color: $main;
+    margin-top: 8px;
+  }
+  input[type="submit"] {
+    color: $border;
+    background-color: $main;
+    font-size: 24px;
+    padding: 8px 16px;
+  }
+}
+
+.user_image_field {
+  margin-top: 8px;
+  img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+  }
+}
+
+.select-file {
+  position: relative;
+  overflow: hidden;
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: (1000 / 1618) * 100%;
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+  }
+}
+
+.form_wrap {
+  background-color: rgba($color: $base, $alpha: 0.7);
+  padding: 8px;
+}
+
+.about {
+  text-align: center;
+  background-color: rgba($color: $main, $alpha: 0.9);
+  padding: 16px 0;
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: $black;
+  letter-spacing: 16px;
+}
+
+.edit_title {
+  border-bottom: 2px solid $daccent;
+}
+
+.new_soldier {
+  border-bottom: 2px solid $daccent;
+  margin-bottom: 8px;
+}
+
+.field {
+  position: relative;
+  padding: 4px 0 12px;
+  font-weight: $black;
+  &_name {
+    display: inline-block;
+    font-size: 16px;
+  }
+  select {
+    position: absolute;
+    top: 4px;
+    padding: 0 4px;
+    width: calc(100% - 48px);
+    background-color: $daccent;
+    color: $text;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: 0;
+    font-weight: $black;
+    border-radius: 0;
+    height: 23px;
+    border: none;
+    vertical-align: middle;
+  }
+}
+label > input {
+  display: none;
+}
+label {
+  cursor: pointer;
+  &:active {
+    img {
+      opacity: 0.3;
+    }
+  }
+}

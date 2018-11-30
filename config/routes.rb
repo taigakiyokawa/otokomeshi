@@ -1,8 +1,32 @@
 Rails.application.routes.draw do
-  resources :posts do
-    resources :likes, only: [:create,:destroy]
+  get 'shogo_first/create'
+  get 'shogo_first/update'
+  get 'shogos/update'
+  get 'shogos/create'
+  get 'tasks/index' => "tasks#index"
+
+  get 'posts/news' => 'posts#news'
+  get 'posts/rank' => 'posts#rank'
+  get 'posts/appare' => 'posts#appare'
+  get 'posts/search' => 'posts#search'
+  resources :posts
+
+  post   '/like/:post_id' => 'likes#like',   as: 'like'
+  delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
+
+
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions',
+    :passwords => 'users/passwords'
+  }
+
+  devise_scope :user do
+    get "/" => redirect("users/sign_up")
   end
-  devise_for :users
-  get "/" => "home#top"
+
+  get 'users/index' => 'users#index'
+  get 'users/:id' => 'users#show'
+  get "/top" => "home#top"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

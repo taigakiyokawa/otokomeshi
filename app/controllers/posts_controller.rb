@@ -2,13 +2,32 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   
+  include UsersHelper
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
-    if user_signed_in?
-      @like_hash = Like.where(user_id:current_user.id).pluck(:id,:post_id).to_h
-    end
+    # 全投稿を新着順に表示(panel1)
+    # @posts = Post.search(params[:search])
+    # 全投稿を天晴数順にランキング(panel2)
+    # post_like_count = Post.joins(:likes).group(:post_id).count
+    # post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
+    # sub_posts = Post.where(id: post_like_ids).limit(10).index_by(&:id)
+    # @rank_posts = post_like_ids.map {|id| sub_posts[id] }
+    # @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+    # 天晴している投稿を取り出す(panel3)
+    # @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    # @likes = Like.where(user_id: current_user.id).order(created_at: :desc)
+
+    # posts/new をindexで表示するため
+    @post = Post.new
+
+    # # users/:id をindexで表示するため
+    @user = User.find_by(id: current_user.id)
+    @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
+    @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
+    @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
+    
+    @tasks = Task.all
   end
 
   # GET /posts/1
@@ -25,15 +44,40 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def news
+    @posts = Post.search(params[:search])
+    render partial: 'posts/newIndex'
+    
+  end
+
+  def rank
+    post_like_count = Post.joins(:likes).group(:post_id).count
+    post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
+    sub_posts = Post.where(id: post_like_ids).index_by(&:id)
+    @rank_posts = post_like_ids.map {|id| sub_posts[id] }
+    render partial: 'posts/rankIndex'
+
+  end
+
+  def appare
+    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    render partial: 'posts/appareIndex'
+  end
+
+  def search
+    @search_post = Post.
+    render partial: 'posts/searchIndex'
+  end
   # POST /posts
   # POST /posts.json
   def create
     # @post = Post.new(post_params)
+    @tasks = Task.all
     @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -76,6 +120,6 @@ class PostsController < ApplicationController
    
 
     def post_params
-      params.require(:post).permit(:title, :meshim, {meshim: []}, :meshim_cache, :body)
+      params.require(:post).permit(:title, :meshim, {meshim: []}, :meshim_cache, :body, :task_id)
     end
 end
