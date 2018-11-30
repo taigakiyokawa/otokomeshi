@@ -38,7 +38,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       current_user.update!({
         username: update_params[:username],
         user_img: update_params[:user_img],
-        password: update_params[:password]
+        password: update_params[:password],
+        shogo_first_ex_flag: update_params[:shogo_first_ex_flag],
+        shogo_last_ex_flag: update_params[:shogo_last_ex_flag],
       })
     end
     redirect_to posts_path
