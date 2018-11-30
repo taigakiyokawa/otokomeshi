@@ -1,0 +1,71 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// トップページ(home/top)のスタイル
+@import "variables";
+
+.top {
+    background-image: url("/assets/Fugaku36_bg.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    &__container {
+        max-width: 512px;
+        margin: 0 auto;
+        .field {
+            padding: 8px 0 16px;
+            margin: 8px 0;
+        }
+    }
+    &__logo {
+        filter: drop-shadow(0 10px 10px $main);
+        width: 100%;
+        padding-bottom: 8px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    .btn__wrapper {
+        text-align: center;
+        padding: 0px 30px;
+        color: $text;
+        
+        .sign-up a {
+            background-color: $daccent;
+            letter-spacing: 10px;
+            &:visited {
+                color: $text;
+            }
+            &:hover {
+                background-color: rgba($color: $accent, $alpha: 0.9);
+                transition: 0.5s;
+            }
+        }
+        .sign-in a {
+            background-color: rgba($color: $text, $alpha: 0.7);
+            color: $main;
+            margin-top: 30px;
+            letter-spacing: 10px;
+            &:visited {
+                color: $main;
+            }
+            &:hover {
+                background-color: rgba($color: $text, $alpha: 0.9);
+                transition: 0.5s;
+            }
+        }
+        a {
+            font-size: 24px;
+            font-weight: $black;
+            width: 100%;
+            padding: 15px 0px;
+            
+        }
+        li{
+            display: block;
+        }
+    }
+}

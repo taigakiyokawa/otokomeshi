@@ -1,0 +1,105 @@
+// ヘッダー(application.html.erb, posts/indexのタブ)のスタイル
+
+@import "variables";
+
+header {
+  background-color: $main;
+  color: $text;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  margin: 0px;
+  z-index: 1;
+  a {
+    display: inline-block;
+    height: $header;
+    &:visited {
+      color: $text;
+    }
+  }
+  .header__icon {
+    height: $header;
+    padding: 4px 0;
+  }
+  .logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .ore {
+    float: left;
+    height: $header;
+    padding-left: 4px;
+    &_none {
+      display: none;
+    }
+  }
+  .newmeshi {
+    float: right;
+    padding-right: 4px;
+    height: $header;
+    &_none {
+      display: none;
+    }
+  }
+}
+
+
+input[type="radio"]{
+  display:none;
+}
+.tab_area{
+  position: fixed;
+  z-index: 2;
+  top: $header;
+  width: 100%;
+  background-color: $main;
+  text-align: center;
+  line-height: 32px;
+  a.label {
+    width:calc(100%/3);
+    display: inline-block;
+    padding-top: 4px;
+    color: $border;
+    text-align: center;
+    font-weight: $black;
+    font-size: 20px;
+    letter-spacing: 8px;
+    border-bottom: 4px solid $main;
+    cursor:pointer;
+    transition:ease 0.5s;
+  }
+  a.checked {
+    color: $text;
+    border-bottom: 4px solid $daccent;
+  }
+}
+
+#tab1:checked ~ .tab_area .tab1_label{
+  color: $text;
+  border-bottom: 4px solid $daccent;
+}
+#tab1:checked ~ .panel_area #panel1{
+  display:block;
+}
+
+#tab2:checked ~ .tab_area .tab2_label{
+  color: $text;
+  border-bottom: 4px solid $daccent;
+}
+#tab2:checked ~ .panel_area #panel2{
+  display:block;
+  .post {
+    padding: 0px 16px;
+    border: none;
+  }
+}
+
+#tab3:checked ~ .tab_area .tab3_label{
+  color: $text;
+  border-bottom: 4px solid $daccent;
+}
+#tab3:checked ~ .panel_area #panel3 {
+  display:block;
+}

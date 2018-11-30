@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+    box-sizing: border-box;
+    font-family: 'Noto Serif JP', sans-serif;
+  }
+  body {
+    margin: 0px;
+  }
+  h1, h2, h3, h4, h5,p {
+    color: #FCFAF2;
+    margin: 0px;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+  }
+  a:any-link {
+    color: #FCFAF2;
+  }
+
+  li {
+      list-style: none;
+  }
