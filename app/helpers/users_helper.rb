@@ -75,5 +75,21 @@ module UsersHelper
         else
             return user.shogo_last_id
         end
-    end   
+    end
+
+    def get_shogo_ex(user)
+        tasks = Task.all
+        tasks.each do |task|
+            if user_posts = task.posts.where(user_id: user.id)
+                user_posts.each do |post|
+                    if post.likes.find_by(user_id: 1)
+                        user.shogo_first_ex_id = task.id
+                        user.shogo_last_ex_id = task.id
+                        break
+                    end
+                end
+            end
+        end
+        user.save
+    end
 end

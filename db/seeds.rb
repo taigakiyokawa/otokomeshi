@@ -33,12 +33,12 @@ CSV.foreach('db/shogo_last.csv') do |sl|
    ShogoLast.create(name: sl[0])
 end
 
-CSV.foreach('db/shogo_first_ex.csv') do |sf|
-    ShogoFirst.create(name: sf[0])
+CSV.foreach('db/shogo_first_ex.csv') do |sfe|
+    ShogoFirstEx.create(name: sfe[0])
  end
  
- CSV.foreach('db/shogo_last_ex.csv') do |sl|
-    ShogoLast.create(name: sl[0])
+ CSV.foreach('db/shogo_last_ex.csv') do |sle|
+    ShogoLastEx.create(name: sle[0])
  end
 
 CSV.foreach('db/task.csv') do |ts|

@@ -1,7 +1,16 @@
 <div class="user__info">
+  <% get_shogo_ex(@user) %>
   <h3 class="user__shogo">
-    <%= @shogo_first.name %>
-    <%= @shogo_last.name %>
+    <% if @user.shogo_first_ex_flag %>
+      <%= @shogo_first_ex.name %>
+    <% else %>
+      <%= @shogo_first.name %>
+    <% end %>
+    <% if @user.shogo_last_ex_flag %>
+      <%= @shogo_last_ex.name %>
+    <% else %>
+      <%= @shogo_last.name %>
+    <% end %>
   </h3>
   <h2 class="user__name">
     <%= @user.username %>
