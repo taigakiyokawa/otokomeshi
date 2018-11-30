@@ -65,8 +65,8 @@ class PostsController < ApplicationController
   end
 
   def search
-    
-    render partial: 'posts/search_form'
+    @search_post = Post.
+    render partial: 'posts/searchIndex'
   end
   # POST /posts
   # POST /posts.json
