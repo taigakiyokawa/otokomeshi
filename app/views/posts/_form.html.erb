@@ -19,29 +19,20 @@
         <%= image_tag @post.meshim.url, id: :post_image_prev %>
       </div>
     </label>
-    
   </div>
 
   <div class="field">
-    <h3><%= "名(十二文字以内)" %></h3>
-    <%= form.text_field :title , class: "js_counter"%>
-    <%if @post.title.nil? %>
-      <span> 0 文字</span>
-    <% else %>
-      <span><%= @post.title.length %> 文字</span>
-    <% end %>
-    <span> / 12 文字</span>
+    <h3 class="field_name">名：<span class="title_count"></span>文字</h3>
+    <%= form.text_field :title, id: "textfield" %>
   </div>
 
   <div class="field">
-    <h3><%= "作り方(四十文字以内)" %></h3>
-    <%= form.text_area :body,  size: "20x3", class: "js_counter"%>
-    <%if @post.body.nil? %>
-      <span> 0 文字</span>
-    <% else %>
-      <span><%= @post.body.length %> 文字</span>
-    <% end %>
-    <span> / 40 文字</span>
+    <h3 class="field_name">調理法：<span class="body_count"></span>文字</h3>
+    <%= form.text_area :body, id: "textarea", size: "20x3"%>
+  </div>
+
+  <div class="field">
+    <h3 class="field_name">挑戦　<%= form.collection_select :task_id, Task.all, :id, :body, :include_blank => "しないッ!!" %></h3>
   </div>
 
   <div class="back-or-action">
@@ -81,41 +72,47 @@ $(function() {
  });
 });
 
-(function($) {
-
-  $.fn.charCount = function(options){
-
-    var defaults = {
-      cE: $(this).next(), 
-      cW: 'font-red',
-      cS: 'font-green'
-    };
-
-    //オプションがあるならここでデフォルトに上書き
-    var options = $.extend(defaults, options);  
-
-    $(this).keyup(function(){
-      //改行を文字としてカウント
-      var count = $(this).val().replace(/(\r\n|\r|\n)/g, "\r\n").length;
-      //データ属性としてもたせた「最低文字数」を取得
-      var Num = $(this).parent().data("counter");
-      var hoge = Num - count;
-      if(hoge >= 0){
-        $(options.cE).removeClass(options.cS).addClass(options.W);
-      } else {
-        $(options.cE).removeClass(options.cW).addClass(options.cS);
-      }
-      $(this).parent().find(options.cE).html(count + ' 文字');
-    });
-
-  }
-
-})(jQuery);
-
 $(function(){
 
-  $(".js_counter").charCount();
+    var title_max = 12;
+    var body_max = 40;
+    $(".title_count").text(title_max - $("#textfield").val().length);
+    $(".body_count").text(body_max - $("#textarea").val().length);
 
+    $("#textfield").on("keydown keyup keypress change", titleCount);
+    $("#textarea").on("keydown keyup keypress change", bodyCount);
+
+    function titleCount() {
+      var title_length = $(this).val().length;
+      var title_countdown = title_max - title_length;
+      $(".title_count").text(title_countdown);
+
+        if(title_countdown <= 0){
+          $('.title_count').css({
+              color:'#c9171e'
+          });
+        } else {
+          $('.title_count').css({
+              color:'#fcfaf2'
+          });
+        }
+    }
+
+    function bodyCount() {
+      var body_length = $(this).val().length;
+      var body_countdown = body_max - body_length;
+      $(".body_count").text(body_countdown);
+
+        if(body_countdown <= 0){
+          $('.body_count').css({
+              color:'#c9171e'
+          });
+        } else {
+          $('.body_count').css({
+              color:'#fcfaf2'
+          });
+        }
+    }
 });
 
 </script>

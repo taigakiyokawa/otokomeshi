@@ -37,22 +37,7 @@ textarea {
   margin-top: 4px;
   border: 1px solid $text;
 }
-.field {
-  position: relative;
-  padding: 16px 0;
-  font-weight: $black;
-}
-label > input {
-  display: none;
-}
-label {
-  cursor: pointer;
-  &:active {
-    img {
-      opacity: 0.3;
-    }
-  }
-}
+
 
 #error_explanation {
   font-weight: $black;

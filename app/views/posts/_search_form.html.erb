@@ -1,7 +1,14 @@
 <div id="nav-search">
-  <%= form_tag posts_path, method: "get", remote: true do  %>
-    <%= text_field_tag :search %>
+  <%= form_with url: posts_news_path, id: "post_search", method: "GET" do |f|  %>
+    <%= f.text_field :search %>
     <%= image_submit_tag '/assets/search.svg' %>
   <% end %>
   <div class="clear"></div>
 </div>
+
+<script>
+  $(document).on("ajax:success", "#post_search", function(data) {
+    console.log(data);
+    $('.panel_area').html(data.detail[2].response).fadeIn(200);
+  });
+</script>
