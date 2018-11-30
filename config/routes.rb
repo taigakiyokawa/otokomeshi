@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'posts/news' => 'posts#news'
   get 'posts/rank' => 'posts#rank'
   get 'posts/appare' => 'posts#appare'
+  get 'posts/search' => 'posts#search'
   resources :posts
 
   post   '/like/:post_id' => 'likes#like',   as: 'like'
