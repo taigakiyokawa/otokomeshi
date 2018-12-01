@@ -9,12 +9,14 @@
     <% if post.user.shogo_first_ex_flag %>
       <%= @shogo_first_ex.name %>
     <% else %>
-      <%= @shogo_first.name %>
+      <% shogo_first = ShogoFirst.find_by(id: set_shogo_first(post.user)) %>
+      <%= shogo_first.name %>
     <% end %>
     <% if post.user.shogo_last_ex_flag %>
       <%= @shogo_last_ex.name %>
     <% else %>
-      <%= @shogo_last.name %>
+      <% shogo_last = ShogoLast.find_by(id: set_shogo_last(post.user)) %>
+      <%= shogo_last.name %>
     <% end %>
   </h3>
       <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
