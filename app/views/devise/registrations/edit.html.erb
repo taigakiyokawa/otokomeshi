@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="field_wrap">
-      <% if @shogo_first_ex %>
+       <% if current_user.id == 0 %>
         <div class="field">
           称号の変更<br />
           <label>
