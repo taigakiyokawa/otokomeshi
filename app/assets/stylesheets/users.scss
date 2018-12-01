@@ -102,4 +102,12 @@
   display:block;
 }
 
+#tab4:checked ~ .user__tab_area .tab4_label{
+  color: $text;
+  border-bottom: 4px solid $daccent;
+}
+#tab4:checked ~ .user__panel_area #panel4{
+  display:block;
+}
+
 
