@@ -71,6 +71,10 @@ gem 'devise'
 # 画像処理
 gem 'mini_magick'
 
+# 管理者
+gem 'rails_admin', '~> 1.3'
+gem 'cancancan', '~> 2.0'
+
 # 本番環境のSQLをpgに指定
 group :production do
   gem 'pg'

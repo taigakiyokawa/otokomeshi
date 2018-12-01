@@ -10,6 +10,7 @@ class TasksController < ApplicationController
       @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
       @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
       @shogo_last_ex = ShogoLastEx.find_by(id: @user.shogo_last_ex_id)
+      render partial: 'tasks/taskIndex'
     end
     
     def show

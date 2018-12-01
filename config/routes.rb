@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'shogo_first/create'
   get 'shogo_first/update'
   get 'shogos/update'
