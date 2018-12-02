@@ -16,5 +16,8 @@ class UsersController < ApplicationController
     @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
     @user_shogo_firsts = ShogoFirst.where("id <= ?", @shogo_first.id)
     @user_shogo_lasts = ShogoLast.where("id <= ?", @shogo_last.id)
+    shogo_ex_ids = get_shogo_ex(@user)
+    @shogo_first_ex_list = ShogoFirstEx.where(id: shogo_ex_ids)
+    @shogo_last_ex_list = ShogoLastEx.where(id: shogo_ex_ids)
   end
 end

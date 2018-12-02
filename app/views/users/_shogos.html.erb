@@ -1,13 +1,39 @@
 <div class="my_shogos_first">
-    <h3>-上の句-</h3>
-    <% @user_shogo_firsts.each do |shogo_f| %>
-        <h2><%= shogo_f.name %></h2>
+    <h3>ノーマル称号</h3>
+    <div class="normal_first">
+        <h3>-上の句-</h3>
+        <% @user_shogo_firsts.each do |shogo_f| %>
+            <h2><%= shogo_f.name %></h2>
+        <% end %>
+    </div>
+
+    <div class="normal_last">
+        <h3>-下の句-</h3>
+        <% @user_shogo_lasts.each do |shogo_l| %>
+            <h2> <%= shogo_l.name %></h2>
+        <% end %>
+    </div>
+</div>
+
+<div class="my_shogos_first">
+    <h3>エクストラ称号</h3>
+    <% if @shogo_first_ex_list.length == 0 %>
+        <h2>そんなものはない。</h2>
+    <% else %>
+        <div class="normal_first">
+            <h3>-上の句-</h3>
+            
+            <% @shogo_first_ex_list.each do |shogo_f| %>
+                <h2><%= shogo_f.name %></h2>
+            <% end %>
+        </div>
+
+        <div class="normal_last">
+            <h3>-下の句-</h3>
+            <% @shogo_last_ex_list.each do |shogo_l| %>
+                <h2> <%= shogo_l.name %></h2>
+            <% end %>
+        </div>
     <% end %>
 </div>
 
-<div class="my_shogos_last">
-    <h3>功績 -下の句-</h3>
-    <% @user_shogo_lasts.each do |shogo_l| %>
-        <h2> <%= shogo_l.name %></h2>
-    <% end %>
-</div>

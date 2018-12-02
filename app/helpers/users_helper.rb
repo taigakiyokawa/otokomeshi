@@ -78,18 +78,18 @@ module UsersHelper
     end
 
     def get_shogo_ex(user)
+        ex_list = []
         tasks = Task.all
         tasks.each do |task|
             if user_posts = task.posts.where(user_id: user.id)
                 user_posts.each do |post|
                     if post.likes.find_by(user_id: 1)
-                        user.shogo_first_ex_id = task.id
-                        user.shogo_last_ex_id = task.id
+                        ex_list << task.id
                         break
                     end
                 end
             end
         end
-        user.save
+        return ex_list
     end
 end
