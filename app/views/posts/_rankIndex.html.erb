@@ -1,8 +1,10 @@
 <% @rank_posts.each.with_index(1) do |post, i| %>
+  <!--
   <div class="rank">
     <div class="number rank_<%= i %>"><%= otoconvert(i) %></div>
     <div class="banzuke">位</div>
   </div>
+  -->
   <%= render post, locals: { panel: "panel2" }%>
 <% end %>
  
