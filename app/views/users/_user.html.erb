@@ -1,5 +1,8 @@
 <div class="user__info">
   <% get_shogo_ex(@user) %>
+  <% if current_user.try(:admin?) %>
+    <h2><%= link_to "管理者!!!!!!!", "/admin" %></h2>
+  <% end %>
   <h3 class="user__shogo">
     <% if @user.shogo_first_ex_flag %>
       <%= @shogo_first_ex.name %>
