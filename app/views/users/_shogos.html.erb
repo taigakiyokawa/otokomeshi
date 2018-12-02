@@ -1,0 +1,13 @@
+<div class="my_shogos_first">
+    <h3>-上の句-</h3>
+    <% @user_shogo_firsts.each do |shogo_f| %>
+        <h2><%= shogo_f.name %></h2>
+    <% end %>
+</div>
+
+<div class="my_shogos_last">
+    <h3>功績 -下の句-</h3>
+    <% @user_shogo_lasts.each do |shogo_l| %>
+        <h2> <%= shogo_l.name %></h2>
+    <% end %>
+</div>
