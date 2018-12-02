@@ -57,11 +57,11 @@ class PostsController < ApplicationController
   end
 
   def rank
-    post_like_count = Post.joins(:likes).group(:post_id).count
-    post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
-    sub_posts = Post.where(id: post_like_ids).index_by(&:id)
-    @rank_posts = post_like_ids.map {|id| sub_posts[id] }
-    # @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+    # post_like_count = Post.joins(:likes).group(:post_id).count
+    # post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
+    # sub_posts = Post.where(id: post_like_ids).index_by(&:id)
+    # @rank_posts = post_like_ids.map {|id| sub_posts[id] }
+    @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
     # @user = User.find_by(id: current_user.id)
     # @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     # @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
