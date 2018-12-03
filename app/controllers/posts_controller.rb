@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     # # users/:id をindexで表示するため
     @user = User.find_by(id: current_user.id)
     first_ids = set_shogo_first2(@user)
-    @shogo_first_list = ShogoFirst.where(id: first_ids).index_by(&:id)
+    @shogo_first_list = ShogoFirst.where(id: first_ids)
     @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id)
     @shogo_last = ShogoLast.find_by(id: @user.shogo_first_id)
     @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)

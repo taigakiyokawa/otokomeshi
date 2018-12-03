@@ -17,8 +17,8 @@ class UsersController < ApplicationController
     @like_posts = Post.where(id: @user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
     @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
     
-    @user_shogo_firsts = ShogoFirst.where("id <= ?", @shogo_first.id)
-    @user_shogo_lasts = ShogoLast.where("id <= ?", @shogo_last.id)
+    @user_shogo_firsts = ShogoFirst.where("id <= ?", max_shogo_first(@user))
+    @user_shogo_lasts = ShogoLast.where("id <= ?", max_shogo_last(@user))
     
     shogo_ex_ids = get_shogo_ex(@user)
     @shogo_first_ex_list = ShogoFirstEx.where(id: shogo_ex_ids)
