@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id)
-    @shogo_last = ShogoLast.find_by(id: @user.shogo_first_id)
+    @shogo_last = ShogoLast.find_by(id: @user.shogo_last_id)
     @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
     @shogo_last_ex = ShogoLastEx.find_by(id: @user.shogo_last_ex_id)
 

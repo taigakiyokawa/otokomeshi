@@ -27,7 +27,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @shogo_first_ex_list = ShogoFirstEx.where(id: shogo_ex_ids)
     @shogo_last_ex_list = ShogoLastEx.where(id: shogo_ex_ids)
     
-  
+    @user_shogo_firsts = ShogoFirst.where("id <= ?", max_shogo_first(@user))
+    @user_shogo_lasts = ShogoLast.where("id <= ?", max_shogo_last(@user))
   end
 
   # PUT /resource
@@ -36,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       current_user.update!(
         {username: update_params[:username],
         user_img: update_params[:user_img],
-        # shogo_first_id: update_params[:shogo_first_id],
+        shogo_first_id: update_params[:shogo_first_id],
         # shogo_last_id: update_params[:shogo_last_id],
         shogo_first_ex_id: update_params[:shogo_first_ex_id],
         shogo_last_ex_id: update_params[:shogo_last_ex_id],
@@ -48,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         username: update_params[:username],
         user_img: update_params[:user_img],
         password: update_params[:password],
-        # shogo_first_id: update_params[:shogo_first_id],
+        shogo_first_id: update_params[:shogo_first_id],
         # shogo_last_id: update_params[:shogo_last_id],
         shogo_first_ex_id: update_params[:shogo_first_ex_id],
         shogo_last_ex_id: update_params[:shogo_last_ex_id],

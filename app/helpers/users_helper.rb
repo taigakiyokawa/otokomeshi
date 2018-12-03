@@ -108,27 +108,27 @@ module UsersHelper
     end
 
     def max_shogo_last(user)
-        posts_count = Post.where(user_id: user.id).count
+        likes_count = get_likes_total(user)
 
         new_id = 1
 
-        if posts_count < 2
+        if likes_count < 2
             new_id =  1
-        elsif posts_count < 5
+        elsif likes_count < 5
             new_id = 2
-        elsif posts_count < 7
+        elsif likes_count < 7
             new_id = 3
-        elsif posts_count < 10
+        elsif likes_count < 10
             new_id = 4
-        elsif posts_count < 13
+        elsif likes_count < 13
             new_id = 5
-        elsif posts_count < 16
+        elsif likes_count < 16
             new_id = 6
-        elsif posts_count < 20
+        elsif likes_count < 20
             new_id = 7
-        elsif posts_count < 24
+        elsif likes_count < 24
             new_id = 8
-        elsif posts_count < 30
+        elsif likes_count < 30
             new_id = 9
         else
             new_id =10

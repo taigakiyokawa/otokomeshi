@@ -113,6 +113,12 @@
     display: inline-block;
     font-size: 16px;
   }
+}
+
+.chousen_field {
+  position: relative;
+  padding: 4px 0 12px;
+  font-weight: $black;
   select {
     position: absolute;
     top: 4px;
