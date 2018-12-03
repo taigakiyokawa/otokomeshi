@@ -6,14 +6,16 @@
   <div class="post__wrap">
     <div class="user-info">
       <h3 class="user__shogo">
-    <% if post.user.shogo_first_ex_flag %>
-      <%= @shogo_first_ex.name %>
+    <% if post.user.shogo_first_ex_flag and post.user.shogo_first_ex_id %>
+      <% shogo_first_ex = ShogoFirstEx.find_by(id: post.user.shogo_first_ex_id) %>
+      <%= shogo_first_ex.name %>
     <% else %>
       <% shogo_first = ShogoFirst.find_by(id: post.user.shogo_first_id) %>
       <%= shogo_first.name %>
     <% end %>
-    <% if post.user.shogo_last_ex_flag %>
-      <%= @shogo_last_ex.name %>
+    <% if post.user.shogo_last_ex_flag and post.user.shogo_first_ex_id %>
+      <% shogo_last_ex = ShogoLastEx.find_by(id: post.user.shogo_last_ex_id) %>
+      <%= shogo_last_ex.name %>
     <% else %>
       <% shogo_last = ShogoLast.find_by(id: post.user.shogo_last_id) %>
       <%= shogo_last.name %>
