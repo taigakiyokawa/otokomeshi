@@ -4,7 +4,7 @@
     <h2><%= link_to "管理者!!!!!!!", "/admin" %></h2>
   <% end %>
   <h3 class="user__shogo">
-    <% if @user.shogo_first_ex_flag %>
+    <% if @user.shogo_first_ex_id != 0 %>
       <%= @shogo_first_ex.name %>
     <% else %>
       <%= @shogo_first.name %>

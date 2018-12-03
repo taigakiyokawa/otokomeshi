@@ -23,6 +23,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @shogo_last = ShogoLast.find(set_shogo_last(current_user))
     @shogo_first_ex = ShogoFirstEx.find_by(id: current_user.shogo_first_ex_id)
     @shogo_last_ex = ShogoLastEx.find_by(id: current_user.shogo_last_ex_id)
+    shogo_ex_ids = get_shogo_ex(current_user)
+    @shogo_first_ex_list = ShogoFirstEx.where(id: shogo_ex_ids)
+    @shogo_last_ex_list = ShogoLastEx.where(id: shogo_ex_ids)
+    
+  
   end
 
   # PUT /resource
@@ -31,6 +36,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       current_user.update!(
         {username: update_params[:username],
         user_img: update_params[:user_img],
+        shogo_first_ex_id: update_params[:shogo_first_ex_id],
+        shogo_last_ex_id: update_params[:shogo_last_ex_id],
         shogo_first_ex_flag: update_params[:shogo_first_ex_flag],
         shogo_last_ex_flag: update_params[:shogo_last_ex_flag],
       })
@@ -39,6 +46,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         username: update_params[:username],
         user_img: update_params[:user_img],
         password: update_params[:password],
+        shogo_first_ex_id: update_params[:shogo_first_ex_id],
+        shogo_last_ex_id: update_params[:shogo_last_ex_id],
         shogo_first_ex_flag: update_params[:shogo_first_ex_flag],
         shogo_last_ex_flag: update_params[:shogo_last_ex_flag],
       })
@@ -91,6 +100,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   private
     def update_params
-      params.require(:user).permit(%i(username user_img password))
+      params.require(:user).permit(%i(username user_img password shogo_first_ex_id))
     end
 end
