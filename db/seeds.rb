@@ -29,29 +29,29 @@ User.create!([
 ])
 
 Post.create(
-   title: '完全無欠餃子',
-   body: '餃子を焼く',
-   meshim: Rails.root.join("app/assets/images/sample/meshi1.jpg").open,
+   title: '葉っぱの肉巻き',
+   body: "肉と野菜を切れ。野菜を肉で巻け。塩胡椒してレンジでチンだ。ポン酢をかけて食せ。",
+   meshim: Rails.root.join("app/assets/images/sample/nikumaki.jpg").open,
    user_id: 1
  )
 
  Post.create(
-    title: '美味カレー',
-    body: 'カレーを煮込む',
-    meshim: Rails.root.join("app/assets/images/sample/meshi2.jpg").open,
+    title: '肉キムチ',
+    body: '肉を切れ。ごま油しいて肉を炒めろ。キムチを入れてさらに炒めて完成だ',
+    meshim: Rails.root.join("app/assets/images/sample/butakimu.jpg").open,
     user_id: 2
   )
 
   Post.create(
-    title: 'クセになる牛丼',
-    body: '吉●家に行く',
-    meshim: Rails.root.join("app/assets/images/sample/meshi3.jpg").open,
+    title: '肉トマト',
+    body: '肉とトマトを切れ。肉を炒めろ。塩胡椒だ。トマトを入れてさらに炒めて完成だ。',
+    meshim: Rails.root.join("app/assets/images/sample/nikutoma.jpg").open,
     user_id: 3
   )
 
   Post.create(
     title: '漢盛り野菜炒め',
-    body: '野菜を切れ。肉を切れ。野菜を炒めろ。肉も炒めろ。塩胡椒だ。' ,
+    body: "野菜を切れ。肉を切れ。野菜を炒めろ。肉も炒めろ。塩胡椒だ。" ,
     meshim: Rails.root.join("app/assets/images/sample/meshi4.jpg").open,
     user_id: 4
   )
