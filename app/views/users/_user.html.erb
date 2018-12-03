@@ -3,17 +3,22 @@
   <% if current_user.try(:admin?) and @user == current_user %>
     <h2><%= link_to "管理者!!!!!!!", "/admin" %></h2>
   <% end %>
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
   <h3 class="user__shogo">
-    <% if @user.shogo_first_ex_id != 0 %>
+
+    <% if @user.shogo_first_ex_flag and @shogo_first_ex %>
       <%= @shogo_first_ex.name %>
     <% else %>
       <%= @shogo_first.name %>
     <% end %>
-    <% if @user.shogo_last_ex_flag %>
+    <% if @user.shogo_last_ex_flag and @shogo_last_ex %>
       <%= @shogo_last_ex.name %>
     <% else %>
       <%= @shogo_last.name %>
     <% end %>
+    
   </h3>
   <h2 class="user__name">
     <%= @user.username %>

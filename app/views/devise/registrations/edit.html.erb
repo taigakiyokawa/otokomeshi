@@ -14,23 +14,32 @@
       </div>
     </div>
     <div class="field_wrap">
-       <% if @shogo_first_ex_list.length != 0 %>
-        <div class="field">
-          貴様ノ称号を変更する（ノーマル ⇔ エクストラ）<br />
-          <label>
-            <%= f.radio_button :shogo_first_ex_flag, false %>
-            ノーマル
-          </label>
-          <label>
-            <%= f.radio_button :shogo_first_ex_flag, true %>
-            エクストラ
-          </label>
-          <%= f.check_box :shogo_first_ex_flag %>
-          <%= f.collection_select :shogo_first_ex_id, 
-              @shogo_first_ex_list.all, :id, :name,
-              :include_blank => "使用しない"%>
-        </div>
-      <% end %>
+    <div class="field">
+          貴様ノ称号を変更する<br />
+          <div class>
+            -上の句-<br />
+            <% if @shogo_first_ex_list.length != 0 %>
+              <label><%= f.radio_button :shogo_first_ex_flag, false%>ノーマル</label>
+            <% end %>
+            <%= f.collection_select :shogo_first_id, @user_shogo_firsts.all, :id, :name%>
+            <% if @shogo_first_ex_list.length != 0 %>
+              <br />
+              <label><%= f.radio_button :shogo_first_ex_flag, true%>エクストラ</label>
+              <%= f.collection_select :shogo_first_ex_id, @shogo_first_ex_list.all, :id, :name %>
+            <% end %>
+          </div>
+          <div class>
+            -下の句-<br />
+            <% if @shogo_last_ex_list.length != 0 %>
+              <label><%= f.radio_button :shogo_last_ex_flag, false%>ノーマル</label>
+            <% end %>
+            <%= f.collection_select :shogo_last_id, @user_shogo_lasts.all, :id, :name%>
+            <% if @shogo_last_ex_list.length != 0 %>
+              <br />
+              <label><%= f.radio_button :shogo_last_ex_flag, true%>エクストラ</label>
+              <%= f.collection_select :shogo_last_ex_id, @shogo_last_ex_list.all, :id, :name %>
+            <% end %>
+          </div>
 
       <div class="field">
         <%= f.label :username %>を変更する（16文字以内）<br />
