@@ -75,4 +75,7 @@ gem 'mini_magick'
 gem 'rails_admin', '~> 1.3'
 gem 'cancancan', '~> 2.0'
 
+# carrierwaveをawsに上げるよう
 gem 'fog-aws'
+
+gem 'sqlite3'
