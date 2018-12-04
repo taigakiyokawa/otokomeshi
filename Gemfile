@@ -75,7 +75,4 @@ gem 'mini_magick'
 gem 'rails_admin', '~> 1.3'
 gem 'cancancan', '~> 2.0'
 
-# 本番環境のSQLをpgに指定
-group :production do
-  gem 'pg'
-end
+gem 'fog-aws'
