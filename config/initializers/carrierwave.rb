@@ -8,7 +8,7 @@ CarrierWave.configure do |config|
       #host:                  's3.example.com',             # optional, defaults to nil
       #endpoint:              'https://s3.example.com:8080' # optional, defaults to nil
     }
-    config.fog_directory  = 'otoko-meshi-test'                # required
+    config.fog_directory  = 'otoko-meshi-z'                # required
     config.fog_public     = false                                                 # optional, defaults to true
     config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
   end
