@@ -103,8 +103,11 @@ module UsersHelper
         else
             new_id =10
         end
+
+        if @user.max_shogo_first < new_id
+            @user.max_shogo_first = new_id
         
-        return new_id
+        return @user.max_shogo_first
     end
 
     def max_shogo_last(user)
@@ -134,7 +137,10 @@ module UsersHelper
             new_id =10
         end
 
-        return new_id
+        if @user.max_shogo_last < new_id
+            @user.max_shogo_last = new_id
+        
+        return @user.max_shogo_first
     end
 
     def set_shogo_first2(user)
