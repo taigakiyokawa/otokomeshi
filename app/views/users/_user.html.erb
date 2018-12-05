@@ -3,8 +3,8 @@
   <% if current_user.try(:admin?) and @user == current_user %>
     <h2><%= link_to "管理者!!!!!!!", "/admin" %></h2>
   <% end %>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
+  <% if flash[:shoog] %>
+    <p><%= flash[:shogo] %></p>
   <% end %>
   <h3 class="user__shogo">
 

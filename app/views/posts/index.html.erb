@@ -1,7 +1,3 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
-
 <div class="res__container ore_info">
   <div class="user">
     <%= render "users/user" %>
@@ -17,6 +13,10 @@
     <div class="tab_area">
       <%= link_to '新着', 'posts/news', :class => 'label checked' %><%= link_to '番付', 'posts/rank', :class => 'label' %><%= link_to '挑戦', 'tasks/index', :class => 'label' %>
     </div>
+    <% if flash[:shogo] %>
+      <p><%= flash[:shogo] %></p>
+    <% end %>
+
     <%= render 'search_form' %>
     <div class="panel_area">
       

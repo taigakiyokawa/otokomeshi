@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     new_shogo_total = @user_shogo_firsts.count + @user_shogo_lasts.count + @shogo_first_ex_list.count + @shogo_last_ex_list.count
 
     if @user.shogo_total < new_shogo_total
-      flash[:notice] = "新たな称号を獲得したぞ!!"
+      flash[:shogo] = "新たな称号を獲得したぞ!!"
       @user.shogo_total = new_shogo_total
       @user.save
     end
