@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_105637) do
+ActiveRecord::Schema.define(version: 2018_12_05_054523) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(version: 2018_12_04_105637) do
     t.boolean "shogo_first_ex_flag", default: false
     t.boolean "shogo_last_ex_flag", default: false
     t.integer "shogo_total", default: 0
+    t.integer "max_shogo_first", default: 1
+    t.integer "max_shogo_last", default: 1
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
