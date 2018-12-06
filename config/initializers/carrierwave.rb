@@ -6,8 +6,8 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV['SECRET_ACCESS_KEY'],     # required
       region:                'ap-northeast-1',
       # region:                'us-east-1', # optional, defaults to 'us-east-1' オハイオ＝us-east-2
-      #host:                  's3.example.com',             # optional, defaults to nil
-      endpoint:              'https://s3.ap-northeast-1.amazonaws.com:8080' # optional, defaults to nil
+      # host:                  's3.ap-northeast-1.amazonaws.com',             # optional, defaults to nil
+      # endpoint:              'https://s3.ap-northeast-1.amazonaws.com:8080' # optional, defaults to nil
     }
     config.fog_directory  = 'otoko-meshi-test'                # required
     config.fog_public     = false                                                 # optional, defaults to true
