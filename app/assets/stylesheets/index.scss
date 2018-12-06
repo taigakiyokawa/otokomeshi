@@ -152,3 +152,11 @@ body {
     font-size: 28px;
   }
 }
+
+ .shogo__flash {
+   font-size: 32px;
+   padding-left: 23%;
+   font-weight: $black;
+   background-color: $daccent;
+   z-index: 3;
+ }

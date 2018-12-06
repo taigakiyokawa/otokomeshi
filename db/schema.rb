@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_054523) do
+ActiveRecord::Schema.define(version: 2018_12_06_143211) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_054523) do
     t.integer "shogo_last_ex_id", default: 0
     t.boolean "shogo_first_ex_flag", default: false
     t.boolean "shogo_last_ex_flag", default: false
-    t.integer "shogo_total", default: 0
+    t.integer "shogo_total", default: 2
     t.integer "max_shogo_first", default: 1
     t.integer "max_shogo_last", default: 1
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
