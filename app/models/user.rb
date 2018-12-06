@@ -26,8 +26,6 @@ class User < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :shogos, dependent: :destroy
-  has_one :shogo_first
 
   mount_uploader :user_img, ImageUploader
 
