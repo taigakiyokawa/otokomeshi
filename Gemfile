@@ -82,3 +82,4 @@ gem 'cancancan', '~> 2.0'
 # carrierwaveをawsに上げるよう
 gem 'fog-aws'
 
+gem 'dotenv-rails'
