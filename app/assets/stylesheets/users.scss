@@ -116,25 +116,25 @@
   display:block;
   .normal_shogos {
     text-align: center;
-    h3 {
-      clear: both;
-    }
     .normal_type {
       border-bottom: 2px solid $daccent;
+      margin: 8px 0;
     }
     .ex_type {
       border-bottom: 2px solid $daccent;
+      margin: 16px 0;
     }
     .first {
-      text-align: center;
-      margin-left: 80px;
       float: left;
+      text-align: center;
+      width: 40%;
+      margin-left: 5%;
     }
     .last {
-      text-align: center;
-      margin-right: 80px;
       float: right;
-      margin-bottom: 40px;
+      text-align: center;
+      width: 40%;
+      margin-right: 5%;
     }
   }
 }

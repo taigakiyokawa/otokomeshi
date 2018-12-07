@@ -3,16 +3,17 @@
     <div class="first">
         <p>-上の句-</p>
         <% @user_shogo_firsts.each do |shogo_f| %>
-            <h2><%= shogo_f.name %></h2>
+            <h3><%= shogo_f.name %></h3>
         <% end %>
         <%  %>
     </div>
     <div class="last">
         <p>-下の句-</p>
         <% @user_shogo_lasts.each do |shogo_l| %>
-            <h2> <%= shogo_l.name %></h2>
+            <h3> <%= shogo_l.name %></h3>
         <% end %>
     </div>
+    <div class="clear"></div>
 </div>
 
 <div class="normal_shogos">
@@ -24,13 +25,13 @@
         <div class="first">
             <p>-上の句-</p>
             <% @shogo_first_ex_list.each do |shogo_f| %>
-                <h2><%= shogo_f.name %></h2>
+                <h3><%= shogo_f.name %></h3>
             <% end %>
         </div>
         <div class="last">
             <p>-下の句-</p>
             <% @shogo_last_ex_list.each do |shogo_l| %>
-                <h2> <%= shogo_l.name %></h2>
+                <h3> <%= shogo_l.name %></h3>
             <% end %>
         </div>
     <% end %>
