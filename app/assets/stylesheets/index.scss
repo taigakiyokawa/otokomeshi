@@ -21,6 +21,14 @@ body {
     background-color: $base;
     color: $text;
     }
+
+  .shogo__flash {
+    font-size: 24px;
+    padding-left: 22%;
+    font-weight: $black;
+    background-color: $daccent;
+    z-index: 3;
+  }
 }
 
 // 検索バー＆ボタンのスタイル
@@ -152,11 +160,3 @@ body {
     font-size: 28px;
   }
 }
-
- .shogo__flash {
-   font-size: 32px;
-   padding-left: 23%;
-   font-weight: $black;
-   background-color: $daccent;
-   z-index: 3;
- }
