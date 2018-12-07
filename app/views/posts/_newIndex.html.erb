@@ -1,4 +1,3 @@
-
 <% if @posts.exists? %>
   <% @posts.each do |post| %>
     <%= render post, locals: { panel: "panel1" } %>
