@@ -9,6 +9,9 @@ class Post < ApplicationRecord
   belongs_to :task, optional: true #　参照先のtaskが無くても(＝task_idが空でも)ok 
   default_scope -> { order(created_at: :desc) }
 
+  # 一時的なメンバ変数
+  attr_accessor :is_appare
+
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
       Post.where(['title LIKE ?', "%#{search}%"])

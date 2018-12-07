@@ -35,7 +35,9 @@ class PostsController < ApplicationController
     shogo_ex_ids = get_shogo_ex(@user)
     @shogo_first_ex_list = ShogoFirstEx.where(id: shogo_ex_ids)
     @shogo_last_ex_list = ShogoLastEx.where(id: shogo_ex_ids)
-  
+    
+    # @flag = current_user.likes.find_by(post_id: @post.id)
+
     new_shogo_total = @user_shogo_firsts.count + @user_shogo_lasts.count + @shogo_first_ex_list.count + @shogo_last_ex_list.count
 
     if @user.shogo_total < new_shogo_total
@@ -62,7 +64,25 @@ class PostsController < ApplicationController
   end
 
   def news
-    @posts = Post.includes(user: :likes).search(params[:search])
+    @posts = Post.includes(:user).search(params[:search])
+    @posts.each do |p|
+      p.is_appare = p.likes.find_by(user_id: current_user.id) ? true : false
+    end
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    @posts.each do |p|
+      puts p.is_appare
+    end
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+
+    
     # @user = User.find_by(id: current_user.id)
     # @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     # @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
