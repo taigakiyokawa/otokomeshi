@@ -4,7 +4,7 @@ class TasksController < ApplicationController
     include UsersHelper
 
     def index
-      @tasks = Task.all
+      @tasks = Task.all.includes(:posts)
       @user = User.find_by(id: current_user.id)
       @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
       @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))

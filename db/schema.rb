@@ -10,28 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_105637) do
-
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
+ActiveRecord::Schema.define(version: 2018_12_06_143211) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -102,7 +81,9 @@ ActiveRecord::Schema.define(version: 2018_12_04_105637) do
     t.integer "shogo_last_ex_id", default: 0
     t.boolean "shogo_first_ex_flag", default: false
     t.boolean "shogo_last_ex_flag", default: false
-    t.integer "shogo_total", default: 0
+    t.integer "shogo_total", default: 2
+    t.integer "max_shogo_first", default: 1
+    t.integer "max_shogo_last", default: 1
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

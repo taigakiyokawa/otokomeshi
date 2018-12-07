@@ -21,14 +21,31 @@ class PostsController < ApplicationController
     # posts/new をindexで表示するため
     @post = Post.new
 
-    # # users/:id をindexで表示するため
-    @user = User.find_by(id: current_user.id)
+    # users/:id をindexで表示するため
+    @user = User.includes(:likes).find_by(id: current_user.id)
     @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id)
     @shogo_last = ShogoLast.find_by(id: @user.shogo_last_id)
     @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
     @shogo_last_ex = ShogoLastEx.find_by(id: @user.shogo_last_ex_id)
     @user_posts = Post.where(user_id: @user.id).order(created_at: :desc)
     
+    @user_shogo_firsts = ShogoFirst.where("id <= ?", max_shogo_first(@user))
+    @user_shogo_lasts = ShogoLast.where("id <= ?", max_shogo_last(@user))
+    
+    shogo_ex_ids = get_shogo_ex(@user)
+    @shogo_first_ex_list = ShogoFirstEx.where(id: shogo_ex_ids)
+    @shogo_last_ex_list = ShogoLastEx.where(id: shogo_ex_ids)
+    
+    # @flag = current_user.likes.find_by(post_id: @post.id)
+
+    new_shogo_total = @user_shogo_firsts.count + @user_shogo_lasts.count + @shogo_first_ex_list.count + @shogo_last_ex_list.count
+
+    if @user.shogo_total < new_shogo_total
+      flash[:shogo] = "新たな称号を獲得したぞ!!"
+      @user.shogo_total = new_shogo_total
+      @user.save
+    end
+
     @tasks = Task.all
   end
 
@@ -47,7 +64,12 @@ class PostsController < ApplicationController
   end
 
   def news
-    @posts = Post.search(params[:search])
+    @posts = Post.includes(:user).search(params[:search])
+    # @posts.each do |p|
+    #   p.is_appare = p.likes.find_by(user_id: current_user.id) ? true : false
+    # end
+
+    
     # @user = User.find_by(id: current_user.id)
     # @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     # @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
@@ -59,7 +81,7 @@ class PostsController < ApplicationController
   def rank
     post_like_count = Post.joins(:likes).group(:id).count
     post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
-    sub_posts = Post.where(id: post_like_ids).index_by(&:id)
+    sub_posts = Post.where(id: post_like_ids).includes(user: :likes).index_by(&:id)
     @rank_posts = post_like_ids.map {|id| sub_posts[id] }
     # @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
     # @user = User.find_by(id: current_user.id)
@@ -71,7 +93,7 @@ class PostsController < ApplicationController
   end
 
   def appare
-    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).includes(user: :likes).search(params[:search]).order(created_at: :desc)
     # @user = User.find_by(id: current_user.id)
     # @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     # @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
