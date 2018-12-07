@@ -116,27 +116,68 @@
   display:block;
   .normal_shogos {
     text-align: center;
-    h3 {
-      clear: both;
-    }
     .normal_type {
       border-bottom: 2px solid $daccent;
+      margin: 8px 0;
     }
     .ex_type {
       border-bottom: 2px solid $daccent;
+      margin: 16px 0;
     }
     .first {
-      text-align: center;
-      margin-left: 80px;
       float: left;
+      text-align: center;
+      width: 40%;
+      margin-left: 5%;
     }
     .last {
-      text-align: center;
-      margin-right: 80px;
       float: right;
-      margin-bottom: 40px;
+      text-align: center;
+      width: 40%;
+      margin-right: 5%;
     }
   }
 }
 
+.edit_sfirst {
+  margin-bottom: 16px;
+  .normal_first {
+    display: inline-block;
+    width: 40%;
+    margin-right: 10%;
+  }
+  .ex_first {
+    display: inline-block;
+    width: 40%;
+  }
+  select {
+    background-color: $daccent;
+    outline: 0;
+    border: none;
+    color: $text;
+  }
+}
+.edit_slast {
+  margin-bottom: 16px;
+  .normal_last {
+    display: inline-block;
+    width: 40%;
+    margin-right: 10%;
+  }
+  .ex_last {
+    display: inline-block;
+    width: 40%;
+  }
+  select {
+    background-color: $daccent;
+    outline: 0;
+    border: none;
+    color: $text;
+  }
+}
 
+.field {
+  p {
+    margin: 8px 0;
+  }
+}
