@@ -181,3 +181,16 @@
     margin: 8px 0;
   }
 }
+
+.shogo_field{
+  label {
+    margin: 4px 0;
+    padding: 4px;
+    display: inline-block;
+    background-color: $border;
+  }
+
+  label.checked {
+    background-color: $daccent;
+  }
+}
