@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = Post.new
 
     # # users/:id をindexで表示するため
-    @user = User.find_by(id: current_user.id)
+    @user = User.includes(:likes).find_by(id: current_user.id)
     @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id)
     @shogo_last = ShogoLast.find_by(id: @user.shogo_last_id)
     @shogo_first_ex = ShogoFirstEx.find_by(id: @user.shogo_first_ex_id)
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
   end
 
   def news
-    @posts = Post.search(params[:search])
+    @posts = Post.includes(user: :likes).search(params[:search])
     # @user = User.find_by(id: current_user.id)
     # @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     # @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
   def rank
     post_like_count = Post.joins(:likes).group(:id).count
     post_like_ids = Hash[post_like_count.sort_by{ |_, v| -v }].keys 
-    sub_posts = Post.where(id: post_like_ids).index_by(&:id)
+    sub_posts = Post.where(id: post_like_ids).includes(user: :likes).index_by(&:id)
     @rank_posts = post_like_ids.map {|id| sub_posts[id] }
     # @rank_posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
     # @user = User.find_by(id: current_user.id)
@@ -86,7 +86,7 @@ class PostsController < ApplicationController
   end
 
   def appare
-    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).search(params[:search]).order(created_at: :desc)
+    @like_posts = Post.where(id: current_user.likes.map(&:post_id)).includes(user: :likes).search(params[:search]).order(created_at: :desc)
     # @user = User.find_by(id: current_user.id)
     # @shogo_first = ShogoFirst.find_by(id: set_shogo_first(@user))
     # @shogo_last = ShogoLast.find_by(id: set_shogo_last(@user))
