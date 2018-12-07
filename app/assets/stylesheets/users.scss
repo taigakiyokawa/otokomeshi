@@ -194,3 +194,7 @@
     background-color: $daccent;
   }
 }
+
+input[type="radio"] {
+  display: none;
+}
