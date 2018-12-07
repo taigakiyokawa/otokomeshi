@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     # posts/new をindexで表示するため
     @post = Post.new
 
-    # # users/:id をindexで表示するため
+    # users/:id をindexで表示するため
     @user = User.includes(:likes).find_by(id: current_user.id)
     @shogo_first = ShogoFirst.find_by(id: @user.shogo_first_id)
     @shogo_last = ShogoLast.find_by(id: @user.shogo_last_id)
@@ -65,22 +65,9 @@ class PostsController < ApplicationController
 
   def news
     @posts = Post.includes(:user).search(params[:search])
-    @posts.each do |p|
-      p.is_appare = p.likes.find_by(user_id: current_user.id) ? true : false
-    end
-    puts "\n"
-    puts "\n"
-    puts "\n"
-    puts "\n"
-    puts "\n"
-    @posts.each do |p|
-      puts p.is_appare
-    end
-    puts "\n"
-    puts "\n"
-    puts "\n"
-    puts "\n"
-    puts "\n"
+    # @posts.each do |p|
+    #   p.is_appare = p.likes.find_by(user_id: current_user.id) ? true : false
+    # end
 
     
     # @user = User.find_by(id: current_user.id)
