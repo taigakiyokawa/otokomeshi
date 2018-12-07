@@ -82,27 +82,49 @@ module UsersHelper
 
         new_id = 1
 
-        if posts_count < 2
+        if posts_count < 1
             new_id =  1
-        elsif posts_count < 5
+        elsif posts_count < 2
             new_id = 2
-        elsif posts_count < 7
+        elsif posts_count < 3
             new_id = 3
-        elsif posts_count < 10
+        elsif posts_count < 4
             new_id = 4
-        elsif posts_count < 15
+        elsif posts_count < 5
             new_id = 5
-        elsif posts_count < 18
+        elsif posts_count < 6
             new_id = 6
-        elsif posts_count < 22
+        elsif posts_count < 7
             new_id = 7
-        elsif posts_count < 26
+        elsif posts_count < 8
             new_id = 8
-        elsif posts_count < 35
+        elsif posts_count < 9
             new_id = 9
         else
             new_id =10
         end
+
+        # if posts_count < 2
+        #     new_id =  1
+        # elsif posts_count < 5
+        #     new_id = 2
+        # elsif posts_count < 7
+        #     new_id = 3
+        # elsif posts_count < 10
+        #     new_id = 4
+        # elsif posts_count < 15
+        #     new_id = 5
+        # elsif posts_count < 18
+        #     new_id = 6
+        # elsif posts_count < 22
+        #     new_id = 7
+        # elsif posts_count < 26
+        #     new_id = 8
+        # elsif posts_count < 35
+        #     new_id = 9
+        # else
+        #     new_id =10
+        # end
 
         if @user.max_shogo_first < new_id
             @user.max_shogo_first = new_id
@@ -116,27 +138,49 @@ module UsersHelper
 
         new_id = 1
 
-        if likes_count < 2
+        if likes_count < 1
             new_id =  1
-        elsif likes_count < 5
+        elsif likes_count < 2
             new_id = 2
-        elsif likes_count < 7
+        elsif likes_count < 3
             new_id = 3
-        elsif likes_count < 10
+        elsif likes_count < 4
             new_id = 4
-        elsif likes_count < 13
+        elsif likes_count < 5
             new_id = 5
-        elsif likes_count < 16
+        elsif likes_count < 6
             new_id = 6
-        elsif likes_count < 20
+        elsif likes_count < 7
             new_id = 7
-        elsif likes_count < 24
+        elsif likes_count < 8
             new_id = 8
-        elsif likes_count < 30
+        elsif likes_count < 9
             new_id = 9
         else
             new_id =10
         end
+
+        # if likes_count < 2
+        #     new_id =  1
+        # elsif likes_count < 5
+        #     new_id = 2
+        # elsif likes_count < 7
+        #     new_id = 3
+        # elsif likes_count < 10
+        #     new_id = 4
+        # elsif likes_count < 13
+        #     new_id = 5
+        # elsif likes_count < 16
+        #     new_id = 6
+        # elsif likes_count < 20
+        #     new_id = 7
+        # elsif likes_count < 24
+        #     new_id = 8
+        # elsif likes_count < 30
+        #     new_id = 9
+        # else
+        #     new_id =10
+        # end
 
         if @user.max_shogo_last < new_id
             @user.max_shogo_last = new_id
@@ -151,7 +195,8 @@ module UsersHelper
         tasks.each do |task|
             if user_posts = task.posts.where(user_id: user.id)
                 user_posts.each do |post|
-                    if post.likes.find_by(user_id: 1)
+                    admin_users = User.where(admin: true)
+                    if post.likes.find_by(user_id: admin_users)
                         ex_list << task.id
                         break
                     end
