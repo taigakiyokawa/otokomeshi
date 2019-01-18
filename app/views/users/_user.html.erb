@@ -1,10 +1,10 @@
 <div class="user__info">
   <% get_shogo_ex(@user) %>
   <% if current_user.try(:admin?) and @user == current_user %>
-    <h2><%= link_to "管理者ァ!!!!!!", "/admin" %></h2>
+    <h2><%= link_to "管理者!!!!!!!", "/admin" %></h2>
   <% end %>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
+  <% if flash[:shoog] %>
+    <p class="shogo__flash"><%= flash[:shogo] %></p>
   <% end %>
   <h3 class="user__shogo">
 
@@ -30,6 +30,7 @@
     <div class="user__right-side__btns<%= "_none" if @user.id != current_user.id %>">
       <%= link_to '編 集', edit_user_registration_path, {:class => "edit"} %>
       <%= link_to '退 陣', destroy_user_session_path, :class => "logout", method: :delete %>
+      <a class="monomousu" href="https://goo.gl/forms/rpjYWnyX8IlUtyUk1" target="_blank">物申すッ!!!</a>
     </div>
   </div>
   <div class="clear"></div>

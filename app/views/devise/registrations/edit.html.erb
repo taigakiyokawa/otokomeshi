@@ -1,5 +1,4 @@
 <div class="container base">
-  <a class="monomousu" href="https://goo.gl/forms/rpjYWnyX8IlUtyUk1" target="_blank">物申すッ!!!</a>
   <h2 class="edit_title">編 集</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
     <%= devise_error_messages! %>
@@ -57,7 +56,6 @@
           <div class="clear"></div>
         </div>
       </div>
-
       <div class="field">
         <%= f.label :username %>を変更する（16文字以内）<br />
         
@@ -114,13 +112,13 @@ $(function() {
  });
 });
 
-
 $(function() {
   $(".edit_sfirst label").on('click', function() {
     var self = $(this);
     self.addClass("checked");
     $(".edit_sfirst label").not(self).removeClass("checked");
   });
+
   $(".edit_slast label").on('click', function() {
     var self = $(this);
     self.addClass("checked");

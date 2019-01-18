@@ -92,6 +92,9 @@
 }
 #tab1:checked ~ .user__panel_area #panel1{
   display:block;
+  h3 {
+    text-align: center;
+  }
 }
 
 #tab3:checked ~ .user__tab_area .tab3_label{
@@ -100,6 +103,9 @@
 }
 #tab3:checked ~ .user__panel_area #panel3{
   display:block;
+  h3 {
+    text-align: center;
+  }
 }
 
 #tab4:checked ~ .user__tab_area .tab4_label{
@@ -132,7 +138,6 @@
     }
   }
 }
-
 
 .edit_sfirst {
   margin-bottom: 16px;

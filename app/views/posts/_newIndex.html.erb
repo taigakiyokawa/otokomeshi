@@ -1,3 +1,9 @@
-<% @posts.each do |post| %>
-  <%= render post, locals: { panel: "panel1" } %>
+<% if @posts.exists? %>
+  <% @posts.each do |post| %>
+    <%= render post, locals: { panel: "panel1" } %>
+  <% end %>
+<% else %>
+  <h3>貴様の漢飯はまだ存在してない。</h3>
+  <h3>渾身の漢飯を披露せよ!!</h3>
 <% end %>
+
