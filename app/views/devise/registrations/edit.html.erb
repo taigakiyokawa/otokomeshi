@@ -113,4 +113,18 @@ $(function() {
    readURL(this);
  });
 });
+
+
+$(function() {
+  $(".edit_sfirst label").on('click', function() {
+    var self = $(this);
+    self.addClass("checked");
+    $(".edit_sfirst label").not(self).removeClass("checked");
+  });
+  $(".edit_slast label").on('click', function() {
+    var self = $(this);
+    self.addClass("checked");
+    $(".edit_slast label").not(self).removeClass("checked");
+  });
+});
 </script>

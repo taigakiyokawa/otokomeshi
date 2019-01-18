@@ -5,7 +5,7 @@ input {
   &:-webkit-autofill {
     box-shadow: 0 0 0px 1000px $text inset;
   }
-  //-webkit-appearance: none;
+  -webkit-appearance: none;
   border-radius: 0;
   &[type="submit"] {
     border-style: none;
@@ -26,12 +26,12 @@ input[type="text"], input[type="password"], textarea {
   font-size: 16px;
   color: $text;
   border: none;
-  border-bottom: 1px solid $text;
+  border: 1px solid $text;
   background-color: rgba($color: $main, $alpha: 0);
   padding: 4px;
 }
 textarea {
-  // -webkit-appearance: none;
+  -webkit-appearance: none;
   border-radius: 0;
   resize: none;
   margin-top: 4px;
@@ -57,9 +57,6 @@ textarea {
   padding: 64px 16px;
   max-width: 512px;
   margin: 0 auto;
-  img{
-    width: 100%;
-  }
 }
 
   // left: back, right: OK 親要素の右下に配置
