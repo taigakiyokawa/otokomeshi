@@ -32,7 +32,11 @@
   </div>
 
   <div class="field">
-    <h3 class="field_name">挑戦　<%= form.collection_select :task_id, Task.all, :id, :body, :include_blank => "しないッ!!" %></h3>
+    <h3 class="field_name">挑戦</h3>
+    <div class="select_wrap">
+    <%= form.collection_select :task_id, Task.all, :id, :body, :include_blank => "しないッ!!" %>
+    <%= image_tag('/assets/select.png', :class => "select") %>
+    </div>
   </div>
 
   <div class="back-or-action">

@@ -1,5 +1,4 @@
 <div class="container base">
-  <a class="monomousu" href="https://goo.gl/forms/rpjYWnyX8IlUtyUk1" target="_blank">物申すッ!!!</a>
   <h2 class="edit_title">編 集</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "sample_form" }) do |f| %>
     <%= devise_error_messages! %>
@@ -14,11 +13,54 @@
       </div>
     </div>
     <div class="field_wrap">
+      <div class="field shogo_field">
+        <h4 class="edit_stitle">貴様ノ称号を変更する</h4 >
+        <div class="edit_sfirst">
+          <p>-上の句-</p>
+            <div class="normal_first">
+              <label class="shogo_label_first"><%= f.radio_button :shogo_first_ex_flag, false%>ノーマル</label>
+              <div class="select_wrap">
+                <%= f.collection_select :shogo_first_id, @user_shogo_firsts.all, :id, :name%>
+                <%= image_tag('/assets/select.png', :class => "select") %>
+              </div>
+            </div>
+          <% if @shogo_first_ex_list.length != 0 %>
+            <div class="ex_first">
+              <label class="shogo_label_ex_first"><%= f.radio_button :shogo_first_ex_flag, true%>エクストラ</label>
+              <div class="select_wrap">
+                <%= f.collection_select :shogo_first_ex_id, @shogo_first_ex_list.all, :id, :name %>
+                <%= image_tag('/assets/select.png', :class => "select") %>
+              </div>
+            </div>
+          <% end %>
+          <div class="clear"></div>
+        </div>
+        <div class="edit_slast">
+          <p>-下の句-</p>
+            <div class="normal_last">
+              <label class="shogo_label_last"><%= f.radio_button :shogo_last_ex_flag, false%>ノーマル</label>
+              <div class="select_wrap">
+                <%= f.collection_select :shogo_last_id, @user_shogo_lasts.all, :id, :name%>
+                <%= image_tag('/assets/select.png', :class => "select") %>
+              </div>
+            </div>
+          <% if @shogo_last_ex_list.length != 0 %>
+            <div class="ex_last">
+              <label class="shogo_label_ex_last"><%= f.radio_button :shogo_last_ex_flag, true%>エクストラ</label>
+              <div class="select_wrap">
+                <%= f.collection_select :shogo_last_ex_id, @shogo_last_ex_list.all, :id, :name %>
+                <%= image_tag('/assets/select.png', :class => "select") %>
+                </div>
+            </div>
+          <% end %>
+          <div class="clear"></div>
+        </div>
+      </div>
       <div class="field">
         <%= f.label :username %>を変更する（16文字以内）<br />
+        
         <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
       </div>
-
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
@@ -68,5 +110,19 @@ $(function() {
  $("#user_image").change(function(){
    readURL(this);
  });
+});
+
+$(function() {
+  $(".edit_sfirst label").on('click', function() {
+    var self = $(this);
+    self.addClass("checked");
+    $(".edit_sfirst label").not(self).removeClass("checked");
+  });
+
+  $(".edit_slast label").on('click', function() {
+    var self = $(this);
+    self.addClass("checked");
+    $(".edit_slast label").not(self).removeClass("checked");
+  });
 });
 </script>
