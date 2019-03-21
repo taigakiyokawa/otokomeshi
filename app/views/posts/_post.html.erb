@@ -1,16 +1,26 @@
 <div class="post">
-  <% shogo_first = ShogoFirst.find_by(id: set_shogo_first(post.user)) %>
-  <% shogo_last = ShogoLast.find_by(id: set_shogo_last(post.user)) %>
   <div class="post__user--icon">
     <%= link_to image_tag(post.user.user_img.url), "/users/#{post.user_id}" %>
   </div>
       
   <div class="post__wrap">
     <div class="user-info">
-      <h3>
-        <%= shogo_first.name %>
-        <%= shogo_last.name %>
-      </h3>
+      <h3 class="user__shogo">
+    <% if post.user.shogo_first_ex_flag and post.user.shogo_first_ex_id %>
+      <% shogo_first_ex = ShogoFirstEx.find_by(id: post.user.shogo_first_ex_id) %>
+      <%= shogo_first_ex.name %>
+    <% else %>
+      <% shogo_first = ShogoFirst.find_by(id: post.user.shogo_first_id) %>
+      <%= shogo_first.name %>
+    <% end %>
+    <% if post.user.shogo_last_ex_flag and post.user.shogo_first_ex_id %>
+      <% shogo_last_ex = ShogoLastEx.find_by(id: post.user.shogo_last_ex_id) %>
+      <%= shogo_last_ex.name %>
+    <% else %>
+      <% shogo_last = ShogoLast.find_by(id: post.user.shogo_last_id) %>
+      <%= shogo_last.name %>
+    <% end %>
+  </h3>
       <p class="post__created"><%= post.created_at.strftime('%m/%d %H:%M') %></p>
       <h2><%= post.user.username %></h2>
     </div>
@@ -20,7 +30,7 @@
     <h2 class="post__title"><%= post.title %></h2>
     <p class="post__body"><%= post.body %></p>
     <div id="<%= locals[:panel] %>_like_<%=post.id %>">
-      <%= render "likes/like", post: post %>
+      <%= render "likes/like", post: post, flag: @flag %>
     </div>
     <% if current_user.id == post.user.id %>
       <%= link_to '削除', post, method: :delete, data: { confirm: '消してよいか？' }, :class => "delete-btn" %>

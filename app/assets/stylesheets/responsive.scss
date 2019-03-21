@@ -67,11 +67,17 @@
 
   .index_container {
     margin-top: $pcheader + 16px;
-  
+    background-color: transparent;
     .panel_area {
       width: calc((100% - 48px)*0.5);
       position: absolute;
       left: calc(((100% - 48px)*0.2) + 24px);
+    }
+
+    .shogo__flash {
+      width: calc((100% - 48px)*0.5);
+      margin-left: calc(((100% - 48px)*0.2) + 24px);
+      padding-left: 16px;
     }
   }
 

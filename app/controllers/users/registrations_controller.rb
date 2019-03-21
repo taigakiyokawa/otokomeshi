@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  include UsersHelper
   # GET /resource/sign_up
   # def new
   #   super do
@@ -17,22 +17,44 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+
+    @shogo_first = ShogoFirst.find(set_shogo_first(current_user))
+    @shogo_last = ShogoLast.find(set_shogo_last(current_user))
+    @shogo_first_ex = ShogoFirstEx.find_by(id: current_user.shogo_first_ex_id)
+    @shogo_last_ex = ShogoLastEx.find_by(id: current_user.shogo_last_ex_id)
+    shogo_ex_ids = get_shogo_ex(current_user)
+    @shogo_first_ex_list = ShogoFirstEx.where(id: shogo_ex_ids)
+    @shogo_last_ex_list = ShogoLastEx.where(id: shogo_ex_ids)
+    
+    @user_shogo_firsts = ShogoFirst.where("id <= ?", max_shogo_first(@user))
+    @user_shogo_lasts = ShogoLast.where("id <= ?", max_shogo_last(@user))
+  end
 
   # PUT /resource
   def update
     if update_params[:password].blank?
       current_user.update!(
         {username: update_params[:username],
-        user_img: update_params[:user_img]
+        user_img: update_params[:user_img],
+        shogo_first_id: update_params[:shogo_first_id],
+        shogo_last_id: update_params[:shogo_last_id],
+        shogo_first_ex_id: update_params[:shogo_first_ex_id],
+        shogo_last_ex_id: update_params[:shogo_last_ex_id],
+        shogo_first_ex_flag: update_params[:shogo_first_ex_flag],
+        shogo_last_ex_flag: update_params[:shogo_last_ex_flag],
       })
     else
       current_user.update!({
         username: update_params[:username],
         user_img: update_params[:user_img],
-        password: update_params[:password]
+        password: update_params[:password],
+        shogo_first_id: update_params[:shogo_first_id],
+        shogo_last_id: update_params[:shogo_last_id],
+        shogo_first_ex_id: update_params[:shogo_first_ex_id],
+        shogo_last_ex_id: update_params[:shogo_last_ex_id],
+        shogo_first_ex_flag: update_params[:shogo_first_ex_flag],
+        shogo_last_ex_flag: update_params[:shogo_last_ex_flag],
       })
     end
     redirect_to posts_path
@@ -83,6 +105,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   private
     def update_params
-      params.require(:user).permit(%i(username user_img password))
+      params.require(:user).permit(%i(username user_img password shogo_first_id shogo_last_id shogo_first_ex_id shogo_last_ex_id shogo_first_ex_flag shogo_last_ex_flag ))
     end
 end
