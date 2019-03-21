@@ -47,6 +47,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.4.1)
       msgpack (~> 1.0)
@@ -78,7 +79,17 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+<<<<<<< HEAD
     erubi (1.8.0)
+=======
+    devise (4.5.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
+    erubi (1.7.1)
+>>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4
     execjs (2.7.0)
     ffi (1.10.0)
     globalid (0.4.2)
@@ -104,15 +115,26 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
+<<<<<<< HEAD
     mimemagic (0.3.3)
+=======
+    mimemagic (0.3.2)
+    mini_magick (4.9.2)
+>>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.9)
     multi_json (1.13.1)
     nio4r (2.3.1)
+<<<<<<< HEAD
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+=======
+    nokogiri (1.8.5)
+      mini_portile2 (~> 2.3.0)
+    orm_adapter (0.5.0)
+>>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.6)
@@ -147,6 +169,9 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.3.0)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.7.3)
@@ -186,6 +211,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -207,8 +234,10 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  devise
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mini_magick
   puma (~> 3.11)
   rails (~> 5.2.1)
   sass-rails (~> 5.0)
@@ -222,7 +251,11 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.4.4p296
+   ruby 2.5.1p57
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.17.3
+=======
+   1.17.1
+>>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4

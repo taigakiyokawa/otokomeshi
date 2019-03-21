@@ -1,0 +1,122 @@
+@import "variables";
+
+@media (min-width: 960px) {
+  header {
+    height: 64px;
+    a {
+      display: inline-block;
+      height: $pcheader;
+      &:visited {
+        color: $text;
+      }
+    }
+    .header__icon {
+      height: $pcheader;
+      padding: 8px 0;
+    }
+    .logo {
+      position: absolute;
+      left: 16px;
+      right: auto;
+    }
+    .ore {
+      display: none;
+    }
+    .newmeshi {
+      display: none;
+    }
+  }
+
+  .tab_area {
+    display: inline-block;
+    top: 0;
+    background-color: transparent;
+    width: calc((100% - 48px)*0.5);
+    margin-left: calc(((100% - 48px)*0.2) + 24px);
+    a.label {
+      line-height: $pcheader - 4px;
+      padding-top: 0;
+    }
+  }
+
+  #nav-search {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 48px;
+    z-index: 3;
+    width: 30%;
+    margin: 8px 0px;
+    form {
+      input {
+        position: absolute;
+        bottom: 8px;
+        &[type="submit"] {
+          right: 0;
+          font-size: 12px;
+          text-align: center;
+          margin-left: 5%;
+          width: 20%;
+          line-height: 33px;
+          padding: 0 16px;
+        }
+      }
+    }
+  }
+
+  .index_container {
+    margin-top: $pcheader + 16px;
+  
+    .panel_area {
+      width: calc((100% - 48px)*0.5);
+      position: absolute;
+      left: calc(((100% - 48px)*0.2) + 24px);
+    }
+  }
+
+  .meshi_new {
+    display: block;
+    position: fixed;
+    width: calc((100% - 48px)*0.3);
+    right: 16px;
+  }
+  .ore_info {
+    display: block;
+    position: fixed;
+    background-color: $main;
+    width: calc((100% - 48px)*0.2);
+    left: 16px;
+    .user {
+      padding: 0;
+      &__info {
+        padding: 0;
+      }
+    }
+  }
+
+  .res__container {
+    padding: 16px;
+  }
+
+  .top__container {
+    padding: 10vh 0;
+  }
+}
+
+@media (max-width: 959px) {
+  #nav-search {
+    padding: 8px 16px;
+    max-width: 480px;
+  }
+  .meshi_new, .ore_info {
+    display: none;
+  }
+  .top__container {
+    padding: 32px;
+  }
+
+  .user__info {
+    padding: 0 16px;
+  }
+}

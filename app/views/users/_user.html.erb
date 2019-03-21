@@ -1,0 +1,19 @@
+<div class="user__info">
+  <h3 class="user__shogo">
+    <%= @shogo_first.name %>
+    <%= @shogo_last.name %>
+  </h3>
+  <h2 class="user__name">
+    <%= @user.username %>
+  </h2>
+  <%= link_to image_tag(@user.user_img.url, :class => "user__icon"), "/users/#{@user.id}" %>
+  <div class="user__right-side">
+    <h3>戦闘力：<%= get_likes_total(@user) * 10000 %></h3>
+    <h3>総兵力：<%= @user_posts.count * 10000 %></h3>
+    <div class="user__right-side__btns<%= "_none" if @user.id != current_user.id %>">
+      <%= link_to '編 集', edit_user_registration_path, {:class => "edit"} %>
+      <%= link_to '退 陣', destroy_user_session_path, :class => "logout", method: :delete %>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

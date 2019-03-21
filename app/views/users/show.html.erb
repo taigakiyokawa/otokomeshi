@@ -1,0 +1,23 @@
+<div class="user__container">
+  <div class="user">
+    <%= render "users/user" %>
+    <div class="user__tab_wrap">
+      <input id="tab1" type="radio" name="tab_btn" checked>
+      <input id="tab3" type="radio" name="tab_btn">
+
+      <div class="user__tab_area">
+        <label class="tab1_label" for="tab1">俺飯</label><label class="tab3_label" for="tab3">天晴</label>
+      </div>
+      <div class="user__panel_area">
+        <div id="panel1" class="user__tab_panel">
+          <% @user_posts.each do |post| %>
+            <%= render post, locals: { panel: "panel1" } %>
+          <% end %>
+        </div>
+        <div id="panel3" class="user__tab_panel">
+          <%= render "posts/appareIndex"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
