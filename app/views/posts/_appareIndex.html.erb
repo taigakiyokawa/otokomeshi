@@ -1,8 +1,0 @@
-<% if @like_posts.exists? %>
-  <% @like_posts.each do |post| %>
-    <%= render post, locals: { panel: "panel3"} %>
-  <% end %>
-<% else %>
-  <h3>貴様が褒め讃えた漢飯はまだない。</h3>
-  <h3>共に讃え合い、切磋琢磨すべし。</h3>
-<% end %>
