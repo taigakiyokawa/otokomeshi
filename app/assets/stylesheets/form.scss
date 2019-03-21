@@ -54,6 +54,7 @@
 }
 
 .user_image_field {
+  text-align: center;
   margin-top: 8px;
   img {
     width: 160px;
@@ -107,27 +108,33 @@
 
 .field {
   position: relative;
-  padding: 4px 0 12px;
+  padding: 8px 0 12px;
   font-weight: $black;
   &_name {
-    display: inline-block;
+    display: block;
     font-size: 16px;
   }
-  select {
-    position: absolute;
-    top: 4px;
-    padding: 0 4px;
-    width: calc(100% - 48px);
-    background-color: $daccent;
-    color: $text;
-    -webkit-appearance: none;
-    cursor: pointer;
-    outline: 0;
-    font-weight: $black;
-    border-radius: 0;
-    height: 23px;
-    border: none;
-    vertical-align: middle;
+
+  .select_wrap {
+    position: relative;
+    select {
+      padding: 8px;
+      background-color: $daccent;
+      color: $text;
+      width: 100%;
+      cursor: pointer;
+      outline: 0;
+      font-weight: $black;
+      -webkit-appearance: none;
+      border-radius: 0;
+      border: none;
+    }
+    img.select {
+      position: absolute;
+      bottom: 10px;
+      right: 8px;
+      height: 12px;
+    }
   }
 }
 label > input {

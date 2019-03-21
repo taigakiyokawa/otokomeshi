@@ -61,7 +61,7 @@
   &__tab_area {
     width: 100%;
     label {
-      width: 50%;
+      width: calc(100% / 3);
       display: inline-block;
       text-align: center;
       font-size: 20px;
@@ -92,6 +92,9 @@
 }
 #tab1:checked ~ .user__panel_area #panel1{
   display:block;
+  h3 {
+    text-align: center;
+  }
 }
 
 #tab3:checked ~ .user__tab_area .tab3_label{
@@ -100,6 +103,98 @@
 }
 #tab3:checked ~ .user__panel_area #panel3{
   display:block;
+  h3 {
+    text-align: center;
+  }
 }
 
+#tab4:checked ~ .user__tab_area .tab4_label{
+  color: $text;
+  border-bottom: 4px solid $daccent;
+}
+#tab4:checked ~ .user__panel_area #panel4{
+  display:block;
+  .normal_shogos {
+    text-align: center;
+    .normal_type {
+      border-bottom: 2px solid $daccent;
+      margin: 8px 0;
+    }
+    .ex_type {
+      border-bottom: 2px solid $daccent;
+      margin: 16px 0;
+    }
+    .first {
+      float: left;
+      text-align: center;
+      width: 40%;
+      margin-left: 5%;
+    }
+    .last {
+      float: right;
+      text-align: center;
+      width: 40%;
+      margin-right: 5%;
+    }
+  }
+}
 
+.edit_sfirst {
+  margin-bottom: 16px;
+  .normal_first {
+    display: inline-block;
+    width: 40%;
+    margin-right: 10%;
+  }
+  .ex_first {
+    display: inline-block;
+    width: 40%;
+  }
+  select {
+    background-color: $daccent;
+    outline: 0;
+    border: none;
+    color: $text;
+  }
+}
+.edit_slast {
+  margin-bottom: 16px;
+  .normal_last {
+    display: inline-block;
+    width: 40%;
+    margin-right: 10%;
+  }
+  .ex_last {
+    display: inline-block;
+    width: 40%;
+  }
+  select {
+    background-color: $daccent;
+    outline: 0;
+    border: none;
+    color: $text;
+  }
+}
+
+.field {
+  p {
+    margin: 8px 0;
+  }
+}
+
+.shogo_field{
+  label {
+    margin: 4px 0;
+    padding: 4px;
+    display: inline-block;
+    background-color: $border;
+  }
+
+  label.checked {
+    background-color: $daccent;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}

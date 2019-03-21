@@ -1,0 +1,40 @@
+<div class="normal_shogos">
+    <h3 class="normal_type">ノーマル称号</h3>
+    <div class="first">
+        <p>-上の句-</p>
+        <% @user_shogo_firsts.each do |shogo_f| %>
+            <h3><%= shogo_f.name %></h3>
+        <% end %>
+        <%  %>
+    </div>
+    <div class="last">
+        <p>-下の句-</p>
+        <% @user_shogo_lasts.each do |shogo_l| %>
+            <h3> <%= shogo_l.name %></h3>
+        <% end %>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="normal_shogos">
+    <h3 class="ex_type">エクストラ称号</h3>
+    <% if @shogo_first_ex_list.length == 0 %>
+        <h3>貴様はまだ挑戦を達成していない。</h3>
+        <h3>数多の挑戦を経て、真の漢を目指せ!!</h3>
+    <% else %>
+        <div class="first">
+            <p>-上の句-</p>
+            <% @shogo_first_ex_list.each do |shogo_f| %>
+                <h3><%= shogo_f.name %></h3>
+            <% end %>
+        </div>
+        <div class="last">
+            <p>-下の句-</p>
+            <% @shogo_last_ex_list.each do |shogo_l| %>
+                <h3> <%= shogo_l.name %></h3>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="clear"></div>
+</div>
+
