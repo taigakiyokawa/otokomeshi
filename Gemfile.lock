@@ -79,17 +79,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
-<<<<<<< HEAD
     erubi (1.8.0)
-=======
-    devise (4.5.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
-      responders
-      warden (~> 1.2.3)
-    erubi (1.7.1)
->>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4
     execjs (2.7.0)
     ffi (1.10.0)
     globalid (0.4.2)
