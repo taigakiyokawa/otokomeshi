@@ -115,26 +115,15 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
-<<<<<<< HEAD
     mimemagic (0.3.3)
-=======
-    mimemagic (0.3.2)
-    mini_magick (4.9.2)
->>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.9)
     multi_json (1.13.1)
     nio4r (2.3.1)
-<<<<<<< HEAD
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
-=======
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
-    orm_adapter (0.5.0)
->>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.6)
@@ -254,8 +243,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-<<<<<<< HEAD
    1.17.3
-=======
-   1.17.1
->>>>>>> f18a7c70c9d7aecea4ce99bf25d0c5f3e07a46a4
